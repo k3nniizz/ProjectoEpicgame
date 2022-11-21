@@ -43,7 +43,7 @@ public class login extends AppCompatActivity {
         btnLogin = (Button) findViewById(R.id.btnLoginId);
 
         mAuth = FirebaseAuth.getInstance();
-
+//segunda modificacion
 
         ClickRegistrar();
 //el que hace el mayor trabajo
