@@ -24,7 +24,7 @@ public class login extends AppCompatActivity {
     private Button btnLogin;
     private TextView btnRegistrar;
 
-
+//samndasdmasñd
     private FirebaseAuth mAuth;
     private String email="";
     private String password="";
