@@ -142,7 +142,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="140dp"
             android:layout_marginTop="120dp"
-            android:backgroundTint="#9E9D24"
+            android:backgroundTint="#EF6C00"
             android:text="Siguiente"
             android:textColor="#6200EA" />
 
@@ -152,7 +152,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="118dp"
             android:layout_marginTop="12dp"
-            android:backgroundTint="#9E9D24"
+            android:backgroundTint="#EF6C00"
             android:text="automatico"
             android:textColor="#6200EA" />
 
