@@ -174,7 +174,7 @@ public class registrar extends AppCompatActivity {
                             } else {
                                 Toast.makeText(registrar.this, "No se crearon los datos correctamente", Toast.LENGTH_SHORT).show();
                             }
-
+//
                         }
                     });
                 } else {
