@@ -5,15 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FBFBFB"
-    tools:context=".Menu.ui.notifications.NotificationsFragment">
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/Titulo1"
-        tools:layout_editor_absoluteX="35dp"
-        tools:layout_editor_absoluteY="165dp" />
+    tools:context=".Menu.ui.Fbreak.NotificationsFragment">
 
     <Button
         android:id="@+id/Btn_Breakout"

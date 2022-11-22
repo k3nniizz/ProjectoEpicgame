@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Menu.ui.home.HomeFragment">
+    tools:context=".Menu.ui.Fordenamiento.HomeFragment">
 
     <Button
         android:id="@+id/Btn_Ordenamiento"
