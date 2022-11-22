@@ -19,15 +19,15 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class login extends AppCompatActivity {
+
     private EditText editTextCorreo, editTextPassword;
     private Button btnLogin;
     private TextView btnRegistrar;
 
 
     private FirebaseAuth mAuth;
-    private String email="";
-    private String password="";
-
+    private String email = "";
+    private String password = "";
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -37,7 +37,7 @@ public class login extends AppCompatActivity {
 
         editTextCorreo = (EditText) findViewById(R.id.email_edittext_activity_login);
         editTextPassword = (EditText) findViewById(R.id.pass_edittext_activity_login);
-        btnRegistrar=(Button)findViewById(R.id.btnRegistrarId);
+        btnRegistrar = (Button) findViewById(R.id.btnRegistrarId);
 
         btnLogin = (Button) findViewById(R.id.btnLoginId);
 
@@ -45,17 +45,17 @@ public class login extends AppCompatActivity {
 
 
         ClickRegistrar();
-        //el que hace el mayor trabajo
+
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                email=editTextCorreo.getText().toString();
-                password=editTextPassword.getText().toString();
-                if(!email.isEmpty()&&!password.isEmpty()){
+                email = editTextCorreo.getText().toString();
+                password = editTextPassword.getText().toString();
+                if (!email.isEmpty() && !password.isEmpty()) {
                     loginUser();
 
-                }else{
-                    Toast.makeText(login.this,"Completa los campos",Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(login.this, "Completa los campos", Toast.LENGTH_LONG).show();
                 }
 
 
@@ -64,22 +64,20 @@ public class login extends AppCompatActivity {
 
     }
 
-    private void loginUser(){
-        mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+    private void loginUser() {
+        mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                if(task.isSuccessful()){
-                    startActivity(new Intent(login.this,Perfilusuario.class));
+                if (task.isSuccessful()) {
+                    startActivity(new Intent(login.this, Perfilusuario.class));
                     finish();
-                }
-                else{
-                    Toast.makeText(login.this,"No se pudo iniciar sesion compruebe los datos",Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(login.this, "No se pudo iniciar sesion compruebe los datos", Toast.LENGTH_SHORT).show();
                 }
             }
         });
 
     }
-
 
 
     public void ClickRegistrar() {
@@ -89,10 +87,7 @@ public class login extends AppCompatActivity {
                 Intent intent = new Intent(login.this, registrar.class);
                 login.this.startActivity(intent);
 
-
-
             }
         });
     }
-
 }
