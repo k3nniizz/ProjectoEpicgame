@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Login.Perfilusuario">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center">
+
+
+
+        <!--visualizar puntuacion-->
+        <TextView
+            android:id="@+id/Mipuntuaciontxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/Mipuntuaciontxt"
+            android:textSize="25dp"
+            android:gravity="center"/>
+
+        <!--revizar si esta bueno-->
+        <Chronometer
+            android:id="@+id/chronometer1"
+            android:text="@string/chronometer1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="20dp" />
+
+        <!---imagen de perfil-->
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/image"
+            android:src="@mipmap/goku"
+            android:layout_width="150dp"
+            android:layout_height="150dp">
+
+        </androidx.appcompat.widget.AppCompatImageView>
+
+
+
+        <!--nombre de usuario-->
+        <TextView
+            android:id="@+id/uid"
+            android:layout_marginTop="10dp"
+            android:text="@string/Nombreusuario"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <!--Alias de usuario-->
+        <TextView
+            android:id="@+id/Alias"
+            android:layout_marginTop="10dp"
+            android:text="@string/Alias"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+        <!--nombre de usuario-->
+        <TextView
+            android:id="@+id/Nombreusuario"
+            android:layout_marginTop="10dp"
+            android:text="@string/Nombreusuario"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <!--correo-->
+        <TextView
+            android:id="@+id/Correo"
+            android:layout_marginTop="10dp"
+            android:text="@string/Correo"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <!--menu-->
+        <TextView
+            android:id="@+id/Menutxt"
+            android:layout_marginTop="10dp"
+            android:text="@string/Menutxt"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+        <!--boton jugar-->
+        <Button
+            android:id="@+id/Jugarbtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@drawable/boton_colores_personalizados"
+            android:text="@string/Jugarbtn"
+            android:textColor="@color/white" />
+
+        <!--visualizar puntuacion-->
+        <Button
+            android:id="@+id/Puntuacionesbtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@drawable/boton_colores_personalizados"
+            android:text="@string/Puntuacionesbtn"
+            android:textColor="@color/white" />
+
+        <!--acerde de-->
+        <Button
+            android:id="@+id/Acercadebtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@drawable/boton_colores_personalizados"
+            android:text="@string/Acercadebtn"
+            android:textColor="@color/white" />
+
+
+
+        <!--boton cerrar cesion-->
+        <Button
+            android:id="@+id/btnCerrar_perfil"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@drawable/boton_colores_personalizados"
+            android:text="@string/btnCerrar_perfil"
+            android:textColor="@color/white" />
+
+
+
+
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+</ScrollView>
