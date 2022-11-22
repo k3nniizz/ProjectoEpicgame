@@ -80,7 +80,7 @@ public class Perfilusuario extends AppCompatActivity {
             public void onClick(View v) {
                 Toast.makeText(Perfilusuario.this,"JUGAR",Toast.LENGTH_SHORT).show();
                 //aqui debería enlazar a los fragment para llevar al sitio de los tres juegos
-                startActivity(new Intent(Perfilusuario.this, menu.class));
+                startActivity(new Intent(Perfilusuario.this, PrimerNivel.class));
 
             }
         });

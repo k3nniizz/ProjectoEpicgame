@@ -8,6 +8,9 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.view.View;
 import android.widget.TextView;
+
+import com.example.myapplication4.Login.Perfilusuario;
+import com.example.myapplication4.Login.login;
 import com.example.myapplication4.R;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -51,16 +54,19 @@ public class PrimerNivel extends AppCompatActivity {
 
                     texto.setText(texto.getText() + " " + bt.getText());
                     bt.setVisibility(View.INVISIBLE);
-
-
-
-
                 }
             });
         }
         Button validar =(Button)findViewById(R.id.btValidar);
         Button automatico =(Button)findViewById(R.id.btautomatico);
+        Button perfil =(Button)findViewById(R.id.btperfil);
 
+        perfil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(PrimerNivel.this,Perfilusuario.class));
+            }
+        });
         validar.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 validarContenido(texto, numeros);}
@@ -76,6 +82,7 @@ public class PrimerNivel extends AppCompatActivity {
         MediaPlayer mp = MediaPlayer.create(this, R.raw.musicabotones);
         mp.start();
     }
+
     public void validarContenido(TextView texto, ArrayList numeros){
         Collections.sort(numeros);
         String cadena="";
@@ -105,8 +112,6 @@ public class PrimerNivel extends AppCompatActivity {
     int contador = 0;
     public void automatizar(TextView texto, ArrayList numeros){
         String mensaje;
-
-
         Collections.sort(numeros);
         for (int i =0; i<numeros.size();i++){
             texto.setText(texto.getText() + " " + numeros.get(i));;
