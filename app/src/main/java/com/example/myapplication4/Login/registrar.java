@@ -3,6 +3,9 @@ package com.example.myapplication4.Login;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -16,6 +19,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -24,13 +28,21 @@ import java.util.Map;
 
 public class registrar extends AppCompatActivity {
 
+    //forma parte de la barra desplegable
+    String[] items={"Argentina","Brasil","Bolivia","Chile","Colombia","Ecuador","Perú","Uruguay","Venezuela"};
+
     FirebaseAuth mAuth;
     DatabaseReference mDatabase;
+
+    ArrayAdapter<String> adapterItems;
+
     private EditText mEditTextName;
     private EditText mEditTextEmail;
     private EditText mEditTextPassword;
-    private EditText mEditTextPais;
+    private AutoCompleteTextView autoCompletar_pais;
     private EditText mEditTextEdad;
+    private EditText mEditTextAlias;
+
     private TextView btnRegistrar;
     private Button btncerrarlogin;
 
@@ -39,8 +51,9 @@ public class registrar extends AppCompatActivity {
     private String nombre = "";
     private String email = "";
     private String contrasena = "";
-    private String pais= "";
     private String edad= "";
+    private String alias="";
+    private String pais= "";
 
 
     @Override
@@ -52,11 +65,28 @@ public class registrar extends AppCompatActivity {
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
 
+        //llamada al archivo xml
         mEditTextName = (EditText) findViewById(R.id.editTextName);
         mEditTextEmail = (EditText) findViewById(R.id.editTextEmail);
         mEditTextPassword = (EditText) findViewById(R.id.editTextPassword);
-        mEditTextPais=(EditText) findViewById(R.id.editTextpais);
         mEditTextEdad=(EditText) findViewById(R.id.editTextedad);
+        mEditTextAlias=(EditText) findViewById(R.id.editTextAlias);
+        autoCompletar_pais= (AutoCompleteTextView) findViewById(R.id.autoCompletePais);
+
+
+        //codigo sobre barra desplegable
+
+        adapterItems=new ArrayAdapter<String>(this,R.layout.list_item,items);
+
+        autoCompletar_pais.setAdapter(adapterItems);
+
+        autoCompletar_pais.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String items=parent.getItemAtPosition(position).toString();
+                Toast.makeText(getApplicationContext(),"Item"+items,Toast.LENGTH_SHORT).show();
+            }
+        });
 
 
 
@@ -71,10 +101,11 @@ public class registrar extends AppCompatActivity {
                 nombre=mEditTextName.getText().toString();
                 email=mEditTextEmail.getText().toString();
                 contrasena=mEditTextPassword.getText().toString();
-                pais=mEditTextPais.getText().toString();
+                pais=autoCompletar_pais.getText().toString();
                 edad=mEditTextEdad.getText().toString();
+                alias=mEditTextAlias.getText().toString();
 
-                if(!nombre.isEmpty() && !email.isEmpty() && !contrasena.isEmpty() && !pais.isEmpty() && !edad.isEmpty()){
+                if(!nombre.isEmpty() && !email.isEmpty() && !contrasena.isEmpty() && !pais.isEmpty() && !edad.isEmpty() && !alias.isEmpty() && !pais.isEmpty()){
                     if(contrasena.length()>=6){
                         registerUser();
                     }else{
@@ -111,17 +142,29 @@ public class registrar extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
 
+                    FirebaseUser user = mAuth.getCurrentUser();
+                    int contador=0;
+                    assert user !=null;
+
+                    String uidString= user.getUid(); //uid se genera automaticamente (id)
+
+
                     Map<String, Object> map = new HashMap<>();
+                    map.put("Uid",uidString);
                     map.put("Nombre",nombre);
                     map.put("Email", email);
                     map.put("Contraseña", contrasena);
-                    map.put("Pais",pais);
                     map.put("Edad",edad);
+                    map.put("Alias",alias);
+                    map.put("Pais",pais);
+                    map.put("Tiempo",contador);
 
 
-                    String id = mAuth.getCurrentUser().getUid();
+                    Toast.makeText(registrar.this,"USUARIO REGISTRADO EXITOSAMENTE",Toast.LENGTH_SHORT).show();
 
-                    mDatabase.child("Usuarios").child(id).setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
+                   // String id = mAuth.getCurrentUser().getUid();
+
+                    mDatabase.child("Usuarios").child(uidString).setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
 
                         @Override
                         public void onComplete(@NonNull Task<Void> task2) {
