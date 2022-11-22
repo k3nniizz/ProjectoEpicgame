@@ -1,30 +1,28 @@
 package com.example.myapplication4.Login;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
-import android.widget.Button;
 import android.widget.EditText;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication4.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
 import java.util.HashMap;
 import java.util.Map;
+import com.google.firebase.auth.FirebaseUser;
 
 public class registrar extends AppCompatActivity {
 
@@ -89,8 +87,6 @@ public class registrar extends AppCompatActivity {
         });
 
 
-
-
         btnRegistrar = (Button) findViewById(R.id.btnRegistrarId);
         btncerrarlogin = (Button) findViewById(R.id.btnCerrarloginId);
 
@@ -105,7 +101,7 @@ public class registrar extends AppCompatActivity {
                 edad=mEditTextEdad.getText().toString();
                 alias=mEditTextAlias.getText().toString();
 
-                if(!nombre.isEmpty() && !email.isEmpty() && !contrasena.isEmpty() && !pais.isEmpty() && !edad.isEmpty() && !alias.isEmpty() && !pais.isEmpty()){
+                if(!nombre.isEmpty() && !email.isEmpty() && !contrasena.isEmpty() && !pais.isEmpty() && !edad.isEmpty() && !alias.isEmpty()){
                     if(contrasena.length()>=6){
                         registerUser();
                     }else{
@@ -121,7 +117,6 @@ public class registrar extends AppCompatActivity {
 
             }
         });
-
 
         btncerrarlogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -185,5 +180,6 @@ public class registrar extends AppCompatActivity {
 
     }
 
-    //quedarse con el perfil abierto una vez registrado
-}
+
+
+    }
