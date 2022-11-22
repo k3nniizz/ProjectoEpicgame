@@ -9,8 +9,6 @@ import android.widget.Button;
 import android.view.View;
 import android.widget.TextView;
 import com.example.myapplication4.R;
-
-
 import java.util.ArrayList;
 import java.util.Collections;
 
