@@ -13,14 +13,21 @@
         android:theme="@style/Theme.MyApplication4"
         tools:targetApi="31">
         <activity
-            android:name=".Gato"
+            android:name=".Ordenamiento"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".BreakoutActivity"
+            android:name=".Gato.Gato"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".BreakOut.BreakoutActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
