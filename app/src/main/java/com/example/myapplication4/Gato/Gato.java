@@ -24,7 +24,7 @@ public class Gato extends AppCompatActivity {
             0, 0, 0,
             0, 0, 0
 
-//hasgdajda
+
     };
     int estado = 0;
     int fichasPuestas = 0;
