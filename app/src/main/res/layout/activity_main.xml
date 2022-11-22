@@ -26,7 +26,7 @@
                 android:layout_height="60dp"
                 android:layout_margin="7dp"
                 android:layout_weight="1"
-                android:backgroundTint="#9E9D24"
+                android:backgroundTint="#EF6C00"
                 android:text="Button1" />
 
             <Button
@@ -44,7 +44,7 @@
                 android:layout_height="60dp"
                 android:layout_margin="7dp"
                 android:layout_weight="1"
-                android:backgroundTint="#9E9D24"
+                android:backgroundTint="#64DD17"
                 android:text="Button3" />
 
             <Button
@@ -53,7 +53,7 @@
                 android:layout_height="60dp"
                 android:layout_margin="7dp"
                 android:layout_weight="1"
-                android:backgroundTint="#9E9D24"
+                android:backgroundTint="#283593"
                 android:text="Button4" />
 
             <Button
@@ -62,7 +62,7 @@
                 android:layout_height="60dp"
                 android:layout_margin="7dp"
                 android:layout_weight="1"
-                android:backgroundTint="#9E9D24"
+                android:backgroundTint="#263238"
                 android:text="Button5" />
 
             <Button
@@ -87,7 +87,7 @@
                 android:layout_height="60dp"
                 android:layout_margin="7dp"
                 android:layout_weight="1"
-                android:backgroundTint="#9E9D24"
+                android:backgroundTint="#FF1744"
                 android:text="Button7" />
 
             <Button
@@ -105,7 +105,7 @@
                 android:layout_height="60dp"
                 android:layout_margin="7dp"
                 android:layout_weight="1"
-                android:backgroundTint="#9E9D24"
+                android:backgroundTint="#6200EA"
                 android:text="Button9" />
 
             <Button
