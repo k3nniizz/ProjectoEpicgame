@@ -69,7 +69,7 @@ public class login extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
-                    startActivity(new Intent(login.this, guardarperfil.class));
+                    startActivity(new Intent(login.this, Perfilusuario.class));
                     finish();
                 } else {
                     Toast.makeText(login.this, "No se pudo iniciar sesion compruebe los datos", Toast.LENGTH_SHORT).show();
