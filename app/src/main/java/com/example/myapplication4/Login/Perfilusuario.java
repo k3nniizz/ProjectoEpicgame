@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.myapplication4.Gato.Gato;
+import com.example.myapplication4.Ordenamiento.PrimerNivel;
 import com.example.myapplication4.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -78,7 +79,7 @@ public class Perfilusuario extends AppCompatActivity {
             public void onClick(View v) {
                 Toast.makeText(Perfilusuario.this,"JUGAR",Toast.LENGTH_SHORT).show();
                 //aqui debería enlazar a los fragment para llevar al sitio de los tres juegos
-                startActivity(new Intent(Perfilusuario.this,numeros.class));
+                startActivity(new Intent(Perfilusuario.this,PrimerNivel.class));
 
             }
         });
@@ -123,7 +124,7 @@ public class Perfilusuario extends AppCompatActivity {
         if(user!=null){
             Toast.makeText(this, "jugador en linea",Toast.LENGTH_SHORT).show();
         }else{
-            startActivity(new Intent(Perfilusuario.this, Gato.class));
+            startActivity(new Intent(Perfilusuario.this, PrimerNivel.class));
             finish();
         }
 
