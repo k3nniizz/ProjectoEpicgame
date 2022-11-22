@@ -162,7 +162,7 @@ public class registrar extends AppCompatActivity {
 
                     Toast.makeText(registrar.this,"USUARIO REGISTRADO EXITOSAMENTE",Toast.LENGTH_SHORT).show();
 
-                   // String id = mAuth.getCurrentUser().getUid();
+                    // String id = mAuth.getCurrentUser().getUid();
 
                     mDatabase.child("Usuarios").child(uidString).setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
 

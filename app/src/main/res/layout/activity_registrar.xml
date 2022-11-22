@@ -20,44 +20,45 @@
             android:id="@+id/editTextName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Nombre"/>
-<!--sd-->
+            android:hint="Nombre" />
+
         <EditText
             android:id="@+id/editTextAlias"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:hint="Alias"/>
+            android:hint="Alias" />
+
 
         <EditText
             android:id="@+id/editTextEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:hint="Correo"/>
+            android:hint="Correo" />
 
         <EditText
             android:id="@+id/editTextPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:inputType="textPassword"
-            android:hint="Password"/>
+            android:hint="Password"
+            android:inputType="textPassword" />
 
         <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
-            android:hint="@string/select"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+            android:hint="@string/select">
+
             <AutoCompleteTextView
                 android:id="@+id/autoCompletePais"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="none"/>
+                android:inputType="none" />
 
         </com.google.android.material.textfield.TextInputLayout>
-
 
 
         <EditText
@@ -65,7 +66,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:hint="Edad"/>
+            android:hint="Edad" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -77,19 +78,18 @@
                 android:id="@+id/btnRegistrarId"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="REGISTRAR USUARIO"
                 android:background="@color/design_default_color_primary_dark"
-                android:textColor="@android:color/white"/>
+                android:text="REGISTRAR USUARIO"
+                android:textColor="@android:color/white" />
 
             <Button
                 android:id="@+id/btnCerrarloginId"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="YA TENGO CUENTA"
                 android:layout_marginTop="10dp"
                 android:background="@color/design_default_color_primary"
-                android:textColor="@android:color/white"/>
-
+                android:text="YA TENGO CUENTA"
+                android:textColor="@android:color/white" />
 
 
         </LinearLayout>
