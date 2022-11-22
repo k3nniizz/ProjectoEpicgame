@@ -3,17 +3,22 @@ package com.example.myapplication4.Ordenamiento;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.widget.Button;
 import android.view.View;
 import android.widget.TextView;
-
 import com.example.myapplication4.R;
+
 
 import java.util.ArrayList;
 import java.util.Collections;
 
+
+
 public class PrimerNivel extends AppCompatActivity {
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,7 +74,10 @@ public class PrimerNivel extends AppCompatActivity {
         });
 
     }
-
+    public void AudioMediaPlayer (View view) {
+        MediaPlayer mp = MediaPlayer.create(this, R.raw.musicabotones);
+        mp.start();
+    }
     public void validarContenido(TextView texto, ArrayList numeros){
         Collections.sort(numeros);
         String cadena="";
