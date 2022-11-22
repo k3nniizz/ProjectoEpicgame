@@ -1,3 +1,34 @@
 <resources>
     <string name="app_name">My Application4</string>
+
+    <string name="title_activity_login">Login</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+
+    <string name="title_activity_menu">Menu</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <!-- TODO: Remove or change this placeholder text -->
+
+    <!--String nuevos-->
+    <string name="select">Seleccionar Pais</string>
+    <string name="Mipuntuaciontxt">Mi Puntuacion</string>
+    <string name="Correo">--</string>
+    <string name="Nombreusuario">--</string>
+    <string name="Menutxt">Menu</string>
+    <string name="uid">--</string>
+
+    <string name="Jugarbtn">Jugar</string>
+    <string name="Puntuacionesbtn">Puntuaciones</string>
+    <string name="Acercadebtn">Acerca de</string>
+    <string name="btnCerrar_perfil">Cerrar sesion</string>
+    <string name="Alias">--</string>
+
+    <!-- Cronometro modo prueba capaz no funcione  el cronometro estaba en el numeros.class -->
+    <string name="chronometer1">Conometro</string>
 </resources>
