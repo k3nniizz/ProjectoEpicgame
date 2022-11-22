@@ -23,7 +23,7 @@ public class Gato extends AppCompatActivity {
             0, 0, 0,
             0, 0, 0,
             0, 0, 0
-//dsjfskfbsdmfbdsmdgfdgd
+
 
     };
     int estado = 0;
