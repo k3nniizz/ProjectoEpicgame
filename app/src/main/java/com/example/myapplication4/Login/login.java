@@ -28,7 +28,7 @@ public class login extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private String email = "";
     private String password = "";
-//hola
+
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +45,7 @@ public class login extends AppCompatActivity {
 
 
         ClickRegistrar();
-//el que hace el mayor trabajo
+
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
