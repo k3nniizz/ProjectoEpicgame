@@ -35,7 +35,7 @@
                 android:layout_height="60dp"
                 android:layout_margin="7dp"
                 android:layout_weight="1"
-                android:backgroundTint="#9E9D24"
+                android:backgroundTint="#64DD17"
                 android:text="Button2" />
 
             <Button
@@ -114,7 +114,7 @@
                 android:layout_height="60dp"
                 android:layout_margin="7dp"
                 android:layout_weight="1"
-                android:backgroundTint="#9E9D24"
+                android:backgroundTint="#FF1744"
                 android:text="Button10" />
 
             <Button
@@ -123,7 +123,7 @@
                 android:layout_height="60dp"
                 android:layout_margin="7dp"
                 android:layout_weight="1"
-                android:backgroundTint="#9E9D24"
+                android:backgroundTint="#64DD17"
                 android:text="Button11" />
 
             <Button
@@ -132,7 +132,7 @@
                 android:layout_height="60dp"
                 android:layout_margin="7dp"
                 android:layout_weight="1"
-                android:backgroundTint="#9E9D24"
+                android:backgroundTint="#EF6C00"
                 android:text="Button12" />
         </LinearLayout>
 
