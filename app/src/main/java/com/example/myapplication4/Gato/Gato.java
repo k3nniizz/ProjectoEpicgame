@@ -189,6 +189,4 @@ public class Gato extends AppCompatActivity {
         return nuevoEstado;
 
     }
-
-
     }
