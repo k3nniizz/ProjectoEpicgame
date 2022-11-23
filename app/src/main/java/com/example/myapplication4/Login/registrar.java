@@ -164,7 +164,7 @@ public class registrar extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<Void> task2) {
                             if (task2.isSuccessful()) {
-                                startActivity(new Intent(registrar.this, numeros.class)); //en esta parte se redirige en tal parte cuando se registrar
+                                startActivity(new Intent(registrar.this, Perfilusuario.class)); //en esta parte se redirige en tal parte cuando se registrar
                                 finish();
                             } else {
                                 Toast.makeText(registrar.this, "No se crearon los datos correctamente", Toast.LENGTH_SHORT).show();
