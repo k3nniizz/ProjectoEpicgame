@@ -116,9 +116,6 @@ public class PrimerNivel extends AppCompatActivity {
         for (int i =0; i<numeros.size();i++){
             texto.setText(texto.getText() + " " + numeros.get(i));;
         }
-
-
-
     }
 
 }
