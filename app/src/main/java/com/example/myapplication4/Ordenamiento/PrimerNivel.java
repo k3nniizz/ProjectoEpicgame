@@ -61,6 +61,8 @@ public class PrimerNivel extends AppCompatActivity {
         Button automatico =(Button)findViewById(R.id.btautomatico);
         Button perfil =(Button)findViewById(R.id.btperfil);
 
+
+
         perfil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -78,10 +80,12 @@ public class PrimerNivel extends AppCompatActivity {
         });
 
     }
+
     public void AudioMediaPlayer (View view) {
         MediaPlayer mp = MediaPlayer.create(this, R.raw.musicabotones);
         mp.start();
     }
+
 
     public void validarContenido(TextView texto, ArrayList numeros){
         Collections.sort(numeros);
