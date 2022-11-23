@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.example.myapplication4.Menu.menu4;
 import com.example.myapplication4.Ordenamiento.PrimerNivel;
 import com.example.myapplication4.R;
 import com.google.firebase.auth.FirebaseAuth;
@@ -71,7 +72,7 @@ public class Perfilusuario extends AppCompatActivity {
             public void onClick(View v) {
                 Toast.makeText(Perfilusuario.this,"JUGAR",Toast.LENGTH_SHORT).show();
                 //aqui debería enlazar a los fragment para llevar al sitio de los tres juegos
-                startActivity(new Intent(Perfilusuario.this, PrimerNivel.class));
+                startActivity(new Intent(Perfilusuario.this, menu4.class));
 
             }
         });
@@ -82,6 +83,7 @@ public class Perfilusuario extends AppCompatActivity {
             public void onClick(View v) {
                 Toast.makeText(Perfilusuario.this,"PUNTUACIONES",Toast.LENGTH_SHORT).show();
                 //aqui el tema de ver los puntajes generales de cada jugador
+
             }
         });
 

@@ -12,6 +12,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.myapplication4.Ordenamiento.PrimerNivel;
 import com.example.myapplication4.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -86,6 +87,7 @@ public class login extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(login.this, registrar.class);
                 login.this.startActivity(intent);
+
 
             }
         });
