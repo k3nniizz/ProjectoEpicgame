@@ -29,7 +29,7 @@ public class gatoFragment extends Fragment {
                 new ViewModelProvider(this).get(HomeViewModel.class);
 
 
-        View root = inflater.inflate(R.layout.fragment_home, container, false);
+        View root = inflater.inflate(R.layout.fragment_gato, container, false);
         btnjugarO =root.findViewById(R.id.btn_gato);
         btnjugarO.setOnClickListener(new View.OnClickListener() {
             @Override

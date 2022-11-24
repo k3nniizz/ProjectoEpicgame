@@ -12,7 +12,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.myapplication4.Ordenamiento.PrimerNivel;
+import com.example.myapplication4.Menu.Menu5;
+import com.example.myapplication4.Menu.menu4;
 import com.example.myapplication4.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -22,7 +23,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class login extends AppCompatActivity {
 
     private EditText editTextCorreo, editTextPassword;
-    private Button btnLogin;
+    private Button btnLogin,btninvitado;
     private TextView btnRegistrar;
 
 
@@ -41,6 +42,7 @@ public class login extends AppCompatActivity {
         btnRegistrar = (Button) findViewById(R.id.btnRegistrarId);
 
         btnLogin = (Button) findViewById(R.id.btnLoginId);
+        btninvitado = (Button) findViewById(R.id.btninvitado);
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -58,6 +60,19 @@ public class login extends AppCompatActivity {
                 } else {
                     Toast.makeText(login.this, "Completa los campos", Toast.LENGTH_LONG).show();
                 }
+
+
+            }
+        });
+
+        btninvitado.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                startActivity(new Intent(login.this, Menu5.class));
+
+
 
 
             }
@@ -87,7 +102,6 @@ public class login extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(login.this, registrar.class);
                 login.this.startActivity(intent);
-
 
             }
         });

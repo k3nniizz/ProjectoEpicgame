@@ -149,11 +149,21 @@ class BreakoutEngine extends SurfaceView implements Runnable{
         }
     }
 
+    int cont1=0;
+
     private void update(){
         // Mover la barra
         bat.update(fps);
 
         // actualiza a bola
+
+        if(cont1==1){
+
+
+            ball.update(fps);
+
+        }
+
         ball.update(fps);
 
         // Compruebe si la bola choca con un ladrillo

@@ -35,8 +35,8 @@ public class HomeFragment extends Fragment {
 
         //binding = FragmentHomeBinding.inflate(inflater, container, false);
         //View root = binding.getRoot();
-        View root = inflater.inflate(R.layout.fragment_home, container, false);
-        btnjugarO =root.findViewById(R.id.btn_gato);
+        View root = inflater.inflate(R.layout.fragment_ordeamiento, container, false);
+        btnjugarO =root.findViewById(R.id.Btn_Or);
         btnjugarO.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,9 +50,5 @@ public class HomeFragment extends Fragment {
 
 
 
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        binding = null;
-    }
+
 }

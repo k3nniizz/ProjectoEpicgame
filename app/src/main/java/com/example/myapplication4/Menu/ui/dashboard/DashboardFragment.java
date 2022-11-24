@@ -30,7 +30,7 @@ public class DashboardFragment extends Fragment {
        // binding = FragmentDashboardBinding.inflate(inflater, container, false);
         //View root = binding.getRoot();
 
-        View root = inflater.inflate(R.layout.fragment_home, container, false);
+        View root = inflater.inflate(R.layout.fragment_gato, container, false);
         btnjugarO =root.findViewById(R.id.btn_gato);
         btnjugarO.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,9 +43,5 @@ public class DashboardFragment extends Fragment {
         return root;
     }
 
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        binding = null;
-    }
+
 }

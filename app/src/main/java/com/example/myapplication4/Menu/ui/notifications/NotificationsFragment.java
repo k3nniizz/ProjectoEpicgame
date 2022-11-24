@@ -21,15 +21,15 @@ import com.example.myapplication4.databinding.FragmentNotificationsBinding;
 
 public class NotificationsFragment extends Fragment {
 
-    private FragmentNotificationsBinding binding;
+
     private Button jugar;
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         NotificationsViewModel notificationsViewModel =
                 new ViewModelProvider(this).get(NotificationsViewModel.class);
 
-        View root = inflater.inflate(R.layout.fragment_home, container, false);
-        jugar =root.findViewById(R.id.btn_gato);
+        View root = inflater.inflate(R.layout.fragment_notifications, container, false);
+        jugar =root.findViewById(R.id.btn_BreakO);
         jugar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -41,9 +41,5 @@ public class NotificationsFragment extends Fragment {
         return root;
     }
 
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        binding = null;
-    }
+
 }

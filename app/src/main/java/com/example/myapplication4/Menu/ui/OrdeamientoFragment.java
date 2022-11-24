@@ -30,6 +30,7 @@ public class OrdeamientoFragment extends Fragment {
 
         View root = inflater.inflate(R.layout.fragment_dashboard, container, false);
         btnjugarO =root.findViewById(R.id.Btn_Or);
+
         btnjugarO.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
