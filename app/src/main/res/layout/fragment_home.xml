@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-<<<<<<< HEAD
-    tools:context=".Menu.ui.Fordenamiento.HomeFragment">
+
+    tools:context=".Menu.ui.home.HomeFragment">
 
     <Button
         android:id="@+id/Btn_Ordenamiento"
@@ -14,8 +14,7 @@
         android:text="Jugar"
         tools:layout_editor_absoluteX="157dp"
         tools:layout_editor_absoluteY="348dp" />
-=======
-    tools:context=".Menu.ui.home.HomeFragment">
+
 
     <LinearLayout
         android:id="@+id/linearLayout5"
@@ -57,5 +56,5 @@
 
     </LinearLayout>
 
->>>>>>> 64fa678 (actualizacion)
+
 </androidx.constraintlayout.widget.ConstraintLayout>
