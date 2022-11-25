@@ -2,9 +2,7 @@ package com.example.myapplication4.Gato;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.graphics.Color;
-import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,14 +13,14 @@ import java.util.Random;
 
 import com.example.myapplication4.R;
 
-public class Gato extends AppCompatActivity {
+public class Segundonivell extends AppCompatActivity {
 
 
-
-    Button play;
-    Button iniciarT;
-    TextView mostrarT;
+    Button iniciar;
     TextView textoVictoria;
+    TextView mostrarT;
+    int min = 0;
+    int seg = 0;
     Integer[] botones;
     int[] tablero = new int[]{
             0, 0, 0,
@@ -37,15 +35,24 @@ public class Gato extends AppCompatActivity {
     int[] posGanadora = new int[]{-1,-1,-1};
     TextView marcador0 , marcador1 , marcador2;
 
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_gato);
+        setContentView(R.layout.activity_segundonivell);
+
 
 
         textoVictoria = (TextView) findViewById(R.id.textoVictoria);
         textoVictoria.setVisibility(View.INVISIBLE);
-
+        mostrarT = (TextView) findViewById(R.id.mostrarTiempo);
+        iniciar = findViewById(R.id.iniciar);
+        iniciar.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                tiempodecreciente();}
+        });
 
 
         botones = new Integer[]{
@@ -60,13 +67,35 @@ public class Gato extends AppCompatActivity {
     }
 
 
+    //    public void AudioMediaPlayer (View view){
+//        MediaPlayer mp = MediaPlayer.create(this, R.raw.digimon);
+//        mp.start();
+    public void tiempodecreciente(){
+        int minutos =0;
+        int segundo =0 ;
+        // System.out.println(minutos+":"+segundo);
+        for (segundo=60;segundo> 0;segundo--)
+        {
+
+            String minutos_mostrar = String.format("02D",minutos);
+            String segundos_mostrar = String.format("02D",segundo);
+            mostrarT.setText(minutos+":"+segundo);
+            System.out.println(minutos+":"+segundo);
+            delaySegundo();
+
+        }
 
 
 
-    public void AudioMediaPlayer (View view){
 
-        MediaPlayer mp = MediaPlayer.create(this, R.raw.doraemon);
-        mp.start();}
+
+    }
+
+
+    private static void delaySegundo(){
+        try{Thread.sleep(1000);
+        }catch(InterruptedException e){}
+    }
 
     public void ponerFicha(View v) {
         int numBoton = Arrays.asList(botones).indexOf(v.getId()); // pulsar un boton , consulta la id y tambien la posicion con num boton
@@ -123,16 +152,12 @@ public class Gato extends AppCompatActivity {
             if (estado == 1) {
                 textoVictoria.setVisibility(View.VISIBLE);
                 textoVictoria.setTextColor(Color.GREEN);
-                Intent siguientenivel = new Intent(this , Segundonivell.class);
-                startActivity(siguientenivel);
 
 
             } else {
                 textoVictoria.setVisibility(View.VISIBLE);
                 textoVictoria.setText("Ha ganado el Jugador_2");
                 textoVictoria.setTextColor(Color.GREEN);
-                Intent siguientenivel = new Intent(this , Segundonivell.class);
-                startActivity(siguientenivel);
             }
 
 
@@ -218,9 +243,10 @@ public class Gato extends AppCompatActivity {
 
         return nuevoEstado;
 
-
-
     }
 
 
 }
+
+
+

@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.example.myapplication4.Menu.Menu5;
 import com.example.myapplication4.Menu.menu4;
 import com.example.myapplication4.Ordenamiento.PrimerNivel;
 import com.example.myapplication4.R;
@@ -72,7 +73,7 @@ public class Perfilusuario extends AppCompatActivity {
             public void onClick(View v) {
                 Toast.makeText(Perfilusuario.this,"JUGAR",Toast.LENGTH_SHORT).show();
                 //aqui debería enlazar a los fragment para llevar al sitio de los tres juegos
-                startActivity(new Intent(Perfilusuario.this, menu4.class));
+                startActivity(new Intent(Perfilusuario.this, Menu5.class));
 
             }
         });
@@ -141,13 +142,16 @@ public class Perfilusuario extends AppCompatActivity {
                 for(DataSnapshot ds :snapshot.getChildren()){
                     //String mipuntuacionString=""+ds.child("Puntaje").getValue();
                     String nombreusuarioString=""+ds.child("Nombre").getValue();
-                    String UidString=""+ds.child("Uid").getValue();
+                 //   String UidString=""+ds.child("Uid").getValue(); //
                     String EmailString=""+ds.child("Email").getValue();
+                    String AliasString=""+ds.child("Alias").getValue();
+
 
                     //mostrar los datos
                     Nombreusuario.setText(nombreusuarioString);
-                    uid.setText(UidString);
+                  //  uid.setText(UidString);
                     Correo.setText(EmailString);
+                    Alias.setText(AliasString);
 
 
 

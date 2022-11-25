@@ -4,18 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Gato.Gato">
-
+    tools:context=".Gato.Segundonivell">
 
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/imageView2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
-        android:src="@drawable/gatonegro"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp" />
+        android:src="@drawable/gatonegro" />
+
 
     <Button
         android:id="@+id/b7"
@@ -23,8 +21,8 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:onClick="ponerFicha"
-        app:autoSizeTextType="uniform"
         android:textStyle="bold"
+        app:autoSizeTextType="uniform"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintDimensionRatio="w,1:1"
         app:layout_constraintEnd_toStartOf="@+id/b8"
@@ -37,8 +35,8 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:onClick="ponerFicha"
-        app:autoSizeTextType="uniform"
         android:textStyle="bold"
+        app:autoSizeTextType="uniform"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintDimensionRatio="w,1:1"
         app:layout_constraintEnd_toStartOf="@+id/b9"
@@ -51,8 +49,8 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:onClick="ponerFicha"
-        app:autoSizeTextType="uniform"
         android:textStyle="bold"
+        app:autoSizeTextType="uniform"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintDimensionRatio="w,1:1"
         app:layout_constraintEnd_toEndOf="parent"
@@ -65,8 +63,8 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:onClick="ponerFicha"
-        app:autoSizeTextType="uniform"
         android:textStyle="bold"
+        app:autoSizeTextType="uniform"
         app:layout_constraintBottom_toTopOf="@+id/b7"
         app:layout_constraintDimensionRatio="w,1:1"
         app:layout_constraintEnd_toStartOf="@+id/b5"
@@ -79,8 +77,8 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:onClick="ponerFicha"
-        app:autoSizeTextType="uniform"
         android:textStyle="bold"
+        app:autoSizeTextType="uniform"
         app:layout_constraintBottom_toTopOf="@+id/b8"
         app:layout_constraintDimensionRatio="w,1:1"
         app:layout_constraintEnd_toStartOf="@+id/b6"
@@ -93,8 +91,8 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:onClick="ponerFicha"
-        app:autoSizeTextType="uniform"
         android:textStyle="bold"
+        app:autoSizeTextType="uniform"
         app:layout_constraintBottom_toTopOf="@+id/b9"
         app:layout_constraintDimensionRatio="w,1:1"
         app:layout_constraintEnd_toEndOf="parent"
@@ -136,8 +134,8 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:onClick="ponerFicha"
-        app:autoSizeTextType="uniform"
         android:textStyle="bold"
+        app:autoSizeTextType="uniform"
         app:layout_constraintBottom_toTopOf="@+id/b6"
         app:layout_constraintDimensionRatio="w,1:1"
         app:layout_constraintEnd_toEndOf="parent"
@@ -148,31 +146,45 @@
         android:id="@+id/textoVictoria"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:onClick="ponerFicha"
         android:scrollbarAlwaysDrawHorizontalTrack="false"
         android:scrollbarAlwaysDrawVerticalTrack="false"
         android:scrollHorizontally="false"
-        android:text="Ha ganado el jugador_1"
+        android:text="Ha Ganado el jugador_1"
         android:textAllCaps="true"
         android:textColor="@color/white"
         android:textIsSelectable="false"
-        android:textSize="30sp"
+        android:textSize="34sp"
         app:layout_constraintBottom_toTopOf="@+id/b2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/battan"
+    <TextView
+        android:id="@+id/mostrarTiempo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="AudioMediaPlayer"
-        android:text="@string/MediaPlayer"
+        android:text="00:00"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="169dp"
+        tools:layout_editor_absoluteY="36dp" />
+
+    <Button
+        android:id="@+id/iniciar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="68dp"
+        android:text="iniciar"
+        android:onClick="OnClick"
         app:layout_constraintBottom_toTopOf="@+id/b2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.47"
+        app:layout_constraintHorizontal_bias="0.189"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.838" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
