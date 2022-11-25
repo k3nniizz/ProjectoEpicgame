@@ -10,12 +10,18 @@ import android.widget.TextView;
 
 import java.util.Arrays;
 import java.util.Random;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import com.example.myapplication4.R;
 
 public class Segundonivell extends AppCompatActivity {
 
 
+    TextView timerTextView;
+    int minutes=0;
+    int seconds = 60; //cambiar el tiempo del cronometro
+    int hours = 0;
     Button iniciar;
     TextView textoVictoria;
     TextView mostrarT;
@@ -38,22 +44,31 @@ public class Segundonivell extends AppCompatActivity {
 
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_segundonivell);
 
+        timerTextView = (TextView)findViewById(R.id.mostrarTiempo);
+
+        Timer myTimer = new Timer();
+        myTimer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                TimerMethod();
+            }
+
+        }, 0, 1000);
+
+
+
+
+
 
 
         textoVictoria = (TextView) findViewById(R.id.textoVictoria);
         textoVictoria.setVisibility(View.INVISIBLE);
-        mostrarT = (TextView) findViewById(R.id.mostrarTiempo);
-        iniciar = findViewById(R.id.iniciar);
-        iniciar.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                tiempodecreciente();}
-        });
-
 
         botones = new Integer[]{
                 R.id.b1, R.id.b2, R.id.b3,   // mi array de botones
@@ -61,41 +76,46 @@ public class Segundonivell extends AppCompatActivity {
                 R.id.b7, R.id.b8, R.id.b9,
         };
 
-        // marcador0 =(TextView) findViewById(marcador0);
-//      marcador1 =(TextView) findViewById(marcador1);
-//      marcador2 =(TextView) findViewById(marcador2);
     }
 
+    private void TimerMethod()
+    {
+        this.runOnUiThread(Timer_Tick);
+    }
 
-    //    public void AudioMediaPlayer (View view){
-//        MediaPlayer mp = MediaPlayer.create(this, R.raw.digimon);
-//        mp.start();
-    public void tiempodecreciente(){
-        int minutos =0;
-        int segundo =0 ;
-        // System.out.println(minutos+":"+segundo);
-        for (segundo=60;segundo> 0;segundo--)
-        {
+    private Runnable Timer_Tick = new Runnable() {
+        public void run() {
 
-            String minutos_mostrar = String.format("02D",minutos);
-            String segundos_mostrar = String.format("02D",segundo);
-            mostrarT.setText(minutos+":"+segundo);
-            System.out.println(minutos+":"+segundo);
-            delaySegundo();
+            seconds--;
+            if (seconds == 0)
+                timerTextView.setVisibility(View.INVISIBLE);
+
+
+            if(seconds ==0)
+            {textoVictoria.setVisibility(View.VISIBLE);
+                textoVictoria.setText("Has empatado");
+                if (seconds==0){
+                    estado = 2;
+
+
+                }
+
+
+
+            }
+            if(minutes==60)
+            {
+                hours++;
+                minutes=0;
+            }
+            timerTextView.setText(String.format("%d:%d", minutes, seconds));
 
         }
 
+    };
 
 
 
-
-    }
-
-
-    private static void delaySegundo(){
-        try{Thread.sleep(1000);
-        }catch(InterruptedException e){}
-    }
 
     public void ponerFicha(View v) {
         int numBoton = Arrays.asList(botones).indexOf(v.getId()); // pulsar un boton , consulta la id y tambien la posicion con num boton
@@ -152,18 +172,21 @@ public class Segundonivell extends AppCompatActivity {
             if (estado == 1) {
                 textoVictoria.setVisibility(View.VISIBLE);
                 textoVictoria.setTextColor(Color.GREEN);
+                timerTextView.setVisibility(View.INVISIBLE);
 
 
             } else {
                 textoVictoria.setVisibility(View.VISIBLE);
                 textoVictoria.setText("Ha ganado el Jugador_2");
                 textoVictoria.setTextColor(Color.GREEN);
+                timerTextView.setVisibility(View.INVISIBLE);
             }
 
 
         } else if (estado == 2) {
             textoVictoria.setVisibility(View.VISIBLE);
             textoVictoria.setText("Has empatado");
+            timerTextView.setVisibility(View.INVISIBLE);
         }
     }
 
@@ -247,6 +270,7 @@ public class Segundonivell extends AppCompatActivity {
 
 
 }
+
 
 
 

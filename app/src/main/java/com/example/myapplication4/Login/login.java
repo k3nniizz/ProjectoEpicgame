@@ -24,8 +24,6 @@ public class login extends AppCompatActivity {
     private EditText editTextCorreo, editTextPassword;
     private Button btnLogin,btninvitado;
     private TextView btnRegistrar;
-
-
     private FirebaseAuth mAuth;
     private String email = "";
     private String password = "";

@@ -87,12 +87,12 @@ public class Perfilusuario extends AppCompatActivity {
 
             }
         });
-
+        //información sobre el equipo de quien construyo la app
         AcercaDebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(Perfilusuario.this,"ACERCA DE",Toast.LENGTH_SHORT).show();
-                //información sobre el equipo de quien construyo la app
+
             }
         });
 
@@ -113,7 +113,7 @@ public class Perfilusuario extends AppCompatActivity {
         super.onStart();
     }
 
-    //se menciona con una notificacion que el jugador esta en linea
+    //se menciona con un mensaje que el jugador esta en linea
     //con un if se menciona si el el usuario tiene un valor distinto a null, aparecerá la notificación
     private void Usuarioenlinea(){
         if(user!=null){
