@@ -26,6 +26,8 @@ import com.google.firebase.database.ValueEventListener;
 
 public class Perfilusuario extends AppCompatActivity {
 
+
+
     private FirebaseAuth mAuth;
     private FirebaseUser user;
     FirebaseDatabase firebaseDatabase;

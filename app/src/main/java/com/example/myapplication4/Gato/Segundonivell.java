@@ -2,6 +2,7 @@ package com.example.myapplication4.Gato;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -18,9 +19,9 @@ import com.example.myapplication4.R;
 public class Segundonivell extends AppCompatActivity {
 
 
-    TextView timerTextView; //variable del cronometro 0:0
+    TextView timerTextView;
     int minutes=0;
-    int seconds = 60; //cambiar el tiempo del cronometro
+    int seconds = 60;
     int hours = 0;
     Button iniciar;
     TextView textoVictoria;
@@ -50,6 +51,8 @@ public class Segundonivell extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_segundonivell);
         //timertextview es igual  al id textview mostrartiempo (xml)
+        timerTextView = (TextView)findViewById(R.id.mostrarTiempo);
+
         timerTextView = (TextView)findViewById(R.id.mostrarTiempo);
 
         Timer myTimer = new Timer();
@@ -108,11 +111,9 @@ public class Segundonivell extends AppCompatActivity {
                 hours++;
                 minutes=0;
             }
-            timerTextView.setText(String.format("%d:%d", minutes, seconds));//pasar de enteror a String para mostrar al textoview
+            timerTextView.setText(String.format("%d:%d", minutes, seconds));
 
         }
-
-
 
     };
 
@@ -175,6 +176,8 @@ public class Segundonivell extends AppCompatActivity {
                 textoVictoria.setVisibility(View.VISIBLE);
                 textoVictoria.setTextColor(Color.GREEN);
                 timerTextView.setVisibility(View.INVISIBLE);
+                Intent minimenu = new Intent(this , minimenu.class);
+                startActivity(minimenu);
 
 
             } else {
@@ -182,6 +185,9 @@ public class Segundonivell extends AppCompatActivity {
                 textoVictoria.setText("Ha ganado el Jugador_2");
                 textoVictoria.setTextColor(Color.GREEN);
                 timerTextView.setVisibility(View.INVISIBLE);
+                Intent minimenu = new Intent(this , minimenu.class);
+                startActivity(minimenu);
+
             }
 
 
@@ -189,6 +195,8 @@ public class Segundonivell extends AppCompatActivity {
             textoVictoria.setVisibility(View.VISIBLE);
             textoVictoria.setText("Has empatado");
             timerTextView.setVisibility(View.INVISIBLE);
+            Intent minimenu = new Intent(this , minimenu.class);
+            startActivity(minimenu);
         }
     }
 
@@ -272,6 +280,8 @@ public class Segundonivell extends AppCompatActivity {
 
 
 }
+
+
 
 
 

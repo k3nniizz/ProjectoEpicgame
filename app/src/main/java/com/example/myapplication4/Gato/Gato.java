@@ -12,12 +12,19 @@ import android.widget.TextView;
 
 import java.util.Arrays;
 import java.util.Random;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import com.example.myapplication4.R;
 
 public class Gato extends AppCompatActivity {
 
 
+
+    TextView timerTextView;
+    int minutes=0;
+    int seconds = 0;
+    int hours = 0;
 
     Button play;
     Button iniciarT;
@@ -35,12 +42,30 @@ public class Gato extends AppCompatActivity {
     int fichasPuestas = 0;
     int turno = 1;
     int[] posGanadora = new int[]{-1,-1,-1};
-    TextView marcador0 , marcador1 , marcador2;
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gato);
+
+
+        MediaPlayer mp = MediaPlayer.create(this, R.raw.chill);
+        mp.start();
+        timerTextView = (TextView)findViewById(R.id.mostrarTiempo2);
+        Timer myTimer = new Timer();
+        myTimer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                TimerMethod();
+            }
+
+        }, 0, 1000);
+
+
+
 
 
         textoVictoria = (TextView) findViewById(R.id.textoVictoria);
@@ -54,19 +79,35 @@ public class Gato extends AppCompatActivity {
                 R.id.b7, R.id.b8, R.id.b9,
         };
 
-        // marcador0 =(TextView) findViewById(marcador0);
-//      marcador1 =(TextView) findViewById(marcador1);
-//      marcador2 =(TextView) findViewById(marcador2);
+
+
     }
 
+    private void TimerMethod()
+    {
+        this.runOnUiThread(Timer_Tick);
+    }
+
+    private Runnable Timer_Tick = new Runnable() {
+        public void run() {
+
+            seconds++;
+            if (seconds == 0)
+                timerTextView.setVisibility(View.VISIBLE);
 
 
+            if(minutes==60)
+            {
+                hours++;
+                minutes=0;
+            }
+            timerTextView.setText(String.format("%d:%d", minutes, seconds));
+
+        }
+
+    };
 
 
-    public void AudioMediaPlayer (View view){
-
-        MediaPlayer mp = MediaPlayer.create(this, R.raw.doraemon);
-        mp.start();}
 
     public void ponerFicha(View v) {
         int numBoton = Arrays.asList(botones).indexOf(v.getId()); // pulsar un boton , consulta la id y tambien la posicion con num boton
@@ -139,6 +180,8 @@ public class Gato extends AppCompatActivity {
         } else if (estado == 2) {
             textoVictoria.setVisibility(View.VISIBLE);
             textoVictoria.setText("Has empatado");
+            Intent minimenu = new Intent(this , minimenu.class);
+            startActivity(minimenu);
         }
     }
 
@@ -224,3 +267,5 @@ public class Gato extends AppCompatActivity {
 
 
 }
+
+

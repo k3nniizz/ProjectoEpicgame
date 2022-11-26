@@ -18,6 +18,8 @@ import com.example.myapplication4.R;
 
 class BreakoutEngine extends SurfaceView implements Runnable{
 
+
+
     // hilo conductor
     private Thread gameThread = null;
 
@@ -103,6 +105,8 @@ class BreakoutEngine extends SurfaceView implements Runnable{
         restart();
 
     }
+
+
 
     // Se ejecuta cuando el sistema operativo llama a onPause en el método BreakoutActivity
     public void pause() {
@@ -432,6 +436,8 @@ class BreakoutEngine extends SurfaceView implements Runnable{
                 break;
         }
 
+
         return true;
     }
+
 }

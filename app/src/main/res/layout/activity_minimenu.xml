@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Gato.minimenu">
+
+
+
+    <VideoView
+        android:id="@+id/fondovideo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:focusableInTouchMode="false"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp" />
+
+    <RelativeLayout
+        android:layout_width="409dp"
+        android:layout_height="729dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+
+        <Button
+            android:id="@+id/reintentarG"
+            android:layout_width="wrap_content"
+            android:layout_height="79dp"
+            android:layout_alignBottom="@+id/salirG1"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="128dp"
+            android:layout_marginTop="332dp"
+            android:layout_marginEnd="118dp"
+            android:layout_marginBottom="200dp"
+            android:onClick="Reintentar" />
+<!--  android:drawableTop="@drawable/button1"-->
+        <Button
+            android:id="@+id/perfilG"
+            android:layout_width="157dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="132dp"
+            android:layout_marginTop="422dp"
+            android:layout_marginEnd="120dp"
+            android:layout_marginBottom="222dp"/>
+        <!--android:drawableTop="@drawable/button2" -->
+
+        <Button
+            android:id="@+id/salirG1"
+            android:layout_width="157dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="134dp"
+            android:layout_marginTop="526dp"
+            android:layout_marginEnd="118dp"
+            android:layout_marginBottom="118dp"/>
+  <!--android:drawableTop="@drawable/button3"-->
+
+
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
