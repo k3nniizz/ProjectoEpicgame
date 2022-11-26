@@ -16,13 +16,14 @@
     <string name="title_notifications">Notifications</string>
     <!-- TODO: Remove or change this placeholder text -->
 
-    <!--String nuevos-->
+    <!--String nuevos sobre el Perfilusuario-->
     <string name="select">Seleccionar Pais</string>
     <string name="Mipuntuaciontxt">Mi Puntuacion</string>
     <string name="Correo">--</string>
     <string name="Nombreusuario">--</string>
     <string name="Menutxt">Menu</string>
     <string name="uid">--</string>
+    <string name="puntuaciontxt">--</string>
 
     <string name="Jugarbtn">Jugar</string>
     <string name="Puntuacionesbtn">Puntuaciones</string>

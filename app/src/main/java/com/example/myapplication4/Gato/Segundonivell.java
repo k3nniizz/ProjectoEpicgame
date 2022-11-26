@@ -18,7 +18,7 @@ import com.example.myapplication4.R;
 public class Segundonivell extends AppCompatActivity {
 
 
-    TextView timerTextView;
+    TextView timerTextView; //variable del cronometro 0:0
     int minutes=0;
     int seconds = 60; //cambiar el tiempo del cronometro
     int hours = 0;
@@ -49,7 +49,7 @@ public class Segundonivell extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_segundonivell);
-
+        //timertextview es igual  al id textview mostrartiempo (xml)
         timerTextView = (TextView)findViewById(R.id.mostrarTiempo);
 
         Timer myTimer = new Timer();
@@ -108,9 +108,11 @@ public class Segundonivell extends AppCompatActivity {
                 hours++;
                 minutes=0;
             }
-            timerTextView.setText(String.format("%d:%d", minutes, seconds));
+            timerTextView.setText(String.format("%d:%d", minutes, seconds));//pasar de enteror a String para mostrar al textoview
 
         }
+
+
 
     };
 

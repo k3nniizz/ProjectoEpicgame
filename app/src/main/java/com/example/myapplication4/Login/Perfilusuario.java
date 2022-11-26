@@ -3,6 +3,7 @@ package com.example.myapplication4.Login;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.annotation.NonNull;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -12,7 +13,6 @@ import android.widget.Toast;
 
 
 import com.example.myapplication4.Menu.Menu5;
-import com.example.myapplication4.Menu.menu4;
 import com.example.myapplication4.Ordenamiento.PrimerNivel;
 import com.example.myapplication4.R;
 import com.google.firebase.auth.FirebaseAuth;
@@ -33,8 +33,9 @@ public class Perfilusuario extends AppCompatActivity {
 
 
     Button Jugarbtn, Putuacionesbtn,AcercaDebtn,cerrarsesion;
-    TextView Mipuntuaciontxt,Correo,Nombreusuario,Menutxt,uid,Alias;
+    TextView Mipuntuaciontxt,Correo,Nombreusuario,Menutxt,uid,Alias,puntuaciontxt;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,6 +59,9 @@ public class Perfilusuario extends AppCompatActivity {
         Correo=findViewById(R.id.Correo);
         uid=findViewById(R.id.uid);
         Alias=findViewById(R.id.Alias);
+        puntuaciontxt=findViewById(R.id.puntuacion);
+
+
 
 
         //botones llamando a xml
@@ -67,7 +71,7 @@ public class Perfilusuario extends AppCompatActivity {
         cerrarsesion=findViewById(R.id.btnCerrar_perfil);
 
 
-        //evento de jugar
+        //evento de jugar lleva al menu
         Jugarbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -75,15 +79,23 @@ public class Perfilusuario extends AppCompatActivity {
                 //aqui debería enlazar a los fragment para llevar al sitio de los tres juegos
                 startActivity(new Intent(Perfilusuario.this, Menu5.class));
 
+
+
             }
         });
 
-        //evento de puntuaciones
+        //evento de puntuaciones el tema del ranking
         Putuacionesbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(Perfilusuario.this,"PUNTUACIONES",Toast.LENGTH_SHORT).show();
                 //aqui el tema de ver los puntajes generales de cada jugador
+
+
+
+
+
+
 
             }
         });
@@ -140,11 +152,12 @@ public class Perfilusuario extends AppCompatActivity {
 
                 //haciendo un recorrido constante para obtener los datos solicitados
                 for(DataSnapshot ds :snapshot.getChildren()){
-                    //String mipuntuacionString=""+ds.child("Puntaje").getValue();
                     String nombreusuarioString=""+ds.child("Nombre").getValue();
                  //   String UidString=""+ds.child("Uid").getValue(); //
                     String EmailString=""+ds.child("Email").getValue();
                     String AliasString=""+ds.child("Alias").getValue();
+                    String puntuacionString=""+ds.child("Puntaje").getValue();
+
 
 
                     //mostrar los datos
@@ -152,6 +165,7 @@ public class Perfilusuario extends AppCompatActivity {
                   //  uid.setText(UidString);
                     Correo.setText(EmailString);
                     Alias.setText(AliasString);
+                    puntuaciontxt.setText(puntuacionString);
 
 
 
