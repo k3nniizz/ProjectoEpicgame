@@ -1,7 +1,13 @@
 package com.example.myapplication4.Login;
 
 import android.annotation.SuppressLint;
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Intent;
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,6 +17,8 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 
 import com.example.myapplication4.Menu.Menu5;
 import com.example.myapplication4.R;
@@ -27,6 +35,11 @@ public class login extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private String email = "";
     private String password = "";
+    //notificaciones
+    private PendingIntent pendingIntent;
+    private final static String CHANNEL_ID = "NOTIFICACION";
+    private final static int NOTIFICACION_ID = 0;
+    //notifiicaciones
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -53,9 +66,13 @@ public class login extends AppCompatActivity {
                 password = editTextPassword.getText().toString();
                 if (!email.isEmpty() && !password.isEmpty()) {
                     loginUser();
+                    //metodo notificacion
+                    createNotificationChannel();
+                    notificacion1();
 
                 } else {
                     Toast.makeText(login.this, "Completa los campos", Toast.LENGTH_LONG).show();
+
                 }
 
 
@@ -66,11 +83,7 @@ public class login extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-
                 startActivity(new Intent(login.this, Menu5.class));
-
-
-
 
             }
         });
@@ -102,5 +115,34 @@ public class login extends AppCompatActivity {
 
             }
         });
+    }
+
+    //metodo notificacion
+
+    private void notificacion1(){
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(getApplicationContext(), CHANNEL_ID);
+        builder.setSmallIcon(R.drawable.ic_baseline_add_comment_24);
+        builder.setContentTitle("Epicgame");
+        builder.setContentText(editTextCorreo.getText().toString()+" se encuentra en linea");
+        builder.setColor(Color.BLUE);
+        builder.setPriority(NotificationCompat.PRIORITY_DEFAULT);
+        builder.setLights(Color.MAGENTA, 1000, 1000);
+        builder.setVibrate(new long[]{1000,1000,1000,1000,1000});
+        builder.setDefaults(Notification.DEFAULT_SOUND);
+
+        NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(getApplicationContext());
+        notificationManagerCompat.notify(NOTIFICACION_ID, builder.build());
+
+    }
+    private void createNotificationChannel(){
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+            CharSequence name = "NOtificacion";
+            NotificationChannel notificacionChannel = new NotificationChannel(CHANNEL_ID,name, NotificationManager.IMPORTANCE_DEFAULT);
+            NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+            notificationManager.createNotificationChannel(notificacionChannel);
+        }
+
+
+
     }
 }

@@ -2,7 +2,16 @@ package com.example.myapplication4.Login;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
+
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Intent;
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -43,6 +52,12 @@ public class registrar extends AppCompatActivity {
 
     private TextView btnRegistrar;
     private Button btncerrarlogin;
+
+    //notificaciones
+    private PendingIntent pendingIntent;
+    private final static String CHANNEL_ID = "NOTIFICACION";
+    private final static int NOTIFICACION_ID = 0;
+    //notifiicaciones
 
 
     //variables de los datos que vamos a registrar
@@ -164,6 +179,11 @@ public class registrar extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<Void> task2) {
                             if (task2.isSuccessful()) {
+                                // noticacion
+                                createNotificationChannel();
+                                notificacion1();
+
+                                // noticacion
                                 startActivity(new Intent(registrar.this, Perfilusuario.class)); //en esta parte se redirige en tal parte cuando se registrar
                                 finish();
                             } else {
@@ -177,6 +197,34 @@ public class registrar extends AppCompatActivity {
                 }
             }
         });
+
+    }
+        // metodo notificacion
+
+    private void notificacion1(){
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(getApplicationContext(), CHANNEL_ID);
+        builder.setSmallIcon(R.drawable.ic_baseline_add_comment_24);
+        builder.setContentTitle("Epicgame");
+        builder.setContentText(mEditTextName.getText().toString()+" se a registrado con exito");
+        builder.setColor(Color.BLUE);
+        builder.setPriority(NotificationCompat.PRIORITY_DEFAULT);
+        builder.setLights(Color.MAGENTA, 1000, 1000);
+        builder.setVibrate(new long[]{1000,1000,1000,1000,1000});
+        builder.setDefaults(Notification.DEFAULT_SOUND);
+
+        NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(getApplicationContext());
+        notificationManagerCompat.notify(NOTIFICACION_ID, builder.build());
+
+    }
+    private void createNotificationChannel(){
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+            CharSequence name = "NOtificacion";
+            NotificationChannel notificacionChannel = new NotificationChannel(CHANNEL_ID,name, NotificationManager.IMPORTANCE_DEFAULT);
+            NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+            notificationManager.createNotificationChannel(notificacionChannel);
+        }
+
+
 
     }
 
