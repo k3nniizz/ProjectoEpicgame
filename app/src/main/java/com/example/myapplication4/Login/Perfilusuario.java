@@ -248,7 +248,7 @@ public class Perfilusuario extends AppCompatActivity {
             requestPermissions(Permisosdealmacenamiento,CODIGO_SOLICITUD_ALMACENAMIENTO);
         }
     }
-
+//
 
     //COMPROBAR SI LOS PERMISOS DE ALMACENAMIENTO ESTAN HABILITADOS O NO
     private boolean ComprobarPermisoAlmacenamiento() {
