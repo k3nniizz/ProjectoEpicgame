@@ -40,7 +40,7 @@
             android:layout_height="wrap_content"
             android:background="#673AB7"
             android:text="Jugar"
-            android:textColor="#F4F4F4" />
+            android:textColor="#F4F4F4"/>
 
     </LinearLayout>
 
