@@ -158,7 +158,6 @@ public class registrar extends AppCompatActivity {
 
                     String uidString= user.getUid(); //uid se genera automaticamente (id)
 
-
                     Map<String, Object> map = new HashMap<>();
                     map.put("Uid",uidString);
                     map.put("Nombre",nombre);

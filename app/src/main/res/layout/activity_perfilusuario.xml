@@ -28,7 +28,6 @@
         </androidx.appcompat.widget.LinearLayoutCompat>
 
 
-
         <!--visualizar puntuacion-->
         <TextView
             android:id="@+id/Mipuntuaciontxt"
