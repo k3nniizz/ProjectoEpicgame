@@ -12,7 +12,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.myapplication4"
-        minSdk 21
+        minSdk 23
         targetSdk 33
         versionCode 1
         versionName "1.0"
@@ -59,10 +59,10 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
     implementation 'com.google.firebase:firebase-database:20.1.0'
     implementation 'com.google.firebase:firebase-core:21.1.1'
-    implementation 'com.google.firebase:firebase-auth'
+    implementation 'com.google.firebase:firebase-auth' //para la autenticacion
     implementation 'com.google.firebase:firebase-analytics:21.2.0'
-    implementation 'com.google.firebase:firebase-storage:20.1.0'
-    implementation 'com.squareup.picasso:picasso:2.71828'
+    implementation 'com.google.firebase:firebase-storage:20.1.0'//almacenamiento de firebase :imagenes
+    implementation 'com.squareup.picasso:picasso:2.71828' //cargar la imagen
     implementation 'de.hdodenhof:circleimageview:3.0.0'
     implementation 'com.google.android.material:material:1.8.0-alpha02'
 
