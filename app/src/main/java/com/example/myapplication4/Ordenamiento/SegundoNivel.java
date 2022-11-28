@@ -1,6 +1,7 @@
 package com.example.myapplication4.Ordenamiento;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -19,6 +20,9 @@ public class SegundoNivel extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_segundo_nivel);
+
+        MediaPlayer mp = MediaPlayer.create(this, R.raw.musicabotones);
+        mp.start();
 
         try{
             Bundle recibido = this.getIntent().getExtras();
@@ -99,6 +103,9 @@ public class SegundoNivel extends AppCompatActivity {
         }
         String cadena2 = texto.getText().toString().replaceAll(" ","");
         String mensaje;
+
+        MediaPlayer mp = MediaPlayer.create(this, R.raw.musicabotones);
+        mp.stop();
 
         if(cadena.equals(cadena2)){
             mensaje= "Ok";

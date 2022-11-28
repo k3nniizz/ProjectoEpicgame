@@ -24,6 +24,8 @@ public class PrimerNivel extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        MediaPlayer mp = MediaPlayer.create(this, R.raw.musicabotones);
+        mp.start();
 
         ArrayList<Button> listado = new ArrayList<Button>();
 
@@ -97,6 +99,9 @@ public class PrimerNivel extends AppCompatActivity {
         String cadena2 = texto.getText().toString().replaceAll(" ","");
         String mensaje;
 
+        MediaPlayer mp = MediaPlayer.create(this, R.raw.musicabotones);
+        mp.stop();
+
         if(cadena.equals(cadena2)){
             mensaje= "Ok";
             Intent in = new Intent(this,SegundoNivel.class);
@@ -104,6 +109,7 @@ public class PrimerNivel extends AppCompatActivity {
             b.putString("mensaje",mensaje);
             in.putExtras(b);
             startActivity(in);
+            finish();
         } else {
 
             mensaje = "fail";
