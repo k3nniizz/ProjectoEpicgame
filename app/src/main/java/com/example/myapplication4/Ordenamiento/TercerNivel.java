@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.view.View;
 import android.widget.TextView;
 
+import com.example.myapplication4.Login.Perfilusuario;
 import com.example.myapplication4.R;
 
 import java.util.ArrayList;
@@ -52,6 +53,14 @@ public class TercerNivel extends AppCompatActivity {
         }
         Button validar =(Button)findViewById(R.id.btValidar);
         Button automatico =(Button)findViewById(R.id.btautomatico);
+        Button perfil =(Button)findViewById(R.id.btperfil);
+
+        perfil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(TercerNivel.this, Perfilusuario.class));
+            }
+        });
 
         validar.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
@@ -88,7 +97,7 @@ public class TercerNivel extends AppCompatActivity {
         }
     }
 
-    //holadfdfdfgd
+
     public void automatizar(TextView texto, ArrayList numeros){
         String mensaje;
 

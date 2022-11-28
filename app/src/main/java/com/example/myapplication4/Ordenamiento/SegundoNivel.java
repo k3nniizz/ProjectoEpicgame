@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.myapplication4.Login.Perfilusuario;
 import com.example.myapplication4.R;
 
 import java.util.ArrayList;
@@ -70,6 +71,14 @@ public class SegundoNivel extends AppCompatActivity {
         }
         Button validar2 =(Button)findViewById(R.id.btValidar2);
         Button automatico =(Button)findViewById(R.id.btautomatico);
+        Button perfil =(Button)findViewById(R.id.btperfil);
+
+        perfil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(SegundoNivel.this, Perfilusuario.class));
+            }
+        });
 
         validar2.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
