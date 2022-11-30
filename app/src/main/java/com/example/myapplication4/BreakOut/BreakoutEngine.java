@@ -1,116 +1,145 @@
 package com.example.myapplication4.BreakOut;
 
 import android.content.Context;
+import android.content.Intent;
+import android.content.res.AssetFileDescriptor;
+import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
+import android.media.AudioManager;
+import android.media.MediaPlayer;
+import android.media.SoundPool;
+import android.os.Build;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
-import android.widget.ImageView;
 
 import com.example.myapplication4.R;
 
+import java.io.IOException;
 
 class BreakoutEngine extends SurfaceView implements Runnable{
 
 
-
-    // hilo conductor
     private Thread gameThread = null;
-
-    private ImageView imageView;
-
-    Bitmap base;
-    Bitmap pelota;
-    Bitmap fondo;
-
-
     private SurfaceHolder ourHolder;
-
-    // e juego se esta ejecutando true
+    private boolean isGameover = false;
+    private boolean isWin = false;
     private volatile boolean playing;
-
-    // juego en pausa
     private boolean paused = true;
 
-    // objeto canvas y paint
+    // A Canvas and a Paint object
     private Canvas canvas;
     private Paint paint;
-    private Paint paint2;
-    private int cound = 0;
-    private int numblokes=0;
+    private Bitmap base;
+    private Bitmap pelota;
+    private Bitmap fondo;
+    private Bitmap bloke;
 
-
-    // dimensiones del movil
+    // How wide and high is the screen?
     private int screenX;
     private int screenY;
 
-    // rastrea la velocidad de fotogramas
+    // This variable tracks the game frame rate
     private long fps;
 
-    // calcula los fps
+    // This is used to help calculate the fps
     private long timeThisFrame;
 
-
-    // objeto barra
+    // The player's bat
     Bat bat;
 
-    // objeto bola
+    // A ball
     Ball ball;
 
     // Up to 200 bricks
     Brick[] bricks = new Brick[200];
     int numBricks = 0;
 
+    // For sound FX
+    SoundPool soundPool;
+    int beep1ID = -1;
+    int beep2ID = -1;
+    int beep3ID = -1;
+    int loseLifeID = -1;
+    int explodeID = -1;
+    int sound1;
 
-    // Puntuacion
-    int score = 0;
-    int score2 = 0;
+    // The score
+    int score= 0;
 
     // Lives
     int lives = 3;
 
+    int cound = 0;
 
-
-    // Se llama al constructor cuando se crea el objeto por primera vez
+    // The constructor is called when the object is first created
     public BreakoutEngine(Context context, int x, int y) {
-        // Esto llama al constructor predeterminado para configurar el resto del objeto
+        // This calls the default constructor to setup the rest of the object
         super(context);
-        base = BitmapFactory.decodeResource(getResources(), R.drawable.bat4);
-        pelota = BitmapFactory.decodeResource(getResources(),R.drawable.meteoro5);
-        fondo = BitmapFactory.decodeResource(getResources(),R.drawable.espacio4);
-        // inicializa ourHolder y paint para los objetos
+
+        // Initialize ourHolder and paint objects
         ourHolder = getHolder();
         paint = new Paint();
-        paint2 = new Paint();
-        // Inicialice screenX y screenY porque x e y
+
+        base = BitmapFactory.decodeResource(getResources(), R.drawable.paddle2);
+        bloke = BitmapFactory.decodeResource(getResources(), R.drawable.brick);
+        pelota = BitmapFactory.decodeResource(getResources(),R.drawable.meteoro5);
+        fondo = BitmapFactory.decodeResource(getResources(),R.drawable.espacio4);
+
+        // Initialize screenX and screenY because x and y are local
         screenX = x;
         screenY = y;
 
-        // inicializa la barra
+        // Initialize the player's bat
         bat = new Bat(screenX, screenY);
 
-        // crea la bola
+        // Create a ball
         ball = new Ball();
+
+        // Load the sounds
+        // This SoundPool is deprecated but don't worry
+
+
+
+        if(Build.VERSION.SDK_INT>= Build.VERSION_CODES.LOLLIPOP){
+
+            soundPool = new SoundPool.Builder().setMaxStreams(10).build();
+
+        }else{
+
+            soundPool = new SoundPool(6, AudioManager.STREAM_MUSIC,1);
+
+        }
+
+        beep1ID=soundPool.load(getContext(), R.raw.beep1,1);
+        beep2ID=soundPool.load(getContext(), R.raw.beep2,1);
+        beep3ID=soundPool.load(getContext(), R.raw.beep3,1);
+        loseLifeID=soundPool.load(getContext(), R.raw.loselife,1);
+        explodeID=soundPool.load(getContext(), R.raw.explode,1);
+
+        MediaPlayer bk1 = MediaPlayer.create(getContext(), R.raw.game21theme);
+        bk1.start();
+
+
 
 
 
 
 
         restart();
-
     }
 
-
-
-    // Se ejecuta cuando el sistema operativo llama a onPause en el método BreakoutActivity
+    // Runs when the OS calls onPause on BreakoutActivity method
     public void pause() {
         playing = false;
+
         try {
             gameThread.join();
         } catch (InterruptedException e) {
@@ -118,326 +147,259 @@ class BreakoutEngine extends SurfaceView implements Runnable{
         }
     }
 
-    // Se ejecuta cuando el sistema operativo llama onResume en el método BreakoutActivity
+    // Runs when the OS calls onResume on BreakoutActivity method
     public void resume() {
         playing = true;
         gameThread = new Thread(this);
         gameThread.start();
+
+
     }
 
     @Override
     public void run() {
         while (playing) {
 
-
-
-            // Capturar la hora actual en milisegundos en startFrameTime
+            // Capture the current time in milliseconds in startFrameTime
             long startFrameTime = System.currentTimeMillis();
 
-
-
+            // Update the frame
+            // Update the frame
             if(!paused){
                 update();
             }
 
-            //dibuja el maco
+            // Draw the frame
             draw();
 
-            // calcula los fps
+            // Calculate the fps this frame
+            // We can then use the result to
+            // time animations and more.
             timeThisFrame = System.currentTimeMillis() - startFrameTime;
             if (timeThisFrame >= 1) {
                 fps = 1000 / timeThisFrame;
-                //tiempo= (timeThisFrame*1000)/60;
             }
 
         }
     }
 
-    int cont1=0;
-
     private void update(){
-        // Mover la barra
+        // Move the bat if required
         bat.update(fps);
 
-        // actualiza a bola
-
-        if(cont1==1){
-
-
-            ball.update(fps);
-
-        }
-
+        // Update the ball
         ball.update(fps);
 
-        // Compruebe si la bola choca con un ladrillo
+        // Check for ball colliding with a brick
         for(int i = 0; i < numBricks; i++){
 
             if (bricks[i].getVisibility()){
 
                 if(RectF.intersects(bricks[i].getRect(),ball.getRect())) {
                     bricks[i].setInvisible();
-                    cound ++;
                     ball.reverseYVelocity();
+                    cound++;
+                    //score = score + 10;
 
                     switch (lives) {
 
                         case 1: score = score+4;
-                                 break;
+                            break;
                         case 2: score = score+6;
-                                 break;
+                            break;
                         case 3: score = score+10;
-                                 break;
+                            break;
 
                         default: score = score+10;
 
                     }
-                        //score = score + 10;
 
+                    soundPool.play(explodeID,1,1,1,0,1);
                 }
             }
         }
 
-        // Compruebe si la pelota choca con la barra
+        // Check for ball colliding with bat
         if(RectF.intersects(bat.getRect(),ball.getRect())) {
             ball.setRandomXVelocity();
             ball.reverseYVelocity();
             ball.clearObstacleY(bat.getRect().top - 2);
-
+            soundPool.play(beep1ID, 1, 1, 0, 0, 1);
         }
 
-        // devuelve la pelota cuando golpea en el fondo
-        // reduce la vida
+        // Bounce the ball back when it hits the bottom of screen
+        // And deduct a life
         if(ball.getRect().bottom > screenY){
             ball.reverseYVelocity();
             ball.clearObstacleY(screenY - 2);
 
-            // pierde vidas
+            // Lose a life
             lives --;
-
+            soundPool.play(loseLifeID, 1, 1, 0, 0, 1);
 
             if(lives == 0){
+                isGameover=true;
                 paused = true;
-                restart();
-            }if(lives==2){
-                restartjugada();
+                //restart();
             }
 
         }
 
-        // Rebota la pelota cuando golpea la parte superior de la pantalla
+        // Bounce the ball back when it hits the top of screen
         if(ball.getRect().top < 0){
             ball.reverseYVelocity();
             ball.clearObstacleY(12);
-
+            soundPool.play(beep2ID, 1, 1, 0, 0, 1);
         }
 
-        // Si la pelota golpea la pared izquierda, rebota
+        // If the ball hits left wall bounce
         if(ball.getRect().left < 0){
             ball.reverseXVelocity();
             ball.clearObstacleX(2);
-
+            soundPool.play(beep3ID, 1, 1, 0, 0, 1);
         }
 
-        // Si la pelota golpea la pared derecha, rebota
+        // If the ball hits right wall bounce
         if(ball.getRect().right > screenX - 10){
             ball.reverseXVelocity();
             ball.clearObstacleX(screenX - 22);
-
+            soundPool.play(beep3ID, 1, 1, 0, 0, 1);
         }
 
-        // Pausar si la pantalla está borrada
-//       if(score == numBricks * 10){
-//            paused = true;
-//            restart();
-//        }
-        switch (numblokes){
-
-            case 0:
-                if(cound == 8){
-                    numblokes++;
-                    paused = true;
-                     cound=0;
-
-                    restart2();;
-                }
-
-                break;
-            case 1:
-                if(cound == 16){
-
-                    paused = true;
-                    cound=0;
-                    numblokes=0;
-                    restart();
-
-                }
-                break;
-
-
+        // Pause if cleared screen
+        if(cound == 12){
+            paused = true;
+            isWin=true;
         }
-
-
-
-
-
-
     }
-    void restartjugada(){
-        paused = true;
-        // pelota en punto de arranque
-        ball.reset(screenX, screenY);
-        bat.reset(screenX);
 
-
-
-
-
-
-    }
     void restart(){
-        // pelota en punto de arranque
+        // Put the ball back to the start
         ball.reset(screenX, screenY);
-        //tamaño blokes
+        cound = 0;
         int brickWidth = screenX / 6;
-        int brickHeight = (screenY / 20)-20;
+        int brickHeight = screenY / 20;
 
-        // contructor de muro de ladrillos
+        // Build a wall of bricks
         numBricks = 0;
-        //corridas
+
         for(int column = 1; column < 5; column ++ ){
-            for(int row = 3; row < 5; row ++ ){
+            for(int row = 2; row < 5; row ++ ){
                 bricks[numBricks] = new Brick(row, column, brickWidth, brickHeight);
                 numBricks ++;
-
             }
         }
 
-        // resetea puntuacion y vidas
-        //score2 = score;
+        // Reset scores and lives
         score = 0;
         lives = 3;
 
     }
 
-    void restart2(){
-        //score = score2;
-        // pelota en punto de arranque
-        ball.reset(screenX, screenY);
-        //tamaño blokes
-        int brickWidth = screenX / 6;
-        int brickHeight = (screenY / 20)-20;
-
-        // contructor de muro de ladrillos
-        numBricks = 0;
-        //corridas
-        for(int column = 1; column < 5; column ++ ){
-            for(int row = 3; row < 7; row ++ ){
-                bricks[numBricks] = new Brick(row, column, brickWidth, brickHeight);
-                numBricks ++;
-
-            }
-        }
-
-        // resetea puntuacion y vidas
-        //score = 0;
-        lives = 3;
-
-    }
-
     private void draw(){
-
+        // Make sure our drawing surface is valid or game will crash
         if (ourHolder.getSurface().isValid()) {
-
+            // Lock the canvas ready to draw
             canvas = ourHolder.lockCanvas();
 
-            // color fondo
-            canvas.drawColor(Color.argb(255,  26, 128, 182));
+
             canvas.drawBitmap(fondo,0,0,null);
 
+            // Draw everything to the screen
 
+            // Choose the brush color for drawing
+            paint.setColor(Color.argb(255,  255, 255, 255));
 
-            // colo barra y pelota
-            paint.setColor(Color.argb(255,  255, 0, 0));
-            paint2.setColor(Color.argb(255,  255, 255, 255));
-
+            // Draw the bat
             canvas.drawRect(bat.getRect(), paint);
-            canvas.drawRect(ball.getRect(),paint2);
+            canvas.drawBitmap(base,bat.getRect().left-15, bat.getRect().top, null);
 
-
-            canvas.drawBitmap(base,bat.getRect().left, bat.getRect().top, null);
-            canvas.drawBitmap(pelota,ball.getRect().left-50,ball.getRect().top-70,null);
-
-
+            // Draw the ball
+            canvas.drawBitmap(pelota,ball.getRect().left-50,ball.getRect().top-80,null);
 
 
 
-
-            // color blokes
-            paint.setColor(Color.argb(255,  249, 129, 0));
-
-            // ladrillos si son visibles
+            // Draw the bricks if visible
             for(int i = 0; i < numBricks; i++){
                 if(bricks[i].getVisibility()) {
-                    canvas.drawRect(bricks[i].getRect(), paint);
+                    canvas.drawBitmap(bloke,bricks[i].getRect().left,bricks[i].getRect().top, null);
                 }
             }
 
-
-            // color puntaje
+            // Draw the HUD
+            // Choose the brush color for drawing
             paint.setColor(Color.argb(255,  255, 255, 255));
 
-            // tamaño puntaje
+            // Draw the score
             paint.setTextSize(70);
-            canvas.drawText("Puntuacion: " + score + "   Vidas: " + lives, 10,80, paint);
-            //canvas.drawText("tiempo: " + tiempo, 10,150, paint);
-            // mostrar
+            canvas.drawText("Score: " + score + "   Lives: " + lives, 10,80, paint);
+
+
+
+            if (isGameover) {
+                paint.setStyle(Paint.Style.FILL_AND_STROKE);
+                paint.setColor(Color.RED);
+
+                canvas.drawText("Game Over!", screenX / 3, screenY / 2, paint);
+
+            }
+
+
+            // Show everything we have drawn
             ourHolder.unlockCanvasAndPost(canvas);
         }
     }
 
-    protected void imagenes (Canvas canvas){
-
-
-
-    }
-
-    // movimiento por touch
+    // The SurfaceView class implements onTouchListener
+    // So we can override this method and detect screen touches.
     @Override
     public boolean onTouchEvent(MotionEvent motionEvent) {
-
+        // Our code here
         switch (motionEvent.getAction() & MotionEvent.ACTION_MASK) {
 
-            // El jugador ha tocado la pantalla
+            // Player has touched the screen
             case MotionEvent.ACTION_DOWN:
 
                 paused = false;
 
+                if (isWin){
+
+                    Intent intent = new Intent(getContext(), Breakoutnivel2.class);
+                    Bundle b = new Bundle();
+                    b.putLong("Score", score);
+                    intent.putExtras(b);
+
+                    getContext().startActivity(intent);
+                    pause();
+
+
+                }if(isGameover){
+
+                Intent intent = new Intent(getContext(), Puntuacionbreakout.class);
+                Bundle b = new Bundle();
+                b.putLong("Score", score);
+                intent.putExtras(b);
+
+                getContext().startActivity(intent);
+
+            }
+
+
                 if(motionEvent.getX() > screenX / 2){
-
-
                     bat.setMovementState(bat.RIGHT);
                 }
                 else{
-                    if(bat.getRect().left>=20){
-                        bat.setMovementState(bat.LEFT);
-                    }else{
-
-
-                    }
-
+                    bat.setMovementState(bat.LEFT);
                 }
 
                 break;
 
-            // El jugador ha eliminado el dedo de la pantalla
+            // Player has removed finger from screen
             case MotionEvent.ACTION_UP:
                 bat.setMovementState(bat.STOPPED);
                 break;
         }
 
-
         return true;
     }
-
 }
