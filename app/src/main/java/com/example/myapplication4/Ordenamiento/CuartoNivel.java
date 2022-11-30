@@ -14,15 +14,30 @@ import com.example.myapplication4.R;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class CuartoNivel extends AppCompatActivity {
+
+    TextView timerTextView;
+    int minutes=0;
+    int seconds = 0;
+    int hours = 0;
 
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cuarto_nivel);
 
-        MediaPlayer mp = MediaPlayer.create(this, R.raw.musicabotones);
-        mp.start();
+
+        timerTextView = (TextView)findViewById(R.id.crono4);
+        Timer myTimer = new Timer();
+        myTimer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                TimerMethod();
+            }
+
+        }, 0, 1000);
 
         try{
             Bundle recibido = this.getIntent().getExtras();
@@ -94,6 +109,30 @@ public class CuartoNivel extends AppCompatActivity {
         });
 
     }
+
+    private void TimerMethod()
+    {
+        this.runOnUiThread(Timer_Tick);
+    }
+
+    private Runnable Timer_Tick = new Runnable() {
+        public void run() {
+
+            seconds++;
+            if (seconds == 0)
+                timerTextView.setVisibility(View.VISIBLE);
+
+
+            if(minutes==60)
+            {
+                hours++;
+                minutes=0;
+            }
+            timerTextView.setText(String.format("%d:%d", minutes, seconds));
+
+        }
+
+    };
     public void validarContenido2(TextView texto, ArrayList numeros){
         Collections.sort(numeros, Collections.reverseOrder());
         String cadena="";

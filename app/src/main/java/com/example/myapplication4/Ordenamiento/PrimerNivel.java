@@ -14,10 +14,16 @@ import com.example.myapplication4.Login.login;
 import com.example.myapplication4.R;
 import java.util.ArrayList;
 import java.util.Collections;
-
+import java.util.Timer;
+import java.util.TimerTask;
 
 
 public class PrimerNivel extends AppCompatActivity {
+
+    TextView timerTextView;
+    int minutes=0;
+    int seconds = 0;
+    int hours = 0;
 
 
     @Override
@@ -26,6 +32,15 @@ public class PrimerNivel extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         MediaPlayer mp = MediaPlayer.create(this, R.raw.musicabotones);
         mp.start();
+        timerTextView = (TextView)findViewById(R.id.crono);
+        Timer myTimer = new Timer();
+        myTimer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                TimerMethod();
+            }
+
+        }, 0, 1000);
 
         ArrayList<Button> listado = new ArrayList<Button>();
 
@@ -41,6 +56,8 @@ public class PrimerNivel extends AppCompatActivity {
         listado.add((Button) findViewById(R.id.bt10));
         listado.add((Button) findViewById(R.id.bt11));
         listado.add((Button) findViewById(R.id.bt12));
+
+
 
         final TextView texto = (TextView)findViewById(R.id.texto);
 
@@ -59,15 +76,21 @@ public class PrimerNivel extends AppCompatActivity {
                 }
             });
         }
+
+
         Button validar =(Button)findViewById(R.id.btValidar);
         Button automatico =(Button)findViewById(R.id.btautomatico);
         Button perfil =(Button)findViewById(R.id.btperfil);
 
 
 
+
         perfil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                mp.stop();
+
                 startActivity(new Intent(PrimerNivel.this,Perfilusuario.class));
             }
         });
@@ -83,10 +106,31 @@ public class PrimerNivel extends AppCompatActivity {
 
     }
 
-    public void AudioMediaPlayer (View view) {
-        MediaPlayer mp = MediaPlayer.create(this, R.raw.musicabotones);
-        mp.start();
+    private void TimerMethod()
+    {
+        this.runOnUiThread(Timer_Tick);
     }
+
+    private Runnable Timer_Tick = new Runnable() {
+        public void run() {
+
+            seconds++;
+            if (seconds == 0)
+                timerTextView.setVisibility(View.VISIBLE);
+
+
+            if(minutes==60)
+            {
+                hours++;
+                minutes=0;
+            }
+            timerTextView.setText(String.format("%d:%d", minutes, seconds));
+
+        }
+
+    };
+
+
 
 
     public void validarContenido(TextView texto, ArrayList numeros){
@@ -99,8 +143,8 @@ public class PrimerNivel extends AppCompatActivity {
         String cadena2 = texto.getText().toString().replaceAll(" ","");
         String mensaje;
 
-        MediaPlayer mp = MediaPlayer.create(this, R.raw.musicabotones);
-        mp.stop();
+
+
 
         if(cadena.equals(cadena2)){
             mensaje= "Ok";
@@ -111,11 +155,10 @@ public class PrimerNivel extends AppCompatActivity {
             startActivity(in);
             finish();
         } else {
-
             mensaje = "fail";
-
             finish();
             startActivity(getIntent());
+
         }
     }
     String cadena3 = "";

@@ -12,11 +12,22 @@
         android:orientation="vertical"
         android:background="@drawable/parafondo1"
         >
+
+        <TextView
+            android:id="@+id/crono4"
+            android:layout_width="130dp"
+            android:layout_height="72dp"
+            android:text="00:00"
+            android:textColor="#DD2C00"
+            android:textSize="34sp"
+            android:layout_marginHorizontal="50dp"
+            android:layout_marginTop="6dp"
+            android:textStyle="bold|italic" />
         <LinearLayout
             android:id="@+id/ln1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="150dp"
+            android:layout_marginTop="50dp"
             android:orientation="horizontal">
 
             <Button
@@ -268,7 +279,7 @@
             android:layout_width="130dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="140dp"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="90dp"
             android:backgroundTint="#EF6C00"
             android:text="Siguiente"
             android:textColor="#6200EA" />
@@ -277,7 +288,7 @@
             android:layout_width="171dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="118dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="5dp"
             android:backgroundTint="#EF6C00"
             android:text="automatico"
             android:textColor="#6200EA" />
@@ -291,7 +302,7 @@
         android:layout_width="268dp"
         android:layout_height="69dp"
         android:layout_marginHorizontal="100dp"
-        android:layout_marginTop="450dp"
+        android:layout_marginTop="440dp"
         android:backgroundTint="#9E9D24"
         android:textAppearance="@style/TextAppearance.AppCompat.Menu"
         android:textColor="#6200EA"

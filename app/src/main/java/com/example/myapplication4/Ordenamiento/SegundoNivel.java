@@ -14,22 +14,39 @@ import com.example.myapplication4.R;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class SegundoNivel extends AppCompatActivity {
+
+    TextView timerTextView;
+    int minutes=0;
+    int seconds = 0;
+    int hours = 0;
 
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_segundo_nivel);
+        timerTextView = (TextView)findViewById(R.id.crono2);
+        Timer myTimer = new Timer();
+        myTimer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                TimerMethod();
+            }
 
-        MediaPlayer mp = MediaPlayer.create(this, R.raw.musicabotones);
-        mp.start();
+        }, 0, 1000);
+
 
         try{
             Bundle recibido = this.getIntent().getExtras();
             final String mensaje = recibido.getString("mensaje");
+
         }
         catch (Exception e)
         {}
+
+
 
         ArrayList<Button> listado = new ArrayList<Button>();
 
@@ -104,8 +121,7 @@ public class SegundoNivel extends AppCompatActivity {
         String cadena2 = texto.getText().toString().replaceAll(" ","");
         String mensaje;
 
-        MediaPlayer mp = MediaPlayer.create(this, R.raw.musicabotones);
-        mp.stop();
+
 
         if(cadena.equals(cadena2)){
             mensaje= "Ok";
@@ -122,7 +138,31 @@ public class SegundoNivel extends AppCompatActivity {
             startActivity(getIntent());
         }
     }
-    //hola
+
+    private void TimerMethod()
+    {
+        this.runOnUiThread(Timer_Tick);
+    }
+
+    private Runnable Timer_Tick = new Runnable() {
+        public void run() {
+
+            seconds++;
+            if (seconds == 0)
+                timerTextView.setVisibility(View.VISIBLE);
+
+
+            if(minutes==60)
+            {
+                hours++;
+                minutes=0;
+            }
+            timerTextView.setText(String.format("%d:%d", minutes, seconds));
+
+        }
+
+    };
+
     public void automatizar(TextView texto, ArrayList numeros){
         String mensaje;
 

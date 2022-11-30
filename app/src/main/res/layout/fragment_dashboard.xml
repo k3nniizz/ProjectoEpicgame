@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/menufondoord"
     tools:context=".Menu.ui.dashboard.DashboardFragment">
 
     <LinearLayout
@@ -13,6 +14,7 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+
         app:layout_constraintTop_toTopOf="@+id/linearLayout4">
 
         <ImageView
@@ -31,16 +33,19 @@
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
 
         <Button
             android:id="@+id/Btn_Or"
             android:layout_width="112dp"
             android:layout_height="wrap_content"
-            android:background="#673AB7"
+            android:layout_marginTop="400dp"
+            android:backgroundTint="#D84315"
             android:text="Jugar"
-            android:textColor="#F4F4F4"/>
+            android:textColor="#F4F4F4" />
 
     </LinearLayout>
 

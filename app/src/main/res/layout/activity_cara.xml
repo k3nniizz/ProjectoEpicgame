@@ -18,5 +18,18 @@
         tools:layout_editor_absoluteX="95dp"
         tools:layout_editor_absoluteY="165dp" />
 
+    <Button
+        android:id="@+id/btfinal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="250dp"
+        android:layout_marginTop="400dp"
+        android:backgroundTint="#9E9D24"
+        android:text="FINALIZAR"
+        android:textColor="#6200EA"
+        tools:layout_editor_absoluteX="149dp"
+        tools:layout_editor_absoluteY="558dp"
+        tools:ignore="MissingConstraints" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

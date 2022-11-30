@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/imgmenugato"
     tools:context=".Menu.ui.gatoFragment">
 
     <LinearLayout
@@ -15,7 +16,7 @@
         <ImageView
             android:id="@+id/imageView4"
             android:layout_width="match_parent"
-            android:layout_height="329dp"
+            android:layout_height="175dp"
             android:src="@drawable/titulogame2" />
 
         <LinearLayout
@@ -28,7 +29,8 @@
                 android:id="@+id/btn_gato"
                 android:layout_width="112dp"
                 android:layout_height="wrap_content"
-                android:background="#673AB7"
+                android:backgroundTint="#D84315"
+                android:layout_marginTop="230dp"
                 android:text="Jugar"
                 android:textColor="#F4F4F4" />
 

@@ -15,15 +15,30 @@ import com.example.myapplication4.R;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class TercerNivel extends AppCompatActivity {
+
+    TextView timerTextView;
+    int minutes=0;
+    int seconds = 0;
+    int hours = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tercer_nivel);
+        timerTextView = (TextView)findViewById(R.id.crono3);
+        Timer myTimer = new Timer();
+        myTimer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                TimerMethod();
+            }
 
-        MediaPlayer mp = MediaPlayer.create(this, R.raw.musicabotones);
-        mp.start();
+        }, 0, 1000);
+
 
         ArrayList<Button> listado = new ArrayList<Button>();
 
@@ -75,6 +90,29 @@ public class TercerNivel extends AppCompatActivity {
                 automatizar(texto, numeros);}
         });
     }
+    private void TimerMethod()
+    {
+        this.runOnUiThread(Timer_Tick);
+    }
+
+    private Runnable Timer_Tick = new Runnable() {
+        public void run() {
+
+            seconds++;
+            if (seconds == 0)
+                timerTextView.setVisibility(View.VISIBLE);
+
+
+            if(minutes==60)
+            {
+                hours++;
+                minutes=0;
+            }
+            timerTextView.setText(String.format("%d:%d", minutes, seconds));
+
+        }
+
+    };
 
     public void validarContenido(TextView texto, ArrayList numeros){
         Collections.sort(numeros, Collections.reverseOrder());
@@ -85,8 +123,6 @@ public class TercerNivel extends AppCompatActivity {
         String cadena2 = texto.getText().toString().replaceAll(" ","");
         String mensaje;
 
-        MediaPlayer mp = MediaPlayer.create(this, R.raw.musicabotones);
-        mp.stop();
 
         if(cadena.equals(cadena2)){
             mensaje= "Ok";
