@@ -11,6 +11,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.VideoView;
 
+import com.example.myapplication4.Login.Perfilusuario;
+import com.example.myapplication4.Menu.Menu5;
 import com.example.myapplication4.databinding.ActivityMinimenuBinding;
 import com.example.myapplication4.R;
 
@@ -42,6 +44,9 @@ public class minimenu extends AppCompatActivity {
 
         fondoVideo.setVideoURI(uri);
         fondoVideo.start();
+
+
+
         fondoVideo.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
             @Override
             public void onPrepared(MediaPlayer mediaPlayer)
@@ -95,6 +100,14 @@ public class minimenu extends AppCompatActivity {
 
     public void Reintentar(View view) {
         Intent reintentarnivel = new Intent(this , Gato.class);
+        startActivity(reintentarnivel);
+    }
+    public void Perfilgato(View view) {
+        Intent reintentarnivel = new Intent(this , Perfilusuario.class);
+        startActivity(reintentarnivel);
+    }
+    public void Salirgato(View view) {
+        Intent reintentarnivel = new Intent(this , Menu5.class);
         startActivity(reintentarnivel);
     }
 

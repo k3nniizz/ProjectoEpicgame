@@ -31,6 +31,7 @@ import android.widget.Toast;
 import com.example.myapplication4.Menu.Menu5;
 import com.example.myapplication4.Ordenamiento.PrimerNivel;
 import com.example.myapplication4.R;
+import com.example.myapplication4.Ranking.Ranking;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -164,7 +165,7 @@ public class Perfilusuario extends AppCompatActivity {
                 Toast.makeText(Perfilusuario.this,"PUNTUACIONES",Toast.LENGTH_SHORT).show();
                 //aqui el tema de ver los puntajes generales de cada jugador
 
-
+                startActivity(new Intent(Perfilusuario.this, Ranking.class));
 
 
 

@@ -28,6 +28,7 @@
 
         <Button
             android:id="@+id/reintentarG"
+            android:text="Reintentar"
             android:layout_width="wrap_content"
             android:layout_height="79dp"
             android:layout_alignBottom="@+id/salirG1"
@@ -42,6 +43,7 @@
 <!--  android:drawableTop="@drawable/button1"-->
         <Button
             android:id="@+id/perfilG"
+            android:text="Perfil"
             android:layout_width="157dp"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
@@ -51,11 +53,14 @@
             android:layout_marginStart="132dp"
             android:layout_marginTop="422dp"
             android:layout_marginEnd="120dp"
-            android:layout_marginBottom="222dp"/>
+            android:layout_marginBottom="222dp"
+            android:onClick="Perfilgato"/>
+
         <!--android:drawableTop="@drawable/button2" -->
 
         <Button
             android:id="@+id/salirG1"
+            android:text="Salir"
             android:layout_width="157dp"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
@@ -65,7 +70,8 @@
             android:layout_marginStart="134dp"
             android:layout_marginTop="526dp"
             android:layout_marginEnd="118dp"
-            android:layout_marginBottom="118dp"/>
+            android:layout_marginBottom="118dp"
+            android:onClick="Salirgato"/>
   <!--android:drawableTop="@drawable/button3"-->
 
 

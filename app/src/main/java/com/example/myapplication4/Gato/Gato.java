@@ -252,7 +252,16 @@ public class Gato extends AppCompatActivity {
                 b.setTextColor(Color.GREEN);
 
             }
+
         }
+        else if (Math.abs(tablero[6]+tablero[7]+tablero[8])==3) {
+            posGanadora = new int[]{6, 7, 8};
+            nuevoEstado = 1 * turno;
+            for (int i =6; i<9;i++){
+                Button b = (Button) findViewById(botones[i]);
+                b.setTextColor(Color.GREEN);
+
+            }}
         else if(fichasPuestas == 9){
             nuevoEstado = 2;
 
