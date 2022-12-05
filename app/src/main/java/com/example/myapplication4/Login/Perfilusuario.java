@@ -63,6 +63,10 @@ public class Perfilusuario extends AppCompatActivity {
     FirebaseDatabase firebaseDatabase;
     DatabaseReference mDatabase;
 
+    //Para que salga un dialogo (Button AcercaDe)-->INFO de quién realizó la app
+    Dialog dialog;
+
+
 
     private StorageReference ReferenciaDeAlmacenamiento;
     private String RutaAlmacenamiento="FotosDePerfil/*"; //Aqui se crea la carpeta en STORAGE, puede ser cualquier nombre
@@ -95,12 +99,15 @@ public class Perfilusuario extends AppCompatActivity {
         /*JUGADORES*/
         mDatabase=firebaseDatabase.getReference("Usuarios");
 
+        //la clase donde se va hacer el llamado
+        dialog=new Dialog(Perfilusuario.this);
+
         //Se inicializa el storage de la base de datos
         ReferenciaDeAlmacenamiento=FirebaseStorage.getInstance().getReference();
         //Se inicializa los permisos de almacenamiento
         Permisosdealmacenamiento=new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE};
 
-        //visualizar la info de la base de datos en el perfil de usuario
+
 
 
         //imagen xml
@@ -110,9 +117,9 @@ public class Perfilusuario extends AppCompatActivity {
         Nombreusuario=findViewById(R.id.Nombreusuario);
         Menutxt=findViewById(R.id.Menutxt);
         Correo=findViewById(R.id.Correo);
-        uid=findViewById(R.id.uid);
+       // uid=findViewById(R.id.uid);
         Alias=findViewById(R.id.Alias);
-        puntuaciontxt=findViewById(R.id.puntuacion);
+        puntuaciontxt=findViewById(R.id.puntuacion);//lo que se verá reflejado en perfilusuario (arriba de la imagen)
 
 
 
@@ -154,6 +161,7 @@ public class Perfilusuario extends AppCompatActivity {
         CambiarPassbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                startActivity(new Intent(Perfilusuario.this,CambiarPass.class));
                 Toast.makeText(Perfilusuario.this,"Cambiar contraseña",Toast.LENGTH_SHORT).show();
             }
         });
@@ -177,7 +185,8 @@ public class Perfilusuario extends AppCompatActivity {
         AcercaDebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(Perfilusuario.this,"ACERCA DE",Toast.LENGTH_SHORT).show();
+                //Toast.makeText(Perfilusuario.this,"ACERCA DE",Toast.LENGTH_SHORT).show();
+                AcercaDe();
 
             }
         });
@@ -193,6 +202,28 @@ public class Perfilusuario extends AppCompatActivity {
 
 
     }
+ //Button del Miperfil AcercaDe-->INFO
+    private void AcercaDe() {
+        TextView Desarrolladopor,NombresDesarrollador;
+        Button OK;
+
+        dialog.setContentView(R.layout.acerca_de);
+
+        Desarrolladopor=dialog.findViewById(R.id.DesarrolladorPORTXT);
+        NombresDesarrollador=dialog.findViewById(R.id.IntegrantesTXT);
+        OK=dialog.findViewById(R.id.OK);
+
+        OK.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
+        dialog.show();
+
+    }
+
     //METODO EDITAR DATOS
     private void EditarDatos() {
         //definido el arreglo con las opciones que podemos elegir
@@ -388,7 +419,7 @@ public class Perfilusuario extends AppCompatActivity {
                  //   String UidString=""+ds.child("Uid").getValue(); //
                     String EmailString=""+ds.child("Email").getValue();
                     String AliasString=""+ds.child("Alias").getValue();
-                    String puntuacionString=""+ds.child("Puntaje").getValue();
+                    String puntuacionString=""+ds.child("Score").getValue();
                     String imagen=""+ds.child("Imagen").getValue();
 
 
@@ -397,7 +428,8 @@ public class Perfilusuario extends AppCompatActivity {
                     //  uid.setText(UidString);
                     Correo.setText("Correo: "+EmailString);
                     Alias.setText("Alias: "+AliasString);
-                    puntuaciontxt.setText(puntuacionString);
+                    puntuaciontxt.setText("Score: "+puntuacionString);
+
 
                     try{
                         Picasso.get().load(imagen).into(imagenPerfil);

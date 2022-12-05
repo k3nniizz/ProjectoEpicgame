@@ -43,8 +43,25 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_menu3">menu3</string>
-    
+
     <string name="NombreJugador">Nombre</string>
     <string name="CorreoJugador">Correo</string>
     <string name="PuntajeJugador">Puntaje</string>
+
+    <!--cambiar contraseña-->
+    <string name="ActualPass">Contraseña actual</string>
+    <string name="NuevaPass">Nueva contraseña</string>
+    <string name="CambiarPass">Cambiar contraseña</string>
+
+    <!--AcercaDe-->
+    <string name="DesarrolladorPORTXT">Desarrollado Por:</string>
+    <string name="IntegrantesTXT">
+        Claudio Silva\n
+        Oscar Ampuero\n
+        Lucas Becker\n
+        Humberto Oyarzo</string>
+    <string name="ok">OK</string>
+
+
+
 </resources>
