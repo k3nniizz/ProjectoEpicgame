@@ -21,6 +21,7 @@
         android:layout_height="729dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0">
@@ -28,7 +29,6 @@
 
         <Button
             android:id="@+id/reintentarG"
-            android:text="Reintentar"
             android:layout_width="wrap_content"
             android:layout_height="79dp"
             android:layout_alignBottom="@+id/salirG1"
@@ -39,11 +39,11 @@
             android:layout_marginTop="332dp"
             android:layout_marginEnd="118dp"
             android:layout_marginBottom="200dp"
-            android:onClick="Reintentar" />
-<!--  android:drawableTop="@drawable/button1"-->
+            android:onClick="Reintentar"
+            android:text="Reintentar" />
+        <!--  android:drawableTop="@drawable/button1"-->
         <Button
             android:id="@+id/perfilG"
-            android:text="Perfil"
             android:layout_width="157dp"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
@@ -54,13 +54,13 @@
             android:layout_marginTop="422dp"
             android:layout_marginEnd="120dp"
             android:layout_marginBottom="222dp"
-            android:onClick="Perfilgato"/>
+            android:onClick="Perfilgato"
+            android:text="Perfil" />
 
         <!--android:drawableTop="@drawable/button2" -->
 
         <Button
             android:id="@+id/salirG1"
-            android:text="Salir"
             android:layout_width="157dp"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
@@ -71,8 +71,9 @@
             android:layout_marginTop="526dp"
             android:layout_marginEnd="118dp"
             android:layout_marginBottom="118dp"
-            android:onClick="Salirgato"/>
-  <!--android:drawableTop="@drawable/button3"-->
+            android:onClick="Salirgato"
+            android:text="Salir" />
+        <!--android:drawableTop="@drawable/button3"-->
 
 
     </RelativeLayout>
