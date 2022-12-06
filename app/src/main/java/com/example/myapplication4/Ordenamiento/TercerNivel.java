@@ -155,4 +155,9 @@ public class TercerNivel extends AppCompatActivity {
         }
 
     }
+    @Override
+    protected void onPause() {
+        super.onPause();
+        mp.release();
+    }
 }

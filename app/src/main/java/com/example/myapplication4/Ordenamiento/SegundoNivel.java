@@ -180,4 +180,10 @@ public class SegundoNivel extends AppCompatActivity {
 
 
     }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        mp.release();
+    }
 }
