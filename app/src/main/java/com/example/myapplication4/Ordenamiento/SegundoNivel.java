@@ -22,11 +22,15 @@ public class SegundoNivel extends AppCompatActivity {
     TextView timerTextView;
     int minutes=0;
     int seconds = 0;
+    MediaPlayer mp;
 
 
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_segundo_nivel);
+
+        mp = MediaPlayer.create(this, R.raw.musicabotones);
+        mp.start();
         timerTextView = (TextView)findViewById(R.id.crono2);
         Timer myTimer = new Timer();
         myTimer.schedule(new TimerTask() {
@@ -120,6 +124,7 @@ public class SegundoNivel extends AppCompatActivity {
         }
         String cadena2 = texto.getText().toString().replaceAll(" ","");
         String mensaje;
+        mp.release();
 
 
 

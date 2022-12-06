@@ -23,7 +23,7 @@ public class PrimerNivel extends AppCompatActivity {
     TextView timerTextView;
     int minutes=0;
     int seconds = 0;
-
+    MediaPlayer mp;
     int puntaje = 0;
 
 
@@ -31,8 +31,11 @@ public class PrimerNivel extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        MediaPlayer mp = MediaPlayer.create(this, R.raw.musicabotones);
+
+        mp = MediaPlayer.create(this, R.raw.musicabotones);
         mp.start();
+
+
         timerTextView = (TextView)findViewById(R.id.crono);
         Timer myTimer = new Timer();
         myTimer.schedule(new TimerTask() {
@@ -141,6 +144,7 @@ public class PrimerNivel extends AppCompatActivity {
             cadena+=(int)num+"";
         }
 
+        mp.release();
         String cadena2 = texto.getText().toString().replaceAll(" ","");
         String mensaje;
 
