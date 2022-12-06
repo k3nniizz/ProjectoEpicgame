@@ -64,6 +64,8 @@ public class Gato extends AppCompatActivity {
             }
 
         }, 0, 1000);
+        puntajeg=(TextView) findViewById(R.id.puntajeboludin1);
+        puntajeg.setText(""+puntitos);
 
 
 
@@ -88,57 +90,57 @@ public class Gato extends AppCompatActivity {
 
     }
 
-//    private void setPuntaje(){
-//
-//
-//
-//        if (seconds >=0 && seconds <=10){
-//
-//            puntitos = 500;
-//            puntitos = puntsave;
-//        }
-//        else if(seconds >=11 && seconds <=20) {
-//
-//            puntitos = 400;
-//            puntitos = puntsave;
-//
-//        }
-//
-//        else if(seconds >=21 && seconds <=30) {
-//
-//            puntitos = 300;
-//            puntitos = puntsave;
-//
-//
-//        }
-//        else if(seconds >=31 && seconds <=40) {
-//
-//            puntitos = 200;
-//            puntitos = puntsave;
-//
-//        }
-//
-//        else if(seconds >=41 && seconds <=50) {
-//
-//            puntitos = 100;
-//            puntitos = puntsave;
-//
-//        }
-//
-//        else if(seconds >=50 && seconds <60) {
-//
-//            puntitos = 50;
-//            puntitos = puntsave;
-//        }
-//
-//        else if(seconds >=60){
-//
-//            puntitos = 0;
-//        }
-//
-//
-//
-//    }
+    private void setPuntaje(){
+
+
+
+        if (seconds >=0 && seconds <=10){
+
+            puntitos = 500;
+            puntitos = puntsave;
+        }
+        else if(seconds >=11 && seconds <=20) {
+
+            puntitos = 400;
+            puntitos = puntsave;
+
+        }
+
+        else if(seconds >=21 && seconds <=30) {
+
+            puntitos = 300;
+            puntitos = puntsave;
+
+
+        }
+        else if(seconds >=31 && seconds <=40) {
+
+            puntitos = 200;
+            puntitos = puntsave;
+
+        }
+
+        else if(seconds >=41 && seconds <=50) {
+
+            puntitos = 100;
+            puntitos = puntsave;
+
+        }
+
+        else if(seconds >=50 && seconds <60) {
+
+            puntitos = 50;
+            puntitos = puntsave;
+        }
+
+        else if(seconds >=60){
+
+            puntitos = 0;
+        }
+
+
+
+    }
 
 
 
