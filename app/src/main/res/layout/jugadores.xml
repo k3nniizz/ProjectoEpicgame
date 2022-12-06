@@ -19,8 +19,8 @@
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/ImageJugador"
             android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@drawable/rubik"/>
+            android:layout_height="100dp"/>
+            <!--android:src="@drawable/rubik"/>-->
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"

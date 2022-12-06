@@ -39,10 +39,10 @@
             android:gravity="center"/>
 
         <!--puntacion realtime-->
+        <!--  android:text="@string/puntuaciontxt"-->
         <TextView
             android:id="@+id/puntuacion"
             android:layout_marginTop="10dp"
-            android:text="@string/puntuaciontxt"
             android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>

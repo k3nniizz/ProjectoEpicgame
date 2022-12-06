@@ -23,15 +23,19 @@ public class PrimerNivel extends AppCompatActivity {
     TextView timerTextView;
     int minutes=0;
     int seconds = 0;
-    int hours = 0;
+    MediaPlayer mp;
+    int puntaje = 0;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        MediaPlayer mp = MediaPlayer.create(this, R.raw.musicabotones);
+
+        mp = MediaPlayer.create(this, R.raw.musicabotones);
         mp.start();
+
+
         timerTextView = (TextView)findViewById(R.id.crono);
         Timer myTimer = new Timer();
         myTimer.schedule(new TimerTask() {
@@ -112,6 +116,7 @@ public class PrimerNivel extends AppCompatActivity {
     }
 
     private Runnable Timer_Tick = new Runnable() {
+
         public void run() {
 
             seconds++;
@@ -119,10 +124,10 @@ public class PrimerNivel extends AppCompatActivity {
                 timerTextView.setVisibility(View.VISIBLE);
 
 
-            if(minutes==60)
+            if(seconds==60)
             {
-                hours++;
-                minutes=0;
+                minutes++;
+                seconds=0;
             }
             timerTextView.setText(String.format("%d:%d", minutes, seconds));
 
@@ -130,6 +135,57 @@ public class PrimerNivel extends AppCompatActivity {
 
     };
 
+//    private void setPuntaje(){
+//
+//
+//
+//        if (seconds >=0 && seconds <=10){
+//
+//            puntaje = 500;
+//            puntitos = puntsave;
+//        }
+//        else if(seconds >=11 && seconds <=20) {
+//
+//            puntitos = 400;
+//            puntitos = puntsave;
+//
+//        }
+//
+//        else if(seconds >=21 && seconds <=30) {
+//
+//            puntitos = 300;
+//            puntitos = puntsave;
+//
+//
+//        }
+//        else if(seconds >=31 && seconds <=40) {
+//
+//            puntitos = 200;
+//            puntitos = puntsave;
+//
+//        }
+//
+//        else if(seconds >=41 && seconds <=50) {
+//
+//            puntitos = 100;
+//            puntitos = puntsave;
+//
+//        }
+//
+//        else if(seconds >=50 && seconds <=60) {
+//
+//            puntitos = 50;
+//            puntitos = puntsave;
+//        }
+//
+//        else if(seconds >= 60){
+//
+//            puntitos = 0;
+//        }
+//
+//
+//
+//    }
 
 
 
@@ -140,6 +196,7 @@ public class PrimerNivel extends AppCompatActivity {
             cadena+=(int)num+"";
         }
 
+        mp.release();
         String cadena2 = texto.getText().toString().replaceAll(" ","");
         String mensaje;
 

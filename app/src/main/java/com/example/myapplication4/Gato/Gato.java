@@ -19,12 +19,13 @@ import com.example.myapplication4.R;
 
 public class Gato extends AppCompatActivity {
 
-
-
+    TextView puntajeg;
     TextView timerTextView;
     int minutes=0;
     int seconds = 0;
     int hours = 0;
+    int puntitos = 500;
+    int puntsave = 0;
 
     Button play;
     Button iniciarT;
@@ -70,6 +71,11 @@ public class Gato extends AppCompatActivity {
 
         textoVictoria = (TextView) findViewById(R.id.textoVictoria);
         textoVictoria.setVisibility(View.INVISIBLE);
+        puntajeg = (TextView)findViewById(R.id.puntajeboludin1);
+        puntajeg.setText(puntitos);
+
+
+
 
 
 
@@ -82,6 +88,61 @@ public class Gato extends AppCompatActivity {
 
 
     }
+
+    private void setPuntaje(){
+
+
+
+        if (seconds >=0 && seconds <=10){
+
+            puntitos = 500;
+            puntitos = puntsave;
+        }
+        else if(seconds >=11 && seconds <=20) {
+
+            puntitos = 400;
+            puntitos = puntsave;
+
+        }
+
+        else if(seconds >=21 && seconds <=30) {
+
+            puntitos = 300;
+            puntitos = puntsave;
+
+
+        }
+        else if(seconds >=31 && seconds <=40) {
+
+            puntitos = 200;
+            puntitos = puntsave;
+
+        }
+
+        else if(seconds >=41 && seconds <=50) {
+
+            puntitos = 100;
+            puntitos = puntsave;
+
+        }
+
+        else if(seconds >=50 && seconds <=60) {
+
+            puntitos = 50;
+            puntitos = puntsave;
+        }
+
+        else if(seconds >= 60){
+
+            puntitos = 0;
+        }
+
+
+
+    }
+
+
+
 
     private void TimerMethod()
     {
@@ -96,10 +157,10 @@ public class Gato extends AppCompatActivity {
                 timerTextView.setVisibility(View.VISIBLE);
 
 
-            if(minutes==60)
+            if(seconds==60)
             {
-                hours++;
-                minutes=0;
+                minutes++;
+                seconds=0;
             }
             timerTextView.setText(String.format("%d:%d", minutes, seconds));
 

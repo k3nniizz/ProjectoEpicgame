@@ -64,7 +64,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-storage:20.1.0'//almacenamiento de firebase :imagenes
     implementation 'com.squareup.picasso:picasso:2.71828' //cargar la imagen
     implementation 'de.hdodenhof:circleimageview:3.0.0'
-    implementation 'com.google.android.material:material:1.8.0-alpha02'
+    implementation 'com.google.android.material:material:1.8.0-alpha03'
 
 
     /* implementation 'com.android.support:percent'  /*para utilizar los PercentRelativeLayout y PercentFrameLayout*/
