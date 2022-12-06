@@ -19,8 +19,6 @@ import com.example.myapplication4.R;
 
 public class Gato extends AppCompatActivity {
 
-
-
     TextView timerTextView;
     int minutes=0;
     int seconds = 0;
@@ -35,7 +33,6 @@ public class Gato extends AppCompatActivity {
             0, 0, 0,
             0, 0, 0,
             0, 0, 0
-
 
     };
     int estado = 0;

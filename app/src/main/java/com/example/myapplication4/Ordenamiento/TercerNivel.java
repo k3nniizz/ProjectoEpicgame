@@ -23,7 +23,6 @@ public class TercerNivel extends AppCompatActivity {
     TextView timerTextView;
     int minutes=0;
     int seconds = 0;
-    int hours = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -103,10 +102,10 @@ public class TercerNivel extends AppCompatActivity {
                 timerTextView.setVisibility(View.VISIBLE);
 
 
-            if(minutes==60)
+            if(seconds==60)
             {
-                hours++;
-                minutes=0;
+                minutes++;
+                seconds=0;
             }
             timerTextView.setText(String.format("%d:%d", minutes, seconds));
 

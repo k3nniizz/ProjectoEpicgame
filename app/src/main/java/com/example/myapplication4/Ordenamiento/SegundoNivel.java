@@ -22,7 +22,7 @@ public class SegundoNivel extends AppCompatActivity {
     TextView timerTextView;
     int minutes=0;
     int seconds = 0;
-    int hours = 0;
+
 
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -152,10 +152,10 @@ public class SegundoNivel extends AppCompatActivity {
                 timerTextView.setVisibility(View.VISIBLE);
 
 
-            if(minutes==60)
+            if(seconds==60)
             {
-                hours++;
-                minutes=0;
+                minutes++;
+                seconds=0;
             }
             timerTextView.setText(String.format("%d:%d", minutes, seconds));
 

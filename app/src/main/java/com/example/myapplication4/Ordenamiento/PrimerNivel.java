@@ -23,7 +23,8 @@ public class PrimerNivel extends AppCompatActivity {
     TextView timerTextView;
     int minutes=0;
     int seconds = 0;
-    int hours = 0;
+
+    int puntaje = 0;
 
 
     @Override
@@ -112,6 +113,7 @@ public class PrimerNivel extends AppCompatActivity {
     }
 
     private Runnable Timer_Tick = new Runnable() {
+
         public void run() {
 
             seconds++;
@@ -119,17 +121,16 @@ public class PrimerNivel extends AppCompatActivity {
                 timerTextView.setVisibility(View.VISIBLE);
 
 
-            if(minutes==60)
+            if(seconds==60)
             {
-                hours++;
-                minutes=0;
+                minutes++;
+                seconds=0;
             }
             timerTextView.setText(String.format("%d:%d", minutes, seconds));
 
         }
 
     };
-
 
 
 
