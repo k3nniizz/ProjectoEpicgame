@@ -228,4 +228,9 @@ public class PrimerNivel extends AppCompatActivity {
         }
     }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        mp.release();
+    }
 }
