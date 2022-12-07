@@ -80,14 +80,7 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-        <activity
-            android:name=".Menu.menu4"
-            android:exported="false"
-            android:label="@string/title_activity_menu">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
+
         <activity
             android:name=".Login.Perfilusuario"
             android:exported="false">
@@ -123,14 +116,22 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".Login.numeros"
+            android:name=".BreakOut.Puntuacionbreakout"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".Login.guardarperfil"
+            android:name=".BreakOut.Breakoutnivel2"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+
+        <activity
+            android:name=".Ranking.Ranking"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

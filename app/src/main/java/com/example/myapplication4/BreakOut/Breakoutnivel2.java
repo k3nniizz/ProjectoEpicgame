@@ -5,9 +5,9 @@ import android.graphics.Point;
 import android.os.Bundle;
 import android.view.Display;
 
-public class BreakoutActivity extends Activity {
+public class Breakoutnivel2 extends Activity {
 
-    BreakoutEngine breakoutEngine;
+    BreakoutEngine2 breakoutEngine2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,9 +19,14 @@ public class BreakoutActivity extends Activity {
         Point size = new Point();
         display.getSize(size);
 
+        Bundle b = getIntent().getExtras();
+        final Long score = b.getLong("Score");
+
+        String z = score+"";
+
         // Initialize gameView and set it as the view
-        breakoutEngine = new BreakoutEngine(this, size.x, size.y);
-        setContentView(breakoutEngine);
+        breakoutEngine2 = new BreakoutEngine2(this, size.x, size.y, z);
+        setContentView(breakoutEngine2);
 
 
     }
@@ -32,7 +37,7 @@ public class BreakoutActivity extends Activity {
         super.onResume();
 
         // Tell the gameView resume method to execute
-        breakoutEngine.resume();
+        breakoutEngine2.resume();
     }
 
     // This method executes when the player quits the game
@@ -40,7 +45,9 @@ public class BreakoutActivity extends Activity {
     protected void onPause() {
         super.onPause();
 
+
+
         // Tell the gameView pause method to execute
-        breakoutEngine.pause();
+        breakoutEngine2.pause();
     }
 }

@@ -22,10 +22,9 @@ import android.view.SurfaceView;
 
 import com.example.myapplication4.R;
 
-import java.io.BufferedInputStream;
 import java.io.IOException;
 
-class BreakoutEngine extends SurfaceView implements Runnable{
+class BreakoutEngine2 extends SurfaceView implements Runnable{
 
 
     private Thread gameThread = null;
@@ -42,7 +41,6 @@ class BreakoutEngine extends SurfaceView implements Runnable{
     private Bitmap pelota;
     private Bitmap fondo;
     private Bitmap bloke;
-
 
     // How wide and high is the screen?
     private int screenX;
@@ -74,7 +72,7 @@ class BreakoutEngine extends SurfaceView implements Runnable{
     int sound1;
 
     // The score
-    int score= 0;
+    int score;
 
     // Lives
     int lives = 3;
@@ -82,7 +80,7 @@ class BreakoutEngine extends SurfaceView implements Runnable{
     int cound = 0;
 
     // The constructor is called when the object is first created
-    public BreakoutEngine(Context context, int x, int y) {
+    public BreakoutEngine2(Context context, int x, int y, String z) {
         // This calls the default constructor to setup the rest of the object
         super(context);
 
@@ -90,10 +88,12 @@ class BreakoutEngine extends SurfaceView implements Runnable{
         ourHolder = getHolder();
         paint = new Paint();
 
+        score = Integer.parseInt(z);
+
         base = BitmapFactory.decodeResource(getResources(), R.drawable.paddle2);
         bloke = BitmapFactory.decodeResource(getResources(), R.drawable.brick);
         pelota = BitmapFactory.decodeResource(getResources(),R.drawable.meteoro5);
-        fondo = BitmapFactory.decodeResource(getResources(),R.drawable.espacio4);
+        fondo = BitmapFactory.decodeResource(getResources(),R.drawable.fondo7);
 
 
         // Initialize screenX and screenY because x and y are local
@@ -108,8 +108,6 @@ class BreakoutEngine extends SurfaceView implements Runnable{
 
         // Load the sounds
         // This SoundPool is deprecated but don't worry
-
-
 
         if(Build.VERSION.SDK_INT>= Build.VERSION_CODES.LOLLIPOP){
 
@@ -127,10 +125,8 @@ class BreakoutEngine extends SurfaceView implements Runnable{
         loseLifeID=soundPool.load(getContext(), R.raw.loselife,1);
         explodeID=soundPool.load(getContext(), R.raw.explode,1);
 
-        MediaPlayer bk1 = MediaPlayer.create(getContext(), R.raw.game21theme);
-        bk1.start();
-
-
+        MediaPlayer bk = MediaPlayer.create(getContext(), R.raw.game1);
+        bk.start();
 
 
 
@@ -142,7 +138,6 @@ class BreakoutEngine extends SurfaceView implements Runnable{
     // Runs when the OS calls onPause on BreakoutActivity method
     public void pause() {
         playing = false;
-
         try {
             gameThread.join();
         } catch (InterruptedException e) {
@@ -180,7 +175,7 @@ class BreakoutEngine extends SurfaceView implements Runnable{
             // time animations and more.
             timeThisFrame = System.currentTimeMillis() - startFrameTime;
             if (timeThisFrame >= 1) {
-                fps = 600 / timeThisFrame;
+                fps = 400 / timeThisFrame;
             }
 
         }
@@ -241,10 +236,12 @@ class BreakoutEngine extends SurfaceView implements Runnable{
             soundPool.play(loseLifeID, 1, 1, 0, 0, 1);
 
             if(lives == 0){
-                isGameover=true;
+                isGameover= true;
                 paused = true;
                 //restart();
             }
+
+
 
         }
 
@@ -270,7 +267,7 @@ class BreakoutEngine extends SurfaceView implements Runnable{
         }
 
         // Pause if cleared screen
-        if(cound == 12){
+        if(cound==24){
             paused = true;
             isWin=true;
         }
@@ -279,22 +276,22 @@ class BreakoutEngine extends SurfaceView implements Runnable{
     void restart(){
         // Put the ball back to the start
         ball.reset(screenX, screenY);
-        cound = 0;
+
         int brickWidth = screenX / 6;
         int brickHeight = screenY / 20;
 
         // Build a wall of bricks
         numBricks = 0;
 
-        for(int column = 1; column < 5; column ++ ){
-            for(int row = 2; row < 5; row ++ ){
+        for(int column = 0; column < 8; column ++ ){
+            for(int row = 1; row < 5; row ++ ){
                 bricks[numBricks] = new Brick(row, column, brickWidth, brickHeight);
                 numBricks ++;
             }
         }
 
         // Reset scores and lives
-        score = 0;
+
         lives = 3;
 
     }
@@ -308,17 +305,17 @@ class BreakoutEngine extends SurfaceView implements Runnable{
 
             canvas.drawBitmap(fondo,0,0,null);
 
+
             // Draw everything to the screen
 
             // Choose the brush color for drawing
             paint.setColor(Color.argb(255,  255, 255, 255));
 
             // Draw the bat
-            canvas.drawRect(bat.getRect(), paint);
-            canvas.drawBitmap(base,bat.getRect().left-15, bat.getRect().top, null);
+            canvas.drawBitmap(base,bat.getRect().left, bat.getRect().top, null);
 
             // Draw the ball
-            canvas.drawBitmap(pelota,ball.getRect().left-50,ball.getRect().top-80,null);
+            canvas.drawBitmap(pelota,ball.getRect().left-50,ball.getRect().top-70,null);
 
 
 
@@ -350,7 +347,7 @@ class BreakoutEngine extends SurfaceView implements Runnable{
                 paint.setStyle(Paint.Style.FILL_AND_STROKE);
                 paint.setColor(Color.RED);
 
-                canvas.drawText("Segundo Nivel", screenX / 3, screenY / 2, paint);
+                canvas.drawText("Has Ganado!", screenX / 3, screenY / 2, paint);
 
             }
 
@@ -372,27 +369,17 @@ class BreakoutEngine extends SurfaceView implements Runnable{
 
                 paused = false;
 
-                if (isWin){
-
-                    Intent intent = new Intent(getContext(), Breakoutnivel2.class);
+                if (isWin || isGameover) {
+                    paused =true;
+                    Intent intent = new Intent(getContext(), Puntuacionbreakout.class);
                     Bundle b = new Bundle();
                     b.putLong("Score", score);
                     intent.putExtras(b);
 
                     getContext().startActivity(intent);
-                    pause();
 
+                }
 
-                }if(isGameover){
-
-                Intent intent = new Intent(getContext(), Puntuacionbreakout.class);
-                Bundle b = new Bundle();
-                b.putLong("Score", score);
-                intent.putExtras(b);
-
-                getContext().startActivity(intent);
-
-            }
 
 
                 if(motionEvent.getX() > screenX / 2){
@@ -413,5 +400,4 @@ class BreakoutEngine extends SurfaceView implements Runnable{
         return true;
     }
 }
-
 

@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -15,13 +14,8 @@ import androidx.lifecycle.ViewModelProvider;
 
 //import com.example.myapplication4.Menu.databinding.FragmentHomeBinding;
 import com.example.myapplication4.Gato.Gato;
-import com.example.myapplication4.Login.Perfilusuario;
-import com.example.myapplication4.Menu.menu4;
-import com.example.myapplication4.Ordenamiento.PrimerNivel;
 import com.example.myapplication4.R;
 import com.example.myapplication4.databinding.FragmentHomeBinding;
-
-import java.util.zip.Inflater;
 
 public class HomeFragment extends Fragment {
 

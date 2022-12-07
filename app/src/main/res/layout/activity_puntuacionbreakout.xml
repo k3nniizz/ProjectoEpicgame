@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BreakOut.Puntuacionbreakout">
+
+    <Button
+        android:id="@+id/btn_salirbk2"
+        android:layout_width="133dp"
+        android:layout_height="62dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="138dp"
+        android:layout_marginEnd="140dp"
+        android:layout_marginBottom="53dp"
+        android:onClick="salir"
+        android:text="Salir" />
+
+    <Button
+        android:id="@+id/btn_menubk"
+        android:layout_width="133dp"
+        android:layout_height="62dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="139dp"
+        android:layout_marginEnd="139dp"
+        android:layout_marginBottom="123dp"
+        android:text="Menu" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="409dp"
+        android:layout_height="189dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="0dp"
+        app:srcCompat="@drawable/puntuacion1" />
+
+
+
+    <Button
+        android:id="@+id/btn_rank"
+        android:layout_width="141dp"
+        android:layout_height="63dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="135dp"
+        android:layout_marginEnd="134dp"
+        android:layout_marginBottom="191dp"
+        android:text="Ranking" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="123dp"
+        android:layout_height="67dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="170dp"
+        android:layout_marginTop="239dp"
+        android:layout_marginEnd="118dp"
+        android:text="TextView"
+        android:textSize="24sp" />
+</RelativeLayout>

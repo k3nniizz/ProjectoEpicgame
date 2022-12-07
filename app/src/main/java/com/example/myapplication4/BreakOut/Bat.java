@@ -4,71 +4,73 @@ import android.graphics.RectF;
 
 public class Bat {
 
-    // RectF es un objeto que contiene cuatro coordenadas
+    // RectF is an object that holds four coordinates - just what we need
     private RectF rect;
 
-    // largo de la barra
+    private int screenWidth;
+
+    // How long will our paddle will be
     private float length;
 
-    // X es el extremo izquierdo del rectángulo que forma nuestra barra
+    // X is the far left of the rectangle which forms our paddle
     private float x;
 
-    //  Esto mantendrá la velocidad de píxeles por segundo que la barra se movera
+    // This will hold the pixels per second speed that the paddle will move
     private float paddleSpeed;
 
-    // direcciones de movimiento
+    // Which ways can the paddle move
     final int STOPPED = 0;
     final int LEFT = 1;
     final int RIGHT = 2;
 
-    // direccion de movimiento de la barra
+    // Is the paddle moving and in which direction
     private int paddleMoving = STOPPED;
 
-    // contrucctor
-    // parametros ancho i alto pantalla
+    // This the the constructor method
+    // When we create an object from this class we will pass
+    // in the screen width and height
     Bat(int screenX, int screenY){
-        // 140 pixels wide and 20 pixels high
-        length = 200;
+        // 130 pixels wide and 20 pixels high
+        length = 130;
         float height = 20;
+        screenWidth=screenX;
 
-        // punto de inico barra
-        x = (screenX / 2)-100;
+        // Start paddle in roughly the sceen centre
+        x = screenX / 2;
 
-        // Y cordenada superior barra
+        // Y is the top coordinate
         float y = screenY - 20;
 
         rect = new RectF(x, y, x + length, y + height);
 
-        // velocidad de la barra
-        paddleSpeed = 1000;
+        // How fast is the paddle in pixels per second
+        paddleSpeed = 350;
     }
 
-    // metodo devuelve la posicion de la barra
+    // This is a getter method to make the rectangle that
+    // defines our paddle available in BreakoutView class
     RectF getRect(){
         return rect;
     }
 
-    // Este método se utilizará para cambiar si la paleta va a la izquierda, a la derecha o a ninguna parte.
+    // This method will be used to change/set if the paddle is going left, right or nowhere
     void setMovementState(int state){
         paddleMoving = state;
     }
 
-    // actualiza hacia donde se mueve la barra
+    // This update method will be called from update in BreakoutEngine
+    // It determines if the paddle needs to move and changes the coordinates
+    // contained in rect if necessary
     void update(long fps){
-        if(paddleMoving == LEFT){
+        if(x - paddleSpeed / fps>=10 && paddleMoving == LEFT){
             x = x - paddleSpeed / fps;
         }
 
-        if(paddleMoving == RIGHT){
+        if(x + paddleSpeed / fps+length<= screenWidth-10 &&  paddleMoving == RIGHT){
             x = x + paddleSpeed / fps;
         }
 
         rect.left = x;
         rect.right = x + length;
-    }
-    void reset(int x){
-        rect.left = (x / 2)-100;
-        rect.right = (x / 2)+100;
-
     }
 }
