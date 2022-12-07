@@ -24,7 +24,7 @@ public class PrimerNivel extends AppCompatActivity {
     int minutes=0;
     int seconds = 0;
     MediaPlayer mp;
-    int puntaje = 0;
+    int puntaje = 100;
 
 
     @Override
@@ -123,8 +123,41 @@ public class PrimerNivel extends AppCompatActivity {
         public void run() {
 
             seconds++;
+
+
+            final TextView ptj = (TextView)findViewById(R.id.puntajemuestra);
+            ptj.setText(Integer.toString(puntaje));
+
+
+
+            seconds++;
             if (seconds == 0)
                 timerTextView.setVisibility(View.VISIBLE);
+
+            if(seconds==9 && minutes==0)
+            {
+                puntaje=puntaje-10;
+            }
+            if(seconds==19 && minutes==0)
+            {
+                puntaje=puntaje-10;
+            }
+            if(seconds==29 && minutes==0)
+            {
+                puntaje=puntaje-10;
+            }
+            if(seconds==39 && minutes==0)
+            {
+                puntaje=puntaje-10;
+            }
+            if(seconds==49 && minutes==0)
+            {
+                puntaje=puntaje-10;
+            }
+            if(seconds==59 && minutes==0)
+            {
+                puntaje=10;
+            }
 
 
             if(seconds==60)
@@ -137,8 +170,6 @@ public class PrimerNivel extends AppCompatActivity {
         }
 
     };
-
-
 
 
 
@@ -171,8 +202,7 @@ public class PrimerNivel extends AppCompatActivity {
 
         }
     }
-    String cadena3 = "";
-    int contador = 0;
+
     public void automatizar(TextView texto, ArrayList numeros){
         String mensaje;
         Collections.sort(numeros);
