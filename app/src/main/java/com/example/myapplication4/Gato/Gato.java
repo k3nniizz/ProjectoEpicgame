@@ -64,6 +64,8 @@ public class Gato extends AppCompatActivity {
             }
 
         }, 0, 1000);
+        puntajeg=(TextView) findViewById(R.id.puntajeboludin1);
+        puntajeg.setText(""+puntitos);
 
 
 
@@ -71,8 +73,7 @@ public class Gato extends AppCompatActivity {
 
         textoVictoria = (TextView) findViewById(R.id.textoVictoria);
         textoVictoria.setVisibility(View.INVISIBLE);
-        puntajeg = (TextView)findViewById(R.id.puntajeboludin1);
-        puntajeg.setText(puntitos);
+
 
 
 
@@ -126,13 +127,13 @@ public class Gato extends AppCompatActivity {
 
         }
 
-        else if(seconds >=50 && seconds <=60) {
+        else if(seconds >=50 && seconds <60) {
 
             puntitos = 50;
             puntitos = puntsave;
         }
 
-        else if(seconds >= 60){
+        else if(seconds >=60){
 
             puntitos = 0;
         }

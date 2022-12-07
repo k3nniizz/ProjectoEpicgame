@@ -174,4 +174,9 @@ public class CuartoNivel extends AppCompatActivity {
 
 
     }
+    @Override
+    protected void onPause() {
+        super.onPause();
+        mp.release();
+    }
 }
