@@ -7,7 +7,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class Usuario {
 
     String Alias,Contraseña,Edad,Email, Imagen,Nombre,Pais;
-    int Score, Tiempo;
+    int Score, Score2,Score3;
     String Uid;
 
 
@@ -15,7 +15,7 @@ public class Usuario {
 
     }
 
-    public Usuario(String alias, String contraseña, String edad, String email, String imagen, String nombre, String pais, int score, int tiempo, String uid) {
+    public Usuario(String alias, String contraseña, String edad, String email, String imagen, String nombre, String pais, int score, int score2, int score3, String uid) {
         Alias = alias;
         Contraseña = contraseña;
         Edad = edad;
@@ -24,7 +24,8 @@ public class Usuario {
         Nombre = nombre;
         Pais = pais;
         Score = score;
-        Tiempo = tiempo;
+        Score2 = score2;
+        Score3 = score3;
         Uid = uid;
     }
 
@@ -92,12 +93,20 @@ public class Usuario {
         Score = score;
     }
 
-    public int getTiempo() {
-        return Tiempo;
+    public int getScore2() {
+        return Score2;
     }
 
-    public void setTiempo(int tiempo) {
-        Tiempo = tiempo;
+    public void setScore2(int score2) {
+        Score2 = score2;
+    }
+
+    public int getScore3() {
+        return Score3;
+    }
+
+    public void setScore3(int score3) {
+        Score3 = score3;
     }
 
     public String getUid() {

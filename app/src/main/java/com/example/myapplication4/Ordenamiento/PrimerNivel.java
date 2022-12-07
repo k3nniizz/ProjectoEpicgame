@@ -46,6 +46,8 @@ public class PrimerNivel extends AppCompatActivity {
 
         }, 0, 1000);
 
+
+
         ArrayList<Button> listado = new ArrayList<Button>();
 
         listado.add((Button) findViewById(R.id.bt1));
@@ -96,6 +98,7 @@ public class PrimerNivel extends AppCompatActivity {
                 mp.stop();
 
                 startActivity(new Intent(PrimerNivel.this,Perfilusuario.class));
+                finish();
             }
         });
         validar.setOnClickListener(new View.OnClickListener() {

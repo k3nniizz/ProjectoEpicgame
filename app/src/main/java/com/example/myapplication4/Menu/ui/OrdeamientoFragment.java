@@ -37,6 +37,7 @@ public class OrdeamientoFragment extends Fragment {
                 Toast.makeText(getContext(),"JUGAR",Toast.LENGTH_SHORT).show();
 
                 startActivity(new Intent(getContext(), PrimerNivel.class));
+
             }
         });
         return root;
