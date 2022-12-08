@@ -7,46 +7,41 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.myapplication4.Login.Perfilusuario;
 import com.example.myapplication4.Menu.Menu5;
 import com.example.myapplication4.R;
 
-public class Cara extends AppCompatActivity {
-
-
+public class puntaje extends AppCompatActivity {
+TextView puntajef;
+int rec;
 
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cara);
+        setContentView(R.layout.activity_puntajeordenamiento);
         MediaPlayer mp = MediaPlayer.create(this, R.raw.musicabotones);
         mp.stop();
+        puntajef = (TextView) findViewById(R.id.puntosob);
 
 
         Bundle recibido2 = this.getIntent().getExtras();
-        final String mensaje2 = recibido2.getString("mensaje");
+        rec = recibido2.getInt("ptjpasa");
+        puntajef.setText("Tu puntaje final fue: " + rec);
 
-        ImageButton inimg = (ImageButton) findViewById(R.id.btnImagen);
 
-        Button finalizar =(Button)findViewById(R.id.btfinal);
+
+        Button finalizar =(Button)findViewById(R.id.btfin);
 
         finalizar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mp.stop();
-                startActivity(new Intent(Cara.this, Menu5.class));
+                startActivity(new Intent(puntaje.this, Menu5.class));
             }
         });
 
 
-        if(mensaje2.equals("Ok")){
-            inimg.setImageResource(R.drawable.feliz22);
 
-        } else {
-
-            inimg.setImageResource(R.drawable.triste22);
-
-        }
     }
 }

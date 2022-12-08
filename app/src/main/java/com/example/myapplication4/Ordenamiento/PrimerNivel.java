@@ -25,6 +25,7 @@ public class PrimerNivel extends AppCompatActivity {
     int seconds = 0;
     MediaPlayer mp;
     int puntaje = 100;
+    int acumuladorptj;
 
 
     @Override
@@ -34,8 +35,6 @@ public class PrimerNivel extends AppCompatActivity {
 
         mp = MediaPlayer.create(this, R.raw.musicabotones);
         mp.start();
-
-
         timerTextView = (TextView)findViewById(R.id.crono);
         Timer myTimer = new Timer();
         myTimer.schedule(new TimerTask() {
@@ -82,14 +81,9 @@ public class PrimerNivel extends AppCompatActivity {
                 }
             });
         }
-
-
         Button validar =(Button)findViewById(R.id.btValidar);
         Button automatico =(Button)findViewById(R.id.btautomatico);
         Button perfil =(Button)findViewById(R.id.btperfil);
-
-
-
 
         perfil.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -122,15 +116,12 @@ public class PrimerNivel extends AppCompatActivity {
 
         public void run() {
 
-            seconds++;
 
+
+            seconds++;
 
             final TextView ptj = (TextView)findViewById(R.id.puntajemuestra);
             ptj.setText(Integer.toString(puntaje));
-
-
-
-            seconds++;
             if (seconds == 0)
                 timerTextView.setVisibility(View.VISIBLE);
 
@@ -184,13 +175,14 @@ public class PrimerNivel extends AppCompatActivity {
         String cadena2 = texto.getText().toString().replaceAll(" ","");
         String mensaje;
 
-
+        acumuladorptj = puntaje;
 
 
         if(cadena.equals(cadena2)){
             mensaje= "Ok";
             Intent in = new Intent(this,SegundoNivel.class);
             Bundle b = new Bundle();
+            b.putInt("ptjpasa",acumuladorptj);
             b.putString("mensaje",mensaje);
             in.putExtras(b);
             startActivity(in);

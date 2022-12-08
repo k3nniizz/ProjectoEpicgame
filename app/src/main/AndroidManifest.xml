@@ -39,7 +39,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".Ordenamiento.Cara"
+            android:name=".Ordenamiento.puntaje"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
