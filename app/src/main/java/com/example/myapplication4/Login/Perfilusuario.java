@@ -81,7 +81,8 @@ public class Perfilusuario extends AppCompatActivity {
     private String perfil; //sirve como parametro para cambiar imagen
 
     Button Jugarbtn, Putuacionesbtn,AcercaDebtn,cerrarsesion,Editarbtn,CambiarPassbtn;
-    TextView Mipuntuaciontxt,Correo,Nombreusuario,Menutxt,uid,Alias,puntuaciontxt;
+    TextView Mipuntuaciontxt,Correo,Nombreusuario,Menutxt,uid,Alias;
+    TextView puntuacionbreakOut,puntuaciongato,puntuacionordenamiento;
     CircleImageView imagenPerfil;
 
     @SuppressLint("MissingInflatedId")
@@ -119,8 +120,9 @@ public class Perfilusuario extends AppCompatActivity {
         Correo=findViewById(R.id.Correo);
        // uid=findViewById(R.id.uid);
         Alias=findViewById(R.id.Alias);
-        puntuaciontxt=findViewById(R.id.puntuacion);//lo que se verá reflejado en perfilusuario (arriba de la imagen)
-
+        puntuacionbreakOut=findViewById(R.id.puntuacion);//lo que se verá reflejado en perfilusuario (arriba de la imagen)
+        puntuaciongato=findViewById(R.id.puntuaciongato);
+        puntuacionordenamiento=findViewById(R.id.puntuacionordenamiento);
 
 
 
@@ -419,7 +421,9 @@ public class Perfilusuario extends AppCompatActivity {
                  //   String UidString=""+ds.child("Uid").getValue(); //
                     String EmailString=""+ds.child("Email").getValue();
                     String AliasString=""+ds.child("Alias").getValue();
-                    String puntuacionString=""+ds.child("Score").getValue();
+                    String puntuacionBreakString=""+ds.child("Score").getValue();
+                    String puntuacionordenamientoString=""+ds.child("Score3").getValue();
+                    String puntuaciongatoString=""+ds.child("Score2").getValue();
                     String imagen=""+ds.child("Imagen").getValue();
 
 
@@ -428,7 +432,10 @@ public class Perfilusuario extends AppCompatActivity {
                     //  uid.setText(UidString);
                     Correo.setText("Correo: "+EmailString);
                     Alias.setText("Alias: "+AliasString);
-                    puntuaciontxt.setText("Score: "+puntuacionString);
+                    puntuacionbreakOut.setText("BreakOut: "+puntuacionBreakString);
+                    //puntuaciongato.setText("Gato:"+puntuaciongatoString);
+                    puntuacionordenamiento.setText("Ordenamiento:"+puntuacionordenamientoString);
+
 
 
                     try{
