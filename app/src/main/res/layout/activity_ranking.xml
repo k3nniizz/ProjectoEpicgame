@@ -10,11 +10,16 @@
     tools:context=".Ranking.Ranking">
 
 
+
+
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewUsuarios"
         android:layout_marginTop="65dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
+
 
     <Button
         android:id="@+id/btn_Rgato"

@@ -23,6 +23,7 @@ public class Gato extends AppCompatActivity {
     TextView timerTextView;
     int minutes=0;
     int seconds = 0;
+    int seconds2= 0;
     int hours = 0;
     int puntitos = 500;
     int puntsave = 0;
@@ -65,7 +66,7 @@ public class Gato extends AppCompatActivity {
 
         }, 0, 1000);
         puntajeg=(TextView) findViewById(R.id.puntajeboludin1);
-        puntajeg.setText(""+puntitos);
+
 
 
 
@@ -94,46 +95,46 @@ public class Gato extends AppCompatActivity {
 
 
 
-        if (seconds >=0 && seconds <=10){
+        if (seconds2 >=0 && seconds2 <=10){
 
             puntitos = 500;
-            puntitos = puntsave;
+
         }
-        else if(seconds >=11 && seconds <=20) {
+        else if(seconds2 >=11 && seconds2 <=20) {
 
             puntitos = 400;
-            puntitos = puntsave;
+
 
         }
 
-        else if(seconds >=21 && seconds <=30) {
+        else if(seconds2 >=21 && seconds2 <=30) {
 
             puntitos = 300;
-            puntitos = puntsave;
+
 
 
         }
-        else if(seconds >=31 && seconds <=40) {
+        else if(seconds2 >=31 && seconds2 <=40) {
 
             puntitos = 200;
-            puntitos = puntsave;
+
 
         }
 
-        else if(seconds >=41 && seconds <=50) {
+        else if(seconds2 >=41 && seconds2 <=50) {
 
             puntitos = 100;
-            puntitos = puntsave;
+
 
         }
 
-        else if(seconds >=50 && seconds <60) {
+        else if(seconds2 >=50 && seconds2 <60) {
 
             puntitos = 50;
-            puntitos = puntsave;
+
         }
 
-        else if(seconds >=60){
+        else if(seconds2 >=60){
 
             puntitos = 0;
         }
@@ -154,6 +155,8 @@ public class Gato extends AppCompatActivity {
         public void run() {
 
             seconds++;
+            seconds2++;
+            setPuntaje();
             if (seconds == 0)
                 timerTextView.setVisibility(View.VISIBLE);
 
@@ -163,6 +166,7 @@ public class Gato extends AppCompatActivity {
                 minutes++;
                 seconds=0;
             }
+            puntajeg.setText(""+puntitos);
             timerTextView.setText(String.format("%d:%d", minutes, seconds));
 
         }
@@ -226,7 +230,11 @@ public class Gato extends AppCompatActivity {
             if (estado == 1) {
                 textoVictoria.setVisibility(View.VISIBLE);
                 textoVictoria.setTextColor(Color.GREEN);
+
                 Intent siguientenivel = new Intent(this , Segundonivell.class);
+                Bundle b = new Bundle();
+                b.putInt("pts", puntitos);
+                siguientenivel.putExtras(b);
                 startActivity(siguientenivel);
 
 
@@ -235,6 +243,9 @@ public class Gato extends AppCompatActivity {
                 textoVictoria.setText("Ha ganado el Jugador_2");
                 textoVictoria.setTextColor(Color.GREEN);
                 Intent siguientenivel = new Intent(this , Segundonivell.class);
+                Bundle b = new Bundle();
+                b.putInt("pts", puntitos);
+                siguientenivel.putExtras(b);
                 startActivity(siguientenivel);
             }
 

@@ -42,7 +42,8 @@ class BreakoutEngine extends SurfaceView implements Runnable{
     private Bitmap pelota;
     private Bitmap fondo;
     private Bitmap bloke;
-
+    private Bitmap textgameover;
+    private Bitmap textwin;
 
     // How wide and high is the screen?
     private int screenX;
@@ -94,6 +95,8 @@ class BreakoutEngine extends SurfaceView implements Runnable{
         bloke = BitmapFactory.decodeResource(getResources(), R.drawable.brick);
         pelota = BitmapFactory.decodeResource(getResources(),R.drawable.meteoro5);
         fondo = BitmapFactory.decodeResource(getResources(),R.drawable.espacio4);
+        textgameover = BitmapFactory.decodeResource(getResources(),R.drawable.gameover);
+        textwin = BitmapFactory.decodeResource(getResources(),R.drawable.nivel2);
 
 
         // Initialize screenX and screenY because x and y are local
@@ -340,17 +343,17 @@ class BreakoutEngine extends SurfaceView implements Runnable{
 
 
             if (isGameover) {
-                paint.setStyle(Paint.Style.FILL_AND_STROKE);
-                paint.setColor(Color.RED);
-
-                canvas.drawText("Game Over!", screenX / 3, screenY / 2, paint);
+                //paint.setStyle(Paint.Style.FILL_AND_STROKE);
+                //paint.setColor(Color.RED);
+                canvas.drawBitmap(textgameover,0, screenY /2, null);
+                //canvas.drawText("Game Over!", screenX / 3, screenY / 2, paint);
 
             }
             if (isWin) {
-                paint.setStyle(Paint.Style.FILL_AND_STROKE);
-                paint.setColor(Color.RED);
-
-                canvas.drawText("Segundo Nivel", screenX / 3, screenY / 2, paint);
+               // paint.setStyle(Paint.Style.FILL_AND_STROKE);
+                //paint.setColor(Color.RED);
+                canvas.drawBitmap(textwin,50, screenY /2, null);
+                //canvas.drawText("Segundo Nivel", screenX / 3, screenY / 2, paint);
 
             }
 
@@ -376,7 +379,7 @@ class BreakoutEngine extends SurfaceView implements Runnable{
 
                     Intent intent = new Intent(getContext(), Breakoutnivel2.class);
                     Bundle b = new Bundle();
-                    b.putLong("Score", score);
+                    b.putInt("Score", score);
                     intent.putExtras(b);
 
                     getContext().startActivity(intent);
@@ -387,7 +390,7 @@ class BreakoutEngine extends SurfaceView implements Runnable{
 
                 Intent intent = new Intent(getContext(), Puntuacionbreakout.class);
                 Bundle b = new Bundle();
-                b.putLong("Score", score);
+                b.putInt("Score", score);
                 intent.putExtras(b);
 
                 getContext().startActivity(intent);

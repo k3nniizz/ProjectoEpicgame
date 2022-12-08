@@ -20,9 +20,9 @@ public class Breakoutnivel2 extends Activity {
         display.getSize(size);
 
         Bundle b = getIntent().getExtras();
-        final Long score = b.getLong("Score");
+        final int score = b.getInt("Score");
 
-        String z = score+"";
+        int z = score;
 
         // Initialize gameView and set it as the view
         breakoutEngine2 = new BreakoutEngine2(this, size.x, size.y, z);

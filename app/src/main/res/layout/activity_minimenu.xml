@@ -39,6 +39,7 @@
             android:layout_marginTop="332dp"
             android:layout_marginEnd="118dp"
             android:layout_marginBottom="200dp"
+            android:backgroundTint="#F30F0F"
             android:onClick="Reintentar"
             android:text="Reintentar" />
         <!--  android:drawableTop="@drawable/button1"-->
@@ -54,6 +55,7 @@
             android:layout_marginTop="422dp"
             android:layout_marginEnd="120dp"
             android:layout_marginBottom="222dp"
+            android:backgroundTint="#E80909"
             android:onClick="Perfilgato"
             android:text="Perfil" />
 
@@ -71,8 +73,40 @@
             android:layout_marginTop="526dp"
             android:layout_marginEnd="118dp"
             android:layout_marginBottom="118dp"
+            android:backgroundTint="#DA2222"
             android:onClick="Salirgato"
             android:text="Salir" />
+
+        <TextView
+            android:id="@+id/puntusminimeno"
+            android:layout_width="153dp"
+            android:layout_height="43dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="19dp"
+            android:layout_marginTop="84dp"
+            android:layout_marginEnd="237dp"
+            android:text="TextView"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold|italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="21dp"
+            android:text="Tu puntaje:"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:textStyle="bold|italic" />
+
         <!--android:drawableTop="@drawable/button3"-->
 
 

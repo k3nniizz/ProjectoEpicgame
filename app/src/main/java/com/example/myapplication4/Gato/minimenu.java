@@ -6,14 +6,13 @@ import android.os.Bundle;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.net.Uri;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.VideoView;
 
 import com.example.myapplication4.Login.Perfilusuario;
 import com.example.myapplication4.Menu.Menu5;
-import com.example.myapplication4.databinding.ActivityMinimenuBinding;
 import com.example.myapplication4.R;
 
 public class minimenu extends AppCompatActivity {
@@ -23,7 +22,9 @@ public class minimenu extends AppCompatActivity {
     MediaPlayer mMediaplayer;
     int mCurrentVideoPosition;
     Button btn1 , btn2 , btn3;
+    int acumulador3;
 
+    TextView pts3;
 
 
 
@@ -37,7 +38,10 @@ public class minimenu extends AppCompatActivity {
         btn2 = (Button)findViewById(R.id.perfilG);
         btn3 = (Button)findViewById(R.id.salirG1);
 
+        pts3 = (TextView) findViewById(R.id.puntusminimeno);
 
+        Bundle c = getIntent().getExtras();
+        acumulador3 = c.getInt("pts");
 
         fondoVideo = findViewById(R.id.fondovideo);
         Uri uri = Uri.parse("android.resource://"+ getPackageName()+"/"+ R.raw.olaola);
@@ -45,7 +49,7 @@ public class minimenu extends AppCompatActivity {
         fondoVideo.setVideoURI(uri);
         fondoVideo.start();
 
-
+        pts3.setText(""+acumulador3);
 
         fondoVideo.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
             @Override

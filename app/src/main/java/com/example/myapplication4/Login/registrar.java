@@ -206,7 +206,7 @@ public class registrar extends AppCompatActivity {
 
     private void notificacion1(){
         NotificationCompat.Builder builder = new NotificationCompat.Builder(getApplicationContext(), CHANNEL_ID);
-        builder.setSmallIcon(R.drawable.ic_baseline_videogame_asset_24);
+        builder.setSmallIcon(R.drawable.eg2);
         builder.setContentTitle("Epicgame");
         builder.setContentText(mEditTextName.getText().toString()+" se a registrado con exito");
         builder.setColor(Color.BLUE);

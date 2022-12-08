@@ -18,11 +18,12 @@ import com.example.myapplication4.R;
 
 public class Segundonivell extends AppCompatActivity {
 
-
+    TextView puntajeh;
     TextView timerTextView;
     int minutes=0;
     int seconds = 60;
     int hours = 0;
+     int puntitos = 500;
     Button iniciar;
     TextView textoVictoria;
     TextView mostrarT;
@@ -41,6 +42,9 @@ public class Segundonivell extends AppCompatActivity {
     int turno = 1;
     int[] posGanadora = new int[]{-1,-1,-1};
     TextView marcador0 , marcador1 , marcador2;
+    int acumulador;
+
+
 
 
 
@@ -64,6 +68,13 @@ public class Segundonivell extends AppCompatActivity {
 
         }, 0, 1000);
 
+        puntajeh =(TextView) findViewById(R.id.puntaje2s);
+
+        Bundle c = getIntent().getExtras();
+         acumulador = c.getInt("pts");
+
+
+
 
 
 
@@ -81,6 +92,57 @@ public class Segundonivell extends AppCompatActivity {
 
     }
 
+    private void setPuntaje(){
+
+
+
+        if (seconds >0 && seconds <=10){
+
+            puntitos = 50;
+
+        }
+        else if(seconds >=11 && seconds <=20) {
+
+            puntitos = 100;
+
+
+        }
+
+        else if(seconds >=21 && seconds <=30) {
+
+            puntitos = 200;
+
+
+
+        }
+        else if(seconds >=31 && seconds <=40) {
+
+            puntitos = 300;
+
+
+        }
+
+        else if(seconds >=41 && seconds <50) {
+
+            puntitos = 400;
+
+
+        }
+
+        else if(seconds >=50 && seconds <60) {
+
+            puntitos = 500;
+
+        }
+
+        else if(seconds >=60){
+
+            puntitos = 500;
+        }else if(seconds==0){
+            puntitos = 0;
+        }
+    }
+
     private void TimerMethod()
     {
         this.runOnUiThread(Timer_Tick);
@@ -90,6 +152,7 @@ public class Segundonivell extends AppCompatActivity {
         public void run() {
 
             seconds--;
+            setPuntaje();
             if (seconds == 0)
                 timerTextView.setVisibility(View.INVISIBLE);
 
@@ -111,11 +174,13 @@ public class Segundonivell extends AppCompatActivity {
                 hours++;
                 minutes=0;
             }
-            timerTextView.setText(String.format("%d:%d", minutes, seconds));
 
+            timerTextView.setText(String.format("%d:%d", minutes, seconds));
+            puntajeh.setText(""+puntitos);
         }
 
     };
+
 
 
 
@@ -177,6 +242,10 @@ public class Segundonivell extends AppCompatActivity {
                 textoVictoria.setTextColor(Color.GREEN);
                 timerTextView.setVisibility(View.INVISIBLE);
                 Intent minimenu = new Intent(this , minimenu.class);
+                acumulador = acumulador+puntitos;
+                Bundle c = new Bundle();
+                c.putInt("pts", acumulador);
+                minimenu.putExtras(c);
                 startActivity(minimenu);
 
 
@@ -186,6 +255,9 @@ public class Segundonivell extends AppCompatActivity {
                 textoVictoria.setTextColor(Color.GREEN);
                 timerTextView.setVisibility(View.INVISIBLE);
                 Intent minimenu = new Intent(this , minimenu.class);
+                Bundle c = new Bundle();
+                c.putInt("pts", puntitos);
+                minimenu.putExtras(c);
                 startActivity(minimenu);
 
             }

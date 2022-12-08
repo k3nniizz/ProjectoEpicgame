@@ -41,7 +41,7 @@ public class Adaptador3 extends RecyclerView.Adapter<Adaptador3.MyHolder>{
         String  Imagen = usuarioList.get(i).getImagen();
         String Nombres = usuarioList.get(i).getNombre();
         String Correo = usuarioList.get(i).getEmail();
-        int Score3 = usuarioList.get(i).getScore();
+        int Score3 = usuarioList.get(i).getScore3();
 
         String Z = String.valueOf(Score3);
 

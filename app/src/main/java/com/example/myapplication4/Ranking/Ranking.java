@@ -6,10 +6,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.VideoView;
 
 import com.example.myapplication4.R;
 import com.google.firebase.auth.FirebaseAuth;
@@ -40,6 +43,7 @@ public class Ranking extends AppCompatActivity {
 
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,6 +71,9 @@ public class Ranking extends AppCompatActivity {
 
 
 
+
+
+
         Rbk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -77,6 +84,12 @@ public class Ranking extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 ObtenerTodosLosUsuarios2();
+            }
+        });
+        Ror.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ObtenerTodosLosUsuarios3();
             }
         });
 
