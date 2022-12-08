@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.myapplication4.Login.Perfilusuario;
 import com.example.myapplication4.Menu.Menu5;
 import com.example.myapplication4.R;
 import com.google.firebase.auth.FirebaseAuth;
@@ -103,7 +104,7 @@ public class puntaje extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 mp.stop();
-                startActivity(new Intent(puntaje.this, Menu5.class));
+                startActivity(new Intent(puntaje.this, Perfilusuario.class));
             }
         });
 
