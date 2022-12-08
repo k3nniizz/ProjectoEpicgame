@@ -24,6 +24,9 @@ public class TercerNivel extends AppCompatActivity {
     int minutes=0;
     int seconds = 0;
     MediaPlayer mp;
+    int puntaje = 100;
+    int acumuladorptj;
+    int ptjpasa;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +45,15 @@ public class TercerNivel extends AppCompatActivity {
 
         }, 0, 1000);
 
+        try{
+            Bundle recibido = this.getIntent().getExtras();
+
+            ptjpasa = recibido.getInt("ptjpasa");
+
+        }
+        catch (Exception e)
+        {}
+
 
         ArrayList<Button> listado = new ArrayList<Button>();
 
@@ -59,6 +71,8 @@ public class TercerNivel extends AppCompatActivity {
         listado.add((Button) findViewById(R.id.bt12));
 
         final TextView texto = (TextView)findViewById(R.id.texto);
+        final TextView ptjrecibido = (TextView)findViewById(R.id.ptjrecibido);
+        ptjrecibido.setText("" + ptjpasa);
 
         final ArrayList numeros = new ArrayList();
 
@@ -99,11 +113,41 @@ public class TercerNivel extends AppCompatActivity {
     }
 
     private Runnable Timer_Tick = new Runnable() {
+
         public void run() {
 
+            final TextView ptj = (TextView)findViewById(R.id.puntajemuestra);
+            ptj.setText(Integer.toString(puntaje));
+
             seconds++;
+
             if (seconds == 0)
                 timerTextView.setVisibility(View.VISIBLE);
+
+            if(seconds==9 && minutes==0)
+            {
+                puntaje=puntaje-10;
+            }
+            if(seconds==19 && minutes==0)
+            {
+                puntaje=puntaje-10;
+            }
+            if(seconds==29 && minutes==0)
+            {
+                puntaje=puntaje-10;
+            }
+            if(seconds==39 && minutes==0)
+            {
+                puntaje=puntaje-10;
+            }
+            if(seconds==49 && minutes==0)
+            {
+                puntaje=puntaje-10;
+            }
+            if(seconds==59 && minutes==0)
+            {
+                puntaje=10;
+            }
 
 
             if(seconds==60)
@@ -126,12 +170,14 @@ public class TercerNivel extends AppCompatActivity {
         String cadena2 = texto.getText().toString().replaceAll(" ","");
         String mensaje;
         mp.release();
+        acumuladorptj = puntaje+ptjpasa;
 
 
         if(cadena.equals(cadena2)){
             mensaje= "Ok";
             Intent in = new Intent(this,CuartoNivel.class);
             Bundle b = new Bundle();
+            b.putInt("ptjpasa",acumuladorptj);
             b.putString("mensaje",mensaje);
             in.putExtras(b);
             startActivity(in);

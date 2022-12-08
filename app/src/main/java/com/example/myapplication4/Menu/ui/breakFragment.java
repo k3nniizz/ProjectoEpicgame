@@ -14,7 +14,6 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.myapplication4.BreakOut.BreakoutActivity;
-import com.example.myapplication4.Gato.Gato;
 import com.example.myapplication4.Menu.ui.home.HomeViewModel;
 import com.example.myapplication4.R;
 

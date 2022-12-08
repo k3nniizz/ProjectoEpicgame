@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -8,10 +9,44 @@
     android:background="#ffffff"
     tools:context=".Ranking.Ranking">
 
+
+
+
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewUsuarios"
+        android:layout_marginTop="65dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
 
-</LinearLayout>
+
+    <Button
+        android:id="@+id/btn_Rgato"
+        android:layout_width="123dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:text="Gato" />
+
+    <Button
+        android:id="@+id/btn_Ror"
+        android:layout_width="153dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="Numeros" />
+
+    <Button
+        android:id="@+id/btn_Rbk"
+        android:layout_width="125dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="1dp"
+        android:text="Breakout" />
+
+
+</RelativeLayout>

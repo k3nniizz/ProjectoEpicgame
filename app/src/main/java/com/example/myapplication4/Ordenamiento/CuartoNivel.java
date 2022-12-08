@@ -23,6 +23,9 @@ public class CuartoNivel extends AppCompatActivity {
     int minutes=0;
     int seconds = 0;
     MediaPlayer mp;
+    int puntaje = 100;
+    int acumuladorptj;
+    int ptjpasa;
 
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -44,6 +47,7 @@ public class CuartoNivel extends AppCompatActivity {
         try{
             Bundle recibido = this.getIntent().getExtras();
             final String mensaje = recibido.getString("mensaje");
+            ptjpasa = recibido.getInt("ptjpasa");
         }
         catch (Exception e)
         {}
@@ -76,6 +80,8 @@ public class CuartoNivel extends AppCompatActivity {
         listado.add((Button) findViewById(R.id.but24));
 
         final TextView texto = (TextView)findViewById(R.id.texto);
+        final TextView ptjrecibido = (TextView)findViewById(R.id.ptjrecibido);
+        ptjrecibido.setText("" + ptjpasa);
 
         final ArrayList numeros = new ArrayList();
 
@@ -118,11 +124,44 @@ public class CuartoNivel extends AppCompatActivity {
     }
 
     private Runnable Timer_Tick = new Runnable() {
+
         public void run() {
 
+
             seconds++;
+
+
+            final TextView ptj = (TextView)findViewById(R.id.puntajemuestra);
+            ptj.setText(Integer.toString(puntaje));
+
+
             if (seconds == 0)
                 timerTextView.setVisibility(View.VISIBLE);
+
+            if(seconds==9 && minutes==0)
+            {
+                puntaje=puntaje-10;
+            }
+            if(seconds==19 && minutes==0)
+            {
+                puntaje=puntaje-10;
+            }
+            if(seconds==29 && minutes==0)
+            {
+                puntaje=puntaje-10;
+            }
+            if(seconds==39 && minutes==0)
+            {
+                puntaje=puntaje-10;
+            }
+            if(seconds==49 && minutes==0)
+            {
+                puntaje=puntaje-10;
+            }
+            if(seconds==59 && minutes==0)
+            {
+                puntaje=10;
+            }
 
 
             if(seconds==60)
@@ -142,23 +181,24 @@ public class CuartoNivel extends AppCompatActivity {
             cadena+=(int)num+"";
         }
         String cadena2 = texto.getText().toString().replaceAll(" ","");
-        String mensaje= null;
+
         mp.release();
 
+        acumuladorptj = puntaje+ptjpasa;
+
         if(cadena.equals(cadena2)){
-            Intent in2 = new Intent(this,Cara.class);
-            mensaje= "Ok";
+            Intent in2 = new Intent(this, com.example.myapplication4.Ordenamiento.puntaje.class);
+
             Bundle b = new Bundle();
-            b.putString("mensaje",mensaje);
+            b.putInt("ptjpasa",acumuladorptj);
+
             in2.putExtras(b);
             startActivity(in2);
         } else {
-            Intent in2 = new Intent(this,Cara.class);
-            mensaje = "fail";
-            Bundle b = new Bundle();
-            b.putString("mensaje",mensaje);
-            in2.putExtras(b);
-            startActivity(in2);
+
+
+            finish();
+            startActivity(getIntent());
         }
     }
 

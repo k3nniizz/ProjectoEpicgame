@@ -121,7 +121,7 @@ public class login extends AppCompatActivity {
 
     private void notificacion1(){
         NotificationCompat.Builder builder = new NotificationCompat.Builder(getApplicationContext(), CHANNEL_ID);
-        builder.setSmallIcon(R.drawable.ic_baseline_add_comment_24);
+        builder.setSmallIcon(R.drawable.eg2);
         builder.setContentTitle("Epicgame");
         builder.setContentText(editTextCorreo.getText().toString()+" se encuentra en linea");
         builder.setColor(Color.BLUE);

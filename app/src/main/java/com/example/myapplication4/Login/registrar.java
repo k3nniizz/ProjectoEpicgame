@@ -166,6 +166,9 @@ public class registrar extends AppCompatActivity {
                     map.put("Edad",edad);
                     map.put("Alias",alias);
                     map.put("Pais",pais);
+                    map.put("Score",0);
+                    map.put("Score2",0);
+                    map.put("Score3",0);
                     map.put("Imagen",""); //cuando se registre la imagen quedará vacio
                     map.put("Tiempo",contador);
 
@@ -203,7 +206,7 @@ public class registrar extends AppCompatActivity {
 
     private void notificacion1(){
         NotificationCompat.Builder builder = new NotificationCompat.Builder(getApplicationContext(), CHANNEL_ID);
-        builder.setSmallIcon(R.drawable.ic_baseline_add_comment_24);
+        builder.setSmallIcon(R.drawable.eg2);
         builder.setContentTitle("Epicgame");
         builder.setContentText(mEditTextName.getText().toString()+" se a registrado con exito");
         builder.setColor(Color.BLUE);

@@ -23,6 +23,9 @@ public class SegundoNivel extends AppCompatActivity {
     int minutes=0;
     int seconds = 0;
     MediaPlayer mp;
+    int puntaje = 100;
+    int acumuladorptj;
+    int ptjpasa;
 
 
     protected void onCreate(Bundle savedInstanceState){
@@ -44,7 +47,8 @@ public class SegundoNivel extends AppCompatActivity {
 
         try{
             Bundle recibido = this.getIntent().getExtras();
-            final String mensaje = recibido.getString("mensaje");
+
+            ptjpasa = recibido.getInt("ptjpasa");
 
         }
         catch (Exception e)
@@ -79,7 +83,11 @@ public class SegundoNivel extends AppCompatActivity {
         listado.add((Button) findViewById(R.id.but23));
         listado.add((Button) findViewById(R.id.but24));
 
+
+
         final TextView texto = (TextView)findViewById(R.id.texto);
+        final TextView ptjrecibido = (TextView)findViewById(R.id.ptjrecibido);
+        ptjrecibido.setText("" + ptjpasa);
 
         final ArrayList numeros = new ArrayList();
 
@@ -126,12 +134,15 @@ public class SegundoNivel extends AppCompatActivity {
         String mensaje;
         mp.release();
 
+        acumuladorptj = puntaje+ptjpasa;
+
 
 
         if(cadena.equals(cadena2)){
             mensaje= "Ok";
             Intent in = new Intent(this,TercerNivel.class);
             Bundle b = new Bundle();
+            b.putInt("ptjpasa",acumuladorptj);
             b.putString("mensaje",mensaje);
             in.putExtras(b);
             startActivity(in);
@@ -150,11 +161,44 @@ public class SegundoNivel extends AppCompatActivity {
     }
 
     private Runnable Timer_Tick = new Runnable() {
+
         public void run() {
 
+
             seconds++;
+
+
+            final TextView ptj = (TextView)findViewById(R.id.puntajemuestra);
+            ptj.setText(Integer.toString(puntaje));
+
+
             if (seconds == 0)
                 timerTextView.setVisibility(View.VISIBLE);
+
+            if(seconds==9 && minutes==0)
+            {
+                puntaje=puntaje-10;
+            }
+            if(seconds==19 && minutes==0)
+            {
+                puntaje=puntaje-10;
+            }
+            if(seconds==29 && minutes==0)
+            {
+                puntaje=puntaje-10;
+            }
+            if(seconds==39 && minutes==0)
+            {
+                puntaje=puntaje-10;
+            }
+            if(seconds==49 && minutes==0)
+            {
+                puntaje=puntaje-10;
+            }
+            if(seconds==59 && minutes==0)
+            {
+                puntaje=10;
+            }
 
 
             if(seconds==60)
@@ -169,7 +213,7 @@ public class SegundoNivel extends AppCompatActivity {
     };
 
     public void automatizar(TextView texto, ArrayList numeros){
-        String mensaje;
+
 
 
         Collections.sort(numeros);

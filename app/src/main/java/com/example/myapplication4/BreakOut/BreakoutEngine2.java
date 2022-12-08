@@ -41,6 +41,8 @@ class BreakoutEngine2 extends SurfaceView implements Runnable{
     private Bitmap pelota;
     private Bitmap fondo;
     private Bitmap bloke;
+    private Bitmap textgameover;
+    private Bitmap textwin;
 
     // How wide and high is the screen?
     private int screenX;
@@ -80,7 +82,7 @@ class BreakoutEngine2 extends SurfaceView implements Runnable{
     int cound = 0;
 
     // The constructor is called when the object is first created
-    public BreakoutEngine2(Context context, int x, int y, String z) {
+    public BreakoutEngine2(Context context, int x, int y, int z) {
         // This calls the default constructor to setup the rest of the object
         super(context);
 
@@ -88,12 +90,14 @@ class BreakoutEngine2 extends SurfaceView implements Runnable{
         ourHolder = getHolder();
         paint = new Paint();
 
-        score = Integer.parseInt(z);
+        score = z;
 
         base = BitmapFactory.decodeResource(getResources(), R.drawable.paddle2);
         bloke = BitmapFactory.decodeResource(getResources(), R.drawable.brick);
         pelota = BitmapFactory.decodeResource(getResources(),R.drawable.meteoro5);
-        fondo = BitmapFactory.decodeResource(getResources(),R.drawable.fondo7);
+        fondo = BitmapFactory.decodeResource(getResources(),R.drawable.blackhole);
+        textgameover = BitmapFactory.decodeResource(getResources(),R.drawable.gameover);
+        textwin = BitmapFactory.decodeResource(getResources(),R.drawable.win);
 
 
         // Initialize screenX and screenY because x and y are local
@@ -337,17 +341,17 @@ class BreakoutEngine2 extends SurfaceView implements Runnable{
 
 
             if (isGameover) {
-                paint.setStyle(Paint.Style.FILL_AND_STROKE);
-                paint.setColor(Color.RED);
-
-                canvas.drawText("Game Over!", screenX / 3, screenY / 2, paint);
+                //paint.setStyle(Paint.Style.FILL_AND_STROKE);
+                //paint.setColor(Color.RED);
+                canvas.drawBitmap(textgameover,0, screenY /2, null);
+                //canvas.drawText("Game Over!", screenX / 3, screenY / 2, paint);
 
             }
             if (isWin) {
-                paint.setStyle(Paint.Style.FILL_AND_STROKE);
-                paint.setColor(Color.RED);
-
-                canvas.drawText("Has Ganado!", screenX / 3, screenY / 2, paint);
+                //paint.setStyle(Paint.Style.FILL_AND_STROKE);
+                //paint.setColor(Color.RED);
+                canvas.drawBitmap(textwin,30, screenY /2, null);
+                //canvas.drawText("Has Ganado!", screenX / 3, screenY / 2, paint);
 
             }
 
@@ -373,7 +377,7 @@ class BreakoutEngine2 extends SurfaceView implements Runnable{
                     paused =true;
                     Intent intent = new Intent(getContext(), Puntuacionbreakout.class);
                     Bundle b = new Bundle();
-                    b.putLong("Score", score);
+                    b.putInt("Score", score);
                     intent.putExtras(b);
 
                     getContext().startActivity(intent);

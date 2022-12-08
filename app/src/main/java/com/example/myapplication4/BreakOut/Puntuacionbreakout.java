@@ -3,9 +3,16 @@ package com.example.myapplication4.BreakOut;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 
 import android.annotation.SuppressLint;
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.Intent;
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -39,13 +46,18 @@ public class Puntuacionbreakout extends AppCompatActivity {
     private Button btn_rank;
     private Button btn_salirP;
 
+    private final static String CHANNEL_ID = "NOTIFICACION";
+    private final static int NOTIFICACION_ID = 1;
+
+
+
 
     FirebaseAuth firebaseAuth;
     FirebaseUser user;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference JUGADORES;
     DatabaseReference Comparador;
-
+    int sc= 0;
 
 
 
@@ -58,6 +70,7 @@ public class Puntuacionbreakout extends AppCompatActivity {
         btn_rank = (Button) findViewById(R.id.btn_rank);
         btn_salirP = (Button) findViewById(R.id.btn_salirbk2);
 
+
         firebaseAuth = FirebaseAuth.getInstance();
         user = firebaseAuth.getCurrentUser();
         firebaseDatabase = FirebaseDatabase.getInstance();
@@ -65,18 +78,34 @@ public class Puntuacionbreakout extends AppCompatActivity {
         textpuntuacion2 = (TextView) findViewById(R.id.textView2);
         //textpuntuacion = (TextView) findViewById(R.id.textPuntuacion);
         Bundle b = getIntent().getExtras();
-        final Long score = b.getLong("Score");
-
-        infoScore();
-
+         int score = b.getInt("Score");
 
         textpuntuacion2.setText(score+"  Pts");
+       String Uid = firebaseAuth.getCurrentUser().getUid();
+       JUGADORES.child(Uid).addValueEventListener(new ValueEventListener() {
+           @Override
+           public void onDataChange(@NonNull DataSnapshot snapshot) {
+              if(snapshot.exists()){
 
-        if (score > 200) {
-            GuardarResultados("Score",score);
-        }
+                sc = Integer.parseInt(snapshot.child("Score").getValue().toString());
+                  System.out.println(sc);
 
 
+               if(score > sc){
+
+                   GuardarResultados("Score",score);
+                    notificacion1();
+                    createNotificationChannel();
+               }
+              }
+              // textpuntuacion2.setText(sc+"  Pts");
+           }
+
+           @Override
+           public void onCancelled(@NonNull DatabaseError error) {
+
+           }
+       });
 
 
 
@@ -123,14 +152,31 @@ public class Puntuacionbreakout extends AppCompatActivity {
 
     }
 
-    private void infoScore(){
+    private void notificacion1(){
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(getApplicationContext(), CHANNEL_ID);
+        builder.setSmallIcon(R.drawable.eg2);
+        builder.setContentTitle("Epicgame");
+        builder.setContentText(" Has superado tu puntaje");
+        builder.setColor(Color.BLUE);
+        builder.setPriority(NotificationCompat.PRIORITY_DEFAULT);
+        builder.setLights(Color.MAGENTA, 1000, 1000);
+        builder.setVibrate(new long[]{1000,1000,1000,1000,1000});
+        builder.setDefaults(Notification.DEFAULT_SOUND);
 
-        //consulta
-         int pt;
-        //con la siguiente consulta se va hacer que lo ordene por correo //se puede ordenar por puntuacion
-
+        NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(getApplicationContext());
+        notificationManagerCompat.notify(NOTIFICACION_ID, builder.build());
 
     }
+    private void createNotificationChannel(){
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+            CharSequence name = "NOtificacion";
+            NotificationChannel notificacionChannel = new NotificationChannel(CHANNEL_ID,name, NotificationManager.IMPORTANCE_DEFAULT);
+            NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+            notificationManager.createNotificationChannel(notificacionChannel);
+        }}
+
+
+
 
 
 
