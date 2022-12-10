@@ -26,7 +26,7 @@ public class Gato extends AppCompatActivity {
     int seconds2= 0;
     int hours = 0;
     int puntitos = 500;
-    int puntsave = 0;
+    boolean mp2 = false;
 
     Button play;
     Button iniciarT;
@@ -52,10 +52,17 @@ public class Gato extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gato);
-
-
         MediaPlayer mp = MediaPlayer.create(this, R.raw.chill);
-        mp.start();
+        if(mp2==false){
+
+            mp.start();
+
+        }else{
+            mp.release();
+            mp.start();
+        }
+
+
         timerTextView = (TextView)findViewById(R.id.mostrarTiempo2);
         Timer myTimer = new Timer();
         myTimer.schedule(new TimerTask() {
@@ -103,6 +110,7 @@ public class Gato extends AppCompatActivity {
         else if(seconds2 >=11 && seconds2 <=20) {
 
             puntitos = 400;
+
 
 
         }

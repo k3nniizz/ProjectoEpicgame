@@ -28,6 +28,7 @@ public class PrimerNivel extends AppCompatActivity {
     int acumuladorptj;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
