@@ -39,7 +39,7 @@
             android:gravity="center"/>
 
         <!--puntacion realtime-->
-        <!--  android:text="@string/puntuaciontxt"-->
+        <!-- breakOut-->
         <TextView
             android:id="@+id/puntuacion"
             android:layout_marginTop="10dp"
@@ -69,15 +69,14 @@
             android:layout_width="150dp"
             android:layout_height="150dp"/>
 
-        <!--nombre de usuario-->
-        <TextView
-            android:id="@+id/uid"
-            android:layout_marginTop="10dp"
-            android:text="@string/Nombreusuario"
-            android:gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
+        <!--editar imagen
+        <ImageButton
+            android:id="@+id/Editarbtn"
+            android:layout_width="40dp"
+            android:layout_height="30dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/homero"/>
+-->
 
         <!--Alias de usuario-->
         <TextView
@@ -127,15 +126,7 @@
             android:background="@drawable/boton_colores_personalizados"
             android:text="@string/Jugarbtn"
             android:textColor="@color/white" />
-        <!--editar-->
-        <Button
-            android:id="@+id/Editarbtn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:background="@drawable/boton_colores_personalizados"
-            android:text="@string/EditarBtn"
-            android:textColor="@color/white" />
+
 
         <!--Cambiar contraseña-->
         <Button

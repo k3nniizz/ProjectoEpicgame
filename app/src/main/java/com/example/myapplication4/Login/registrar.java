@@ -1,6 +1,7 @@
 package com.example.myapplication4.Login;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
@@ -74,6 +75,12 @@ public class registrar extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registrar);
 
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle("Volver");
+
+        actionBar.setDisplayShowHomeEnabled(true);
+        actionBar.setDisplayHomeAsUpEnabled(true);
+
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
@@ -85,6 +92,7 @@ public class registrar extends AppCompatActivity {
         mEditTextEdad=(EditText) findViewById(R.id.editTextedad);
         mEditTextAlias=(EditText) findViewById(R.id.editTextAlias);
         autoCompletar_pais= (AutoCompleteTextView) findViewById(R.id.autoCompletePais);
+
 
 
         //codigo sobre barra desplegable
@@ -170,7 +178,7 @@ public class registrar extends AppCompatActivity {
                     map.put("Score2",0);
                     map.put("Score3",0);
                     map.put("Imagen",""); //cuando se registre la imagen quedará vacio
-                    map.put("Tiempo",contador);
+                   // map.put("Tiempo",contador);
 
 
                     Toast.makeText(registrar.this,"USUARIO REGISTRADO EXITOSAMENTE",Toast.LENGTH_SHORT).show();
@@ -231,6 +239,11 @@ public class registrar extends AppCompatActivity {
 
     }
 
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return super.onSupportNavigateUp();
+    }
 
 
     }

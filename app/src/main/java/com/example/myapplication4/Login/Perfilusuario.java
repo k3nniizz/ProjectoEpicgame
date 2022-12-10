@@ -22,6 +22,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -80,10 +81,11 @@ public class Perfilusuario extends AppCompatActivity {
     private Uri imagen_uri;
     private String perfil; //sirve como parametro para cambiar imagen
 
-    Button Jugarbtn, Putuacionesbtn,AcercaDebtn,cerrarsesion,Editarbtn,CambiarPassbtn;
+    Button Jugarbtn, Putuacionesbtn,AcercaDebtn,cerrarsesion,CambiarPassbtn;
     TextView Mipuntuaciontxt,Correo,Nombreusuario,Menutxt,uid,Alias;
     TextView puntuacionbreakOut,puntuaciongato,puntuacionordenamiento;
     CircleImageView imagenPerfil;
+   // ImageButton Editarbtn; editar imagen, boton que está demás
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -128,10 +130,9 @@ public class Perfilusuario extends AppCompatActivity {
 
 
 
-
         //botones llamando a xml
         Jugarbtn=findViewById(R.id.Jugarbtn);
-        Editarbtn=findViewById(R.id.Editarbtn);
+      //  Editarbtn=findViewById(R.id.Editarbtn);
         CambiarPassbtn=findViewById(R.id.CambiarPassBtn);
         Putuacionesbtn=findViewById(R.id.Puntuacionesbtn);
         AcercaDebtn=findViewById(R.id.Acercadebtn);
@@ -152,7 +153,7 @@ public class Perfilusuario extends AppCompatActivity {
         });
 
         //EDITAR BTN
-        Editarbtn.setOnClickListener(new View.OnClickListener() {
+        imagenPerfil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //  Toast.makeText(Perfilusuario.this,"EDITAR",Toast.LENGTH_SHORT).show();

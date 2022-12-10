@@ -17,17 +17,16 @@
     <!-- TODO: Remove or change this placeholder text -->
 
     <!--String nuevos sobre el Perfilusuario-->
-    <string name="MiPerfiltxt">MI PERFIL</string>
+    <string name="MiPerfiltxt">PERFIL</string>
     <string name="select">Seleccionar Pais</string>
-    <string name="Mipuntuaciontxt">Mi Puntuacion</string>
+    <string name="Mipuntuaciontxt">Mejor puntuación</string>
     <string name="Correo">--</string>
     <string name="Nombreusuario">--</string>
     <string name="Menutxt">Menu</string>
     <string name="uid">--</string>
-    <string name="puntuaciontxt">--</string>
 
     <string name="Jugarbtn">Jugar</string>
-    <string name="EditarBtn">Editar</string>
+    <string name="EditarBtn">Galeria</string>
     <string name="CambiarPassBtn">Cambiar contraseña</string>
     <string name="Puntuacionesbtn">Puntuaciones</string>
     <string name="Acercadebtn">Acerca de</string>
