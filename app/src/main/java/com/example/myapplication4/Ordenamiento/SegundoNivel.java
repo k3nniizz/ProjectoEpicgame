@@ -86,8 +86,8 @@ public class SegundoNivel extends AppCompatActivity {
 
 
         final TextView texto = (TextView)findViewById(R.id.texto);
-        final TextView ptjrecibido = (TextView)findViewById(R.id.ptjrecibido);
-        ptjrecibido.setText("" + ptjpasa);
+        //final TextView ptjrecibido = (TextView)findViewById(R.id.ptjrecibido);
+        //ptjrecibido.setText("" + ptjpasa);
 
         final ArrayList numeros = new ArrayList();
 

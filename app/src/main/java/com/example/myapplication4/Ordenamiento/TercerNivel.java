@@ -71,8 +71,8 @@ public class TercerNivel extends AppCompatActivity {
         listado.add((Button) findViewById(R.id.bt12));
 
         final TextView texto = (TextView)findViewById(R.id.texto);
-        final TextView ptjrecibido = (TextView)findViewById(R.id.ptjrecibido);
-        ptjrecibido.setText("" + ptjpasa);
+//        final TextView ptjrecibido = (TextView)findViewById(R.id.ptjrecibido);
+//        ptjrecibido.setText("" + ptjpasa);
 
         final ArrayList numeros = new ArrayList();
 
