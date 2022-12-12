@@ -105,7 +105,7 @@ public class puntaje extends AppCompatActivity {
                 NotificationCompat.Builder builder = new NotificationCompat.Builder(getApplicationContext(), CHANNEL_ID);
                 builder.setSmallIcon(R.drawable.eg2);
                 builder.setContentTitle("Epicgame");
-                builder.setContentText(" Has superado tu puntaje");
+                builder.setContentText(" Has superado tu puntaje máximo en Ordenamiento");
                 builder.setColor(Color.BLUE);
                 builder.setPriority(NotificationCompat.PRIORITY_DEFAULT);
                 builder.setLights(Color.MAGENTA, 1000, 1000);
