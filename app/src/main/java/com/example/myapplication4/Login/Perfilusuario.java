@@ -422,9 +422,9 @@ public class Perfilusuario extends AppCompatActivity {
                  //   String UidString=""+ds.child("Uid").getValue(); //
                     String EmailString=""+ds.child("Email").getValue();
                     String AliasString=""+ds.child("Alias").getValue();
-                    String puntuacionBreakString=""+ds.child("Score").getValue();
-                    String puntuacionordenamientoString=""+ds.child("Score3").getValue();
-                    String puntuaciongatoString=""+ds.child("Score2").getValue();
+                    String puntuacionBreakString=""+ds.child("Score").getValue(); //puntuacion breakout
+                    String puntuacionordenamientoString=""+ds.child("Score3").getValue();  //puntuacion ordenamiento
+                    String puntuaciongatoString=""+ds.child("Score2").getValue();   //puntuacion gato
                     String imagen=""+ds.child("Imagen").getValue();
 
 
@@ -434,7 +434,7 @@ public class Perfilusuario extends AppCompatActivity {
                     Correo.setText("Correo: "+EmailString);
                     Alias.setText("Alias: "+AliasString);
                     puntuacionbreakOut.setText("BreakOut: "+puntuacionBreakString);
-                    //puntuaciongato.setText("Gato:"+puntuaciongatoString);
+                    puntuaciongato.setText("Gato:"+puntuaciongatoString); //puntuacion gato
                     puntuacionordenamiento.setText("Ordenamiento:"+puntuacionordenamientoString);
 
 

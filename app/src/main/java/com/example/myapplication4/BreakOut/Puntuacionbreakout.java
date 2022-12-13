@@ -35,6 +35,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
+
 import java.security.PrivateKey;
 import java.util.HashMap;
 
@@ -88,7 +89,7 @@ public class Puntuacionbreakout extends AppCompatActivity {
               if(snapshot.exists()){
 
                 sc = Integer.parseInt(snapshot.child("Score").getValue().toString());
-                  System.out.println(sc);
+
 
 
                if(score > sc){

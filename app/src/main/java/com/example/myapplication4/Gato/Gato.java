@@ -16,8 +16,17 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import com.example.myapplication4.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class Gato extends AppCompatActivity {
+
+
+
 
     TextView puntajeg;
     TextView timerTextView;
@@ -52,6 +61,11 @@ public class Gato extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gato);
+
+
+
+
+
         MediaPlayer mp = MediaPlayer.create(this, R.raw.chill);
         if(mp2==false){
 

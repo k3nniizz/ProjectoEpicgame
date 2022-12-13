@@ -174,9 +174,9 @@ public class registrar extends AppCompatActivity {
                     map.put("Edad",edad);
                     map.put("Alias",alias);
                     map.put("Pais",pais);
-                    map.put("Score",0);
-                    map.put("Score2",0);
-                    map.put("Score3",0);
+                    map.put("Score",0); //puntuacion breakout
+                    map.put("Score2",0); //puntuacion gato
+                    map.put("Score3",0); //puntuacion ordenamiento
                     map.put("Imagen",""); //cuando se registre la imagen quedará vacio
                    // map.put("Tiempo",contador);
 
