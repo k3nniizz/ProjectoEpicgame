@@ -68,7 +68,6 @@ public class minimenu extends AppCompatActivity {
         setContentView(R.layout.activity_minimenu);
 
         //base de datos
-
         mAuth=FirebaseAuth.getInstance();
         user=mAuth.getCurrentUser();
 

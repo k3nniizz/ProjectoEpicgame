@@ -9,44 +9,12 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:scaleType="centerCrop"
         android:src="@drawable/gatonegro"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/player2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Jugador2"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        android:textStyle="bold|italic"
-        app:layout_constraintBottom_toTopOf="@+id/b2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mostrarTiempo2"
-        app:layout_constraintVertical_bias="0.098" />
-
-    <TextView
-        android:id="@+id/mostrartiempop2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="00:00"
-        android:textColor="@color/white"
-        android:textSize="34sp"
-        android:textStyle="bold|italic"
-        app:layout_constraintBottom_toTopOf="@+id/textoVictoria"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView"
-        app:layout_constraintVertical_bias="1.0" />
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
 
     <Button
         android:id="@+id/b7"
@@ -54,8 +22,8 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:onClick="ponerFicha"
-        android:textStyle="bold"
         app:autoSizeTextType="uniform"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintDimensionRatio="w,1:1"
         app:layout_constraintEnd_toStartOf="@+id/b8"
@@ -68,14 +36,13 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:onClick="ponerFicha"
-        android:textStyle="bold"
         app:autoSizeTextType="uniform"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintDimensionRatio="w,1:1"
         app:layout_constraintEnd_toStartOf="@+id/b9"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/b7"
-        app:layout_constraintTop_toBottomOf="@+id/player1" />
+        app:layout_constraintStart_toEndOf="@+id/b7" />
 
     <Button
         android:id="@+id/b9"
@@ -83,8 +50,8 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:onClick="ponerFicha"
-        android:textStyle="bold"
         app:autoSizeTextType="uniform"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintDimensionRatio="w,1:1"
         app:layout_constraintEnd_toEndOf="parent"
@@ -97,8 +64,8 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:onClick="ponerFicha"
-        android:textStyle="bold"
         app:autoSizeTextType="uniform"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/b7"
         app:layout_constraintDimensionRatio="w,1:1"
         app:layout_constraintEnd_toStartOf="@+id/b5"
@@ -111,8 +78,8 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:onClick="ponerFicha"
-        android:textStyle="bold"
         app:autoSizeTextType="uniform"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/b8"
         app:layout_constraintDimensionRatio="w,1:1"
         app:layout_constraintEnd_toStartOf="@+id/b6"
@@ -125,8 +92,8 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:onClick="ponerFicha"
-        android:textStyle="bold"
         app:autoSizeTextType="uniform"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/b9"
         app:layout_constraintDimensionRatio="w,1:1"
         app:layout_constraintEnd_toEndOf="parent"
@@ -168,8 +135,8 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:onClick="ponerFicha"
-        android:textStyle="bold"
         app:autoSizeTextType="uniform"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/b6"
         app:layout_constraintDimensionRatio="w,1:1"
         app:layout_constraintEnd_toEndOf="parent"
@@ -216,7 +183,7 @@
         android:layout_marginStart="45dp"
         android:text="0"
         android:textColor="@color/white"
-        android:textSize="16sp"
+        android:textSize="24sp"
         android:textStyle="bold|italic"
         app:layout_constraintBottom_toTopOf="@+id/b2"
         app:layout_constraintEnd_toEndOf="parent"
@@ -224,36 +191,5 @@
         app:layout_constraintStart_toStartOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="@+id/imageView"
         app:layout_constraintVertical_bias="0.156" />
-
-    <TextView
-        android:id="@+id/puntajeboludin2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="0"
-        android:textColor="@color/white"
-        android:textSize="16sp"
-        android:textStyle="bold|italic"
-        app:layout_constraintBottom_toTopOf="@+id/b2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.887"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.154" />
-
-    <TextView
-        android:id="@+id/player1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="43dp"
-        android:layout_marginBottom="524dp"
-
-        android:text="Jugador1"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        android:textStyle="bold|italic"
-        app:layout_constraintBottom_toTopOf="@+id/b8"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -61,6 +61,11 @@
         Humberto Oyarzo</string>
     <string name="ok">OK</string>
 
+    <!--seleccionar correo/usuario-->
+    <string name="selectCuenta2">Seleccionar Cuenta</string>
+
+    <!--seleccionar correo/cuenta nuevo activity-->
+    <string name="selectCuenta1">Seleccionar Cuenta</string>
 
 
 </resources>
