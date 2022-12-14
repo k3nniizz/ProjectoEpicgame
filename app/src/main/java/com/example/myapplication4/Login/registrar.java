@@ -37,7 +37,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class registrar extends AppCompatActivity {
 
     //forma parte de la barra desplegable
-    String[] items={"Argentina","Brasil","Bolivia","Chile","Colombia","Ecuador","Perú","Uruguay","Venezuela"};
+    String[] items={"Argentina","Brasil","Bolivia","Chile","Colombia","Ecuador","España","Mexico","Perú","Uruguay","Venezuela"};
 
     FirebaseAuth mAuth;
     DatabaseReference mDatabase;

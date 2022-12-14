@@ -1,5 +1,6 @@
 package com.example.myapplication4.Menu;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.widget.ViewPager2;
 
@@ -17,6 +18,14 @@ public class Menu5 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu5);
+
+        //boton atras
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle("Volver");
+
+        actionBar.setDisplayShowHomeEnabled(true);
+        actionBar.setDisplayHomeAsUpEnabled(true);
+
         tabLayout = findViewById(R.id.tab_layout);
         viewPager2 = findViewById(R.id.view_pager);
         myViewPagerAdapter = new MyViewPagerAdapter(this);
@@ -47,4 +56,13 @@ public class Menu5 extends AppCompatActivity {
                 tabLayout.getTabAt(position).select();
             }
         });
-    }}
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return super.onSupportNavigateUp();
+    }
+
+
+}

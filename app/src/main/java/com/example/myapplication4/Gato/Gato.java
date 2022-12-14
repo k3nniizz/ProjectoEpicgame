@@ -27,14 +27,17 @@ public class Gato extends AppCompatActivity {
 
 
 
-
+    TextView puntajeg2;
     TextView puntajeg;
     TextView timerTextView;
+    TextView timerTextView2;
     int minutes=0;
     int seconds = 0;
     int seconds2= 0;
+    int seconds3= 0;
     int hours = 0;
     int puntitos = 500;
+    int puntitos2 =500;
     boolean mp2 = false;
 
     Button play;
@@ -86,7 +89,17 @@ public class Gato extends AppCompatActivity {
             }
 
         }, 0, 1000);
+        timerTextView2 = (TextView)findViewById(R.id.mostrartiempop2);
+        Timer myTimer2 = new Timer();
+        myTimer2.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                TimerMethod2();
+            }
+
+        }, 0, 1000);
         puntajeg=(TextView) findViewById(R.id.puntajeboludin1);
+        puntajeg2=(TextView) findViewById(R.id.puntajeboludin2);
 
 
 
@@ -164,7 +177,57 @@ public class Gato extends AppCompatActivity {
 
 
     }
+    public void setPuntaje2(){
 
+
+        if (seconds3 >=0 && seconds3 <=10){
+
+            puntitos2 = 500;
+
+        }
+        else if(seconds3 >=11 && seconds3 <=20) {
+
+            puntitos2 = 400;
+
+
+
+        }
+
+        else if(seconds3 >=21 && seconds3 <=30) {
+
+            puntitos2 = 300;
+
+
+
+        }
+        else if(seconds3 >=31 && seconds3 <=40) {
+
+            puntitos2 = 200;
+
+
+        }
+
+        else if(seconds3 >=41 && seconds3 <=50) {
+
+            puntitos2 = 100;
+
+
+        }
+
+        else if(seconds3 >=50 && seconds3 <60) {
+
+            puntitos2 = 50;
+
+        }
+
+        else if(seconds3 >=60){
+
+            puntitos2 = 0;
+        }
+
+
+
+    }
 
 
 
@@ -179,6 +242,8 @@ public class Gato extends AppCompatActivity {
             seconds++;
             seconds2++;
             setPuntaje();
+
+
             if (seconds == 0)
                 timerTextView.setVisibility(View.VISIBLE);
 
@@ -189,7 +254,36 @@ public class Gato extends AppCompatActivity {
                 seconds=0;
             }
             puntajeg.setText(""+puntitos);
+
             timerTextView.setText(String.format("%d:%d", minutes, seconds));
+
+        }
+
+    };
+    private void TimerMethod2()
+    {
+        this.runOnUiThread(Timer_Tick2);
+    }
+
+    private Runnable Timer_Tick2 = new Runnable() {
+        public void run() {
+
+
+            seconds3++;
+            setPuntaje2();
+
+            if (seconds == 0)
+                timerTextView2.setVisibility(View.VISIBLE);
+
+
+            if(seconds==60)
+            {
+                minutes++;
+                seconds=0;
+            }
+
+            puntajeg2.setText(""+puntitos2);
+            timerTextView2.setText(String.format("%d:%d", minutes, seconds));
 
         }
 
@@ -220,6 +314,13 @@ public class Gato extends AppCompatActivity {
         }
         if (estado == 0 && turno == -1) { //si nadie ha ganado y es turno del jugador2 (turno = -1)
 
+
+
+
+
+
+            }
+
             if(tablero[numBoton] == 0) {//si el boton del tablero está vacio
                 button.setText("X"); //se coloca una X
                 button.setTextColor(Color.WHITE);
@@ -232,7 +333,12 @@ public class Gato extends AppCompatActivity {
             }
         }
 
-    }
+
+
+
+
+
+
     public void ia() {
         Random ran = new Random();
         int pos = ran.nextInt(tablero.length);

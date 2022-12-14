@@ -17,11 +17,11 @@ import android.media.MediaPlayer;
 import android.net.Uri;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.VideoView;
 
-import com.example.myapplication4.BreakOut.Puntuacionbreakout;
 import com.example.myapplication4.Login.Perfilusuario;
 import com.example.myapplication4.Menu.Menu5;
 import com.example.myapplication4.R;
@@ -56,6 +56,7 @@ public class minimenu extends AppCompatActivity {
     int mCurrentVideoPosition;
     Button btn1 , btn2 , btn3;
     int acumulador3;
+    ImageView gameover1;
 
     TextView pts3;
 
@@ -82,9 +83,14 @@ public class minimenu extends AppCompatActivity {
         btn2 = (Button)findViewById(R.id.perfilG);
         btn3 = (Button)findViewById(R.id.salirG1);
 
-        pts3 = (TextView) findViewById(R.id.puntusminimeno);
+        //imagen
 
-        Bundle c = getIntent().getExtras();
+        pts3 = (TextView) findViewById(R.id.puntusminimeno);
+        gameover1 = (ImageView)findViewById(R.id.gameover1);
+        gameover1.setVisibility(View.VISIBLE);
+
+
+        Bundle c = getIntent().getExtras();//
         acumulador3 = c.getInt("pts");
 
         //codigo del score
