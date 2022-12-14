@@ -16,10 +16,10 @@
         <TextView
             android:id="@+id/crono4"
             android:layout_width="130dp"
-            android:layout_height="72dp"
+            android:layout_height="60dp"
             android:text="00:00"
             android:textColor="#DD2C00"
-            android:textSize="34sp"
+            android:textSize="20sp"
             android:layout_marginHorizontal="50dp"
             android:layout_marginTop="2dp"
             android:textStyle="bold|italic" />
@@ -30,7 +30,7 @@
             android:layout_marginHorizontal="180dp"
             android:layout_marginTop="0dp"
             android:textColor="#DD2C00"
-            android:textSize="40sp"
+            android:textSize="20sp"
             android:textStyle="bold|italic" />
 
         <TextView
@@ -50,7 +50,7 @@
             android:layout_marginHorizontal="180dp"
             android:layout_marginTop="0dp"
             android:textColor="#DD2C00"
-            android:textSize="40sp"
+            android:textSize="20sp"
             android:textStyle="bold|italic" />
 
         <TextView
@@ -76,7 +76,8 @@
                 android:layout_margin="7dp"
                 android:layout_weight="1"
                 android:backgroundTint="#283593"
-                android:text="Button1"/>
+                android:text="Button1"
+                android:textSize="10sp"/>
 
             <Button
                 android:id="@+id/but2"
@@ -85,7 +86,8 @@
                 android:layout_margin="7dp"
                 android:layout_weight="1"
                 android:backgroundTint="#9E9D24"
-                android:text="Button2"/>
+                android:text="Button2"
+                android:textSize="10sp"/>
 
             <Button
                 android:id="@+id/but3"
@@ -94,7 +96,8 @@
                 android:layout_margin="7dp"
                 android:layout_weight="1"
                 android:backgroundTint="#FF1744"
-                android:text="Button3"/>
+                android:text="Button3"
+                android:textSize="10sp"/>
 
             <Button
                 android:id="@+id/but4"
@@ -103,7 +106,8 @@
                 android:layout_margin="7dp"
                 android:layout_weight="1"
                 android:backgroundTint="#FF1744"
-                android:text="Button4"/>
+                android:text="Button4"
+                android:textSize="10sp"/>
 
             <Button
                 android:id="@+id/but5"
@@ -112,7 +116,8 @@
                 android:layout_margin="7dp"
                 android:layout_weight="1"
                 android:backgroundTint="#EF6C00"
-                android:text="Button5"/>
+                android:text="Button5"
+                android:textSize="10sp"/>
 
             <Button
                 android:id="@+id/but6"
@@ -121,7 +126,8 @@
                 android:layout_margin="7dp"
                 android:layout_weight="1"
                 android:backgroundTint="#283593"
-                android:text="Button6"/>
+                android:text="Button6"
+                android:textSize="10sp"/>
         </LinearLayout>
 
         <LinearLayout
@@ -138,7 +144,8 @@
                 android:layout_margin="7dp"
                 android:layout_weight="1"
                 android:backgroundTint="#EF6C00"
-                android:text="Button7"/>
+                android:text="Button7"
+                android:textSize="10sp"/>
 
             <Button
                 android:id="@+id/but8"
@@ -147,7 +154,8 @@
                 android:layout_margin="7dp"
                 android:layout_weight="1"
                 android:backgroundTint="#6200EA"
-                android:text="Button8"/>
+                android:text="Button8"
+                android:textSize="10sp"/>
 
             <Button
                 android:id="@+id/but9"
@@ -156,7 +164,8 @@
                 android:layout_margin="7dp"
                 android:layout_weight="1"
                 android:backgroundTint="#263238"
-                android:text="Button9"/>
+                android:text="Button9"
+                android:textSize="10sp"/>
 
             <Button
                 android:id="@+id/but10"
@@ -165,7 +174,8 @@
                 android:layout_margin="7dp"
                 android:layout_weight="1"
                 android:backgroundTint="#263238"
-                android:text="Button 10"/>
+                android:text="Button 10"
+                android:textSize="10sp"/>
 
             <Button
                 android:id="@+id/but11"
@@ -174,7 +184,8 @@
                 android:layout_margin="7dp"
                 android:layout_weight="1"
                 android:backgroundTint="#64DD17"
-                android:text="Button 11"/>
+                android:text="Button 11"
+                android:textSize="10sp"/>
 
             <Button
                 android:id="@+id/but12"
@@ -183,7 +194,8 @@
                 android:layout_margin="7dp"
                 android:layout_weight="1"
                 android:backgroundTint="#EF6C00"
-                android:text="Button 12"/>
+                android:text="Button 12"
+                android:textSize="10sp"/>
         </LinearLayout>
 
         <LinearLayout
@@ -200,7 +212,8 @@
                 android:layout_margin="7dp"
                 android:layout_weight="1"
                 android:backgroundTint="#FF1744"
-                android:text="Button 13"/>
+                android:text="Button 13"
+                android:textSize="10sp"/>
 
             <Button
                 android:id="@+id/but14"
@@ -209,7 +222,8 @@
                 android:layout_margin="7dp"
                 android:layout_weight="1"
                 android:backgroundTint="#64DD17"
-                android:text="Button14"/>
+                android:text="Button14"
+                android:textSize="10sp"/>
 
             <Button
                 android:id="@+id/but15"
@@ -218,7 +232,8 @@
                 android:layout_margin="7dp"
                 android:layout_weight="1"
                 android:backgroundTint="#9E9D24"
-                android:text="Button15"/>
+                android:text="Button15"
+                android:textSize="10sp"/>
 
             <Button
                 android:id="@+id/but16"
@@ -227,7 +242,8 @@
                 android:layout_margin="7dp"
                 android:layout_weight="1"
                 android:backgroundTint="#EF6C00"
-                android:text="Button16"/>
+                android:text="Button16"
+                android:textSize="10sp"/>
 
             <Button
                 android:id="@+id/but17"
@@ -236,7 +252,8 @@
                 android:layout_margin="7dp"
                 android:layout_weight="1"
                 android:backgroundTint="#6200EA"
-                android:text="Button17"/>
+                android:text="Button17"
+                android:textSize="10sp"/>
 
             <Button
                 android:id="@+id/but18"
@@ -245,7 +262,8 @@
                 android:layout_margin="7dp"
                 android:layout_weight="1"
                 android:backgroundTint="#263238"
-                android:text="Button18"/>
+                android:text="Button18"
+                android:textSize="10sp"/>
         </LinearLayout>
 
         <LinearLayout
@@ -263,7 +281,8 @@
                 android:layout_margin="7dp"
                 android:layout_weight="1"
                 android:backgroundTint="#EF6C00"
-                android:text="Button19"/>
+                android:text="Button19"
+                android:textSize="10sp"/>
 
             <Button
                 android:id="@+id/but20"
@@ -272,7 +291,8 @@
                 android:layout_margin="7dp"
                 android:layout_weight="1"
                 android:backgroundTint="#FF1744"
-                android:text="Button20"/>
+                android:text="Button20"
+                android:textSize="10sp"/>
 
             <Button
                 android:id="@+id/but21"
@@ -281,7 +301,8 @@
                 android:layout_margin="7dp"
                 android:layout_weight="1"
                 android:backgroundTint="#64DD17"
-                android:text="Button21"/>
+                android:text="Button21"
+                android:textSize="10sp"/>
 
             <Button
                 android:id="@+id/but22"
@@ -290,7 +311,8 @@
                 android:layout_margin="7dp"
                 android:layout_weight="1"
                 android:backgroundTint="#283593"
-                android:text="Button22"/>
+                android:text="Button22"
+                android:textSize="10sp"/>
 
             <Button
                 android:id="@+id/but23"
@@ -299,7 +321,8 @@
                 android:layout_margin="7dp"
                 android:layout_weight="1"
                 android:backgroundTint="#9E9D24"
-                android:text="Button23"/>
+                android:text="Button23"
+                android:textSize="10sp"/>
 
             <Button
                 android:id="@+id/but24"
@@ -308,7 +331,8 @@
                 android:layout_margin="7dp"
                 android:layout_weight="1"
                 android:backgroundTint="#FF1744"
-                android:text="Button24"/>
+                android:text="Button24"
+                android:textSize="10sp"/>
         </LinearLayout>
 
 
@@ -318,7 +342,7 @@
             android:layout_width="130dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="140dp"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="52dp"
             android:backgroundTint="#EF6C00"
             android:text="Siguiente"
             android:textColor="#6200EA" />
@@ -341,7 +365,7 @@
         android:layout_width="268dp"
         android:layout_height="69dp"
         android:layout_marginHorizontal="100dp"
-        android:layout_marginTop="550dp"
+        android:layout_marginTop="490dp"
         android:backgroundTint="#9E9D24"
         android:textAppearance="@style/TextAppearance.AppCompat.Menu"
         android:textColor="#6200EA"
