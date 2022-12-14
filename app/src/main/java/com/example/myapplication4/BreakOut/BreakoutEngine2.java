@@ -237,12 +237,15 @@ class BreakoutEngine2 extends SurfaceView implements Runnable{
 
             // Lose a life
             lives --;
+
             soundPool.play(loseLifeID, 1, 1, 0, 0, 1);
 
             if(lives == 0){
                 isGameover= true;
                 paused = true;
                 //restart();
+            }if(lives==1 || lives==2){
+                resetposicion();
             }
 
 
@@ -275,6 +278,13 @@ class BreakoutEngine2 extends SurfaceView implements Runnable{
             paused = true;
             isWin=true;
         }
+    }
+    void resetposicion(){
+
+        ball.reset(screenX, screenY);
+        bat = new Bat(screenX, screenY);
+
+
     }
 
     void restart(){

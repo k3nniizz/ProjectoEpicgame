@@ -39,7 +39,7 @@ public class Bat {
         x = screenX / 2;
 
         // Y is the top coordinate
-        float y = screenY - 20;
+        float y = screenY - 100;
 
         rect = new RectF(x, y, x + length, y + height);
 
@@ -72,5 +72,11 @@ public class Bat {
 
         rect.left = x;
         rect.right = x + length;
+    }
+    void reset(int x, int y){
+        rect.left = x / 2;
+        rect.top = y - 20;
+        rect.right = x / 2 ;
+        rect.bottom = y - 20;
     }
 }
