@@ -24,6 +24,7 @@ import com.example.myapplication4.R;
 
 import java.io.BufferedInputStream;
 import java.io.IOException;
+import java.util.Random;
 
 class BreakoutEngine extends SurfaceView implements Runnable{
 
@@ -42,6 +43,8 @@ class BreakoutEngine extends SurfaceView implements Runnable{
     private Bitmap pelota;
     private Bitmap fondo;
     private Bitmap bloke;
+    private Bitmap bloke2;
+    private Bitmap bloke3;
     private Bitmap textgameover;
     private Bitmap textwin;
 
@@ -82,6 +85,8 @@ class BreakoutEngine extends SurfaceView implements Runnable{
 
     int cound = 0;
 
+    boolean musica =false;
+
     // The constructor is called when the object is first created
     public BreakoutEngine(Context context, int x, int y) {
         // This calls the default constructor to setup the rest of the object
@@ -93,6 +98,8 @@ class BreakoutEngine extends SurfaceView implements Runnable{
 
         base = BitmapFactory.decodeResource(getResources(), R.drawable.paddle2);
         bloke = BitmapFactory.decodeResource(getResources(), R.drawable.brick);
+        bloke2 = BitmapFactory.decodeResource(getResources(), R.drawable.brick2);
+        bloke3 = BitmapFactory.decodeResource(getResources(), R.drawable.brick3);
         pelota = BitmapFactory.decodeResource(getResources(),R.drawable.meteoro5);
         fondo = BitmapFactory.decodeResource(getResources(),R.drawable.espacio4);
         textgameover = BitmapFactory.decodeResource(getResources(),R.drawable.gameover);
@@ -131,7 +138,15 @@ class BreakoutEngine extends SurfaceView implements Runnable{
         explodeID=soundPool.load(getContext(), R.raw.explode,1);
 
         MediaPlayer bk1 = MediaPlayer.create(getContext(), R.raw.game21theme);
-        bk1.start();
+        if(musica == false){
+
+            bk1.start();
+        }if(musica == true){
+
+            bk1.stop();
+        }
+
+
 
 
 
@@ -334,12 +349,21 @@ class BreakoutEngine extends SurfaceView implements Runnable{
             // Draw the ball
             canvas.drawBitmap(pelota,ball.getRect().left-50,ball.getRect().top-80,null);
 
-
+            Random generator = new Random();
+            int z = generator.nextInt(3);
 
             // Draw the bricks if visible
             for(int i = 0; i < numBricks; i++){
                 if(bricks[i].getVisibility()) {
-                    canvas.drawBitmap(bloke,bricks[i].getRect().left,bricks[i].getRect().top, null);
+                    if(z==1){
+                        canvas.drawBitmap(bloke,bricks[i].getRect().left,bricks[i].getRect().top, null);
+                    }if(z==2){
+                        canvas.drawBitmap(bloke2,bricks[i].getRect().left,bricks[i].getRect().top, null);
+
+                    }else{
+                        canvas.drawBitmap(bloke3,bricks[i].getRect().left,bricks[i].getRect().top, null);
+                    }
+
                 }
             }
 
@@ -388,6 +412,7 @@ class BreakoutEngine extends SurfaceView implements Runnable{
 
                 if (isWin){
 
+                    musica = true;
                     Intent intent = new Intent(getContext(), Breakoutnivel2.class);
                     Bundle b = new Bundle();
                     b.putInt("Score", score);
@@ -398,6 +423,7 @@ class BreakoutEngine extends SurfaceView implements Runnable{
 
 
                 }if(isGameover){
+                    musica = true;
 
                 Intent intent = new Intent(getContext(), Puntuacionbreakout.class);
                 Bundle b = new Bundle();

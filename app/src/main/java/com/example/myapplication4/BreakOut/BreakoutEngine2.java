@@ -23,6 +23,7 @@ import android.view.SurfaceView;
 import com.example.myapplication4.R;
 
 import java.io.IOException;
+import java.util.Random;
 
 class BreakoutEngine2 extends SurfaceView implements Runnable{
 
@@ -39,8 +40,11 @@ class BreakoutEngine2 extends SurfaceView implements Runnable{
     private Paint paint;
     private Bitmap base;
     private Bitmap pelota;
+    private Bitmap pelota2;
     private Bitmap fondo;
     private Bitmap bloke;
+    private Bitmap bloke2;
+    private Bitmap bloke3;
     private Bitmap textgameover;
     private Bitmap textwin;
 
@@ -94,7 +98,10 @@ class BreakoutEngine2 extends SurfaceView implements Runnable{
 
         base = BitmapFactory.decodeResource(getResources(), R.drawable.paddle2);
         bloke = BitmapFactory.decodeResource(getResources(), R.drawable.brick);
+        bloke2 = BitmapFactory.decodeResource(getResources(), R.drawable.brick2);
+        bloke3 = BitmapFactory.decodeResource(getResources(), R.drawable.brick3);
         pelota = BitmapFactory.decodeResource(getResources(),R.drawable.meteoro5);
+        pelota2 = BitmapFactory.decodeResource(getResources(),R.drawable.bolaroja);
         fondo = BitmapFactory.decodeResource(getResources(),R.drawable.blackhole);
         textgameover = BitmapFactory.decodeResource(getResources(),R.drawable.gameover);
         textwin = BitmapFactory.decodeResource(getResources(),R.drawable.win);
@@ -328,15 +335,29 @@ class BreakoutEngine2 extends SurfaceView implements Runnable{
             // Draw the bat
             canvas.drawBitmap(base,bat.getRect().left, bat.getRect().top, null);
 
+
+                canvas.drawBitmap(pelota,ball.getRect().left-50,ball.getRect().top-70,null);
+
             // Draw the ball
-            canvas.drawBitmap(pelota,ball.getRect().left-50,ball.getRect().top-70,null);
 
 
+            Random generator = new Random();
+            int z = generator.nextInt(3);
 
             // Draw the bricks if visible
             for(int i = 0; i < numBricks; i++){
                 if(bricks[i].getVisibility()) {
-                    canvas.drawBitmap(bloke,bricks[i].getRect().left,bricks[i].getRect().top, null);
+                    if(z==1){
+                        canvas.drawBitmap(bloke,bricks[i].getRect().left,bricks[i].getRect().top, null);
+
+                    }if(z==2){
+                        canvas.drawBitmap(bloke2,bricks[i].getRect().left,bricks[i].getRect().top, null);
+
+
+                    }else{
+                        canvas.drawBitmap(bloke3,bricks[i].getRect().left,bricks[i].getRect().top, null);
+                    }
+
                 }
             }
 
