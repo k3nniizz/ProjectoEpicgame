@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.myapplication4.Gato.Gato;
+import com.example.myapplication4.Gato.Usuariolista;
 import com.example.myapplication4.Menu.ui.home.HomeViewModel;
 import com.example.myapplication4.R;
 
@@ -22,6 +23,7 @@ public class gatoFragment extends Fragment {
 
 
     private Button btnjugarO;
+    private Button btninvO;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -31,6 +33,7 @@ public class gatoFragment extends Fragment {
 
         View root = inflater.inflate(R.layout.fragment_gato, container, false);
         btnjugarO =root.findViewById(R.id.btn_gato);
+        btninvO = root.findViewById(R.id.btn_invitad);
         btnjugarO.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -39,6 +42,13 @@ public class gatoFragment extends Fragment {
                 startActivity(new Intent(getContext(), Gato.class));
             }
         });
+        btninvO.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(), Usuariolista.class));
+            }
+        });
+
         return root;
     }
 }
