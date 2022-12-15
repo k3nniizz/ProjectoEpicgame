@@ -16,7 +16,7 @@
         <TextView
             android:id="@+id/crono4"
             android:layout_width="130dp"
-            android:layout_height="60dp"
+            android:layout_height="50dp"
             android:text="00:00"
             android:textColor="#DD2C00"
             android:textSize="20sp"
@@ -342,7 +342,7 @@
             android:layout_width="130dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="130dp"
-            android:layout_marginTop="52dp"
+            android:layout_marginTop="65dp"
             android:backgroundTint="#EF6C00"
             android:text="Siguiente"
             android:textColor="#6200EA" />
@@ -365,7 +365,7 @@
         android:layout_width="268dp"
         android:layout_height="69dp"
         android:layout_marginHorizontal="100dp"
-        android:layout_marginTop="490dp"
+        android:layout_marginTop="480dp"
         android:backgroundTint="#9E9D24"
         android:textAppearance="@style/TextAppearance.AppCompat.Menu"
         android:textColor="#6200EA"
