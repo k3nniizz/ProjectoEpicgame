@@ -197,8 +197,8 @@ public class CuartoNivel extends AppCompatActivity {
         } else {
 
 
-            finish();
-            startActivity(getIntent());
+            Intent in2 = new Intent(this, com.example.myapplication4.Ordenamiento.Gameover.class);
+            startActivity(in2);
         }
     }
 
